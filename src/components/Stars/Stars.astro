@@ -32,18 +32,18 @@ function generateStars(): string {
 
 <style>
   .stars-container {
-    position: fixed;
     inset: 0;
-    z-index: var(--z-stars);
-    pointer-events: none;
     overflow: hidden;
+    pointer-events: none;
+    position: fixed;
+    z-index: var(--z-stars);
   }
 
   .star {
-    position: absolute;
+    animation: twinkle ease-in-out infinite alternate;
     background: white;
     border-radius: 50%;
-    animation: twinkle ease-in-out infinite alternate;
+    position: absolute;
   }
 
   @keyframes twinkle {

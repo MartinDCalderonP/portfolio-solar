@@ -23,18 +23,18 @@ for (let i = 0; i < 4; i++) {
 
 <style>
   .spaceship-container {
-    position: fixed;
     inset: 0;
-    z-index: var(--z-spaceship);
-    pointer-events: none;
     overflow: hidden;
+    pointer-events: none;
+    position: fixed;
+    z-index: var(--z-spaceship);
   }
 
   .spaceship {
+    animation: fly linear infinite;
+    font-size: 24px;
     position: absolute;
     right: -60px;
-    font-size: 24px;
-    animation: fly linear infinite;
     transform: rotate(-15deg);
   }
 
