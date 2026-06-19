@@ -1,0 +1,57 @@
+---
+function generateStars(): string {
+  const stars: string[] = [];
+
+  for (let i = 0; i < 120; i++) {
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const size = Math.random() * 3 + 1;
+    const delay = Math.random() * 5;
+    const duration = Math.random() * 3 + 2;
+
+    stars.push(
+      `<div
+        class="star"
+        style="
+          left: ${x}%;
+          top: ${y}%;
+          width: ${size}px;
+          height: ${size}px;
+          animation-delay: ${delay}s;
+          animation-duration: ${duration}s;
+        "
+      />`,
+    );
+  }
+
+  return stars.join('');
+}
+---
+
+<div class="stars-container" set:html={generateStars()} />
+
+<style>
+  .stars-container {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-stars);
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
