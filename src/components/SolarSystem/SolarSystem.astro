@@ -1,0 +1,34 @@
+---
+import { planets } from '../../data/portfolio';
+import Planet from '../Planet/Planet.astro';
+import './SolarSystem.css';
+
+const orbitRadii = [
+  '--orbit-mercurio',
+  '--orbit-venus',
+  '--orbit-tierra',
+  '--orbit-marte',
+  '--orbit-jupiter',
+  '--orbit-saturno',
+  '--orbit-urano',
+  '--orbit-neptuno',
+];
+---
+
+<div class="solar-system-wrapper">
+<div class="solar-system">
+  {orbitRadii.map((radiusVar) => (
+    <div
+      class="orbital-ring"
+      style={{
+        width: `calc(var(${radiusVar}) * 2)`,
+        height: `calc(var(${radiusVar}) * 2)`,
+      }}
+    />
+  ))}
+
+  {planets.map((planet, index) => (
+    <Planet planet={planet} index={index} />
+  ))}
+</div>
+</div>

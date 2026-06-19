@@ -1,0 +1,45 @@
+.solar-system-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.solar-system {
+  position: relative;
+  width: min(90vw, 1000px);
+  height: min(90vw, 1000px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+}
+
+@media (max-width: 1100px) {
+  .solar-system {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .solar-system {
+    transform: scale(0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .solar-system {
+    transform: scale(0.35);
+  }
+}
+
+.orbital-ring {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}

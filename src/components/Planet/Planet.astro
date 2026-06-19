@@ -1,0 +1,55 @@
+---
+import type { PlanetContent } from '../../data/portfolio';
+import './Planet.css';
+
+interface PlanetProps {
+  planet: PlanetContent;
+  index: number;
+}
+
+const {
+  planet,
+  index,
+}: PlanetProps = Astro.props;
+
+const { id, name, colorVar, size, orbitVar } = planet;
+
+const orbitRadiusValue = orbitVar;
+const durationDefault = (index + 1) * 5 + 8;
+const selfDuration = Math.max(2, 12 - index);
+const isMarte = id === 'marte';
+const isSol = id === 'sol';
+---
+
+{
+  isSol ? (
+    <div class="sol" data-planet-id={id}>
+      <div class="sol-glow" />
+      <div class="sol-core">
+        <span class="sol-text">M</span>
+      </div>
+      <span class="sol-label">{name}</span>
+    </div>
+  ) : (
+    <div
+      class="orbit"
+      data-planet-id={id}
+      style={{
+        '--orbit-radius': orbitRadiusValue,
+        '--orbit-duration': `${durationDefault}s`,
+      }}
+    >
+      <div class="planet-wrapper">
+        <div
+          class={`planet-dot${isMarte ? ' marte' : ''}`}
+          style={{
+            '--planet-size': size,
+            '--planet-color': colorVar,
+            '--self-duration': `${selfDuration}s`,
+          }}
+        />
+        <span class="planet-label">{name}</span>
+      </div>
+    </div>
+  )
+}
