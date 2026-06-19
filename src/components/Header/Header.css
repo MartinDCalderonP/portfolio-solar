@@ -1,14 +1,14 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-header);
-  padding: 24px 32px;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  left: 0;
+  padding: 24px 32px;
   pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: var(--z-header);
 }
 
 .header-left {
@@ -16,19 +16,19 @@
 }
 
 .header-name {
-  font-size: 14px;
-  font-family: var(--font-mono);
   color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 14px;
   letter-spacing: 2px;
-  text-transform: uppercase;
   opacity: 0.8;
+  text-transform: uppercase;
 }
 
 .header-tagline {
-  font-size: 12px;
   color: var(--color-text-dim);
-  margin-top: 2px;
+  font-size: 12px;
   letter-spacing: 1px;
+  margin-top: 2px;
 }
 
 .header-right {
@@ -37,31 +37,31 @@
 }
 
 .header-uni {
-  font-size: 11px;
   color: var(--color-text-dim);
+  font-size: 11px;
   line-height: 1.4;
 }
 
 .scroll-indicator {
-  position: fixed;
+  align-items: center;
+  animation: float 2s ease-in-out infinite;
   bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: var(--z-header);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 8px;
-  animation: float 2s ease-in-out infinite;
+  left: 50%;
   pointer-events: none;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: var(--z-header);
 }
 
 .scroll-indicator span {
-  font-size: 11px;
   color: var(--color-text-dim);
+  font-family: var(--font-mono);
+  font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-family: var(--font-mono);
 }
 
 .scroll-arrow {
