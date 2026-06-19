@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Stars from '../components/Stars/Stars.astro';
+import Spaceship from '../components/Spaceship/Spaceship.astro';
+import SolarSystem from '../components/SolarSystem/SolarSystem.astro';
+import PlanetModal from '../components/PlanetModal/PlanetModal.astro';
+import Header from '../components/Header/Header.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <Stars />
+  <Spaceship />
+  <main class="main">
+    <SolarSystem />
+  </main>
+  <PlanetModal />
+</BaseLayout>
+
+<style>
+  .main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+  }
+</style>
