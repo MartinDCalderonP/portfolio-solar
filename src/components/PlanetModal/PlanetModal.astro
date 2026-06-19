@@ -1,0 +1,87 @@
+---
+import type { PlanetContent } from '../../data/portfolio';
+import { planets } from '../../data/portfolio';
+import './PlanetModal.css';
+---
+
+<dialog class="modal" id="planet-modal" data-planets={JSON.stringify(planets)}>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title" />
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    </div>
+    <p class="modal-description" id="modal-description" />
+    <div id="modal-projects" />
+  </div>
+</dialog>
+
+<script>
+  const modal = document.getElementById('planet-modal') as HTMLDialogElement;
+  const planets: import('../../data/portfolio').PlanetContent[] = JSON.parse(
+    modal.getAttribute('data-planets') ?? '[]',
+  );
+  const modalTitle = document.getElementById('modal-title') as HTMLElement;
+  const modalDescription = document.getElementById('modal-description') as HTMLElement;
+  const modalProjects = document.getElementById('modal-projects') as HTMLElement;
+  const closeButton = document.getElementById('modal-close');
+
+  function renderProjects(
+    projects: import('../../data/portfolio').Project[],
+  ): void {
+    if (!projects.length) {
+      modalProjects.innerHTML = '';
+      return;
+    }
+
+    modalProjects.innerHTML = projects
+      .map(
+        (project) => `
+        <div class="project-card">
+          <div class="project-card-title">🪐 ${project.title}</div>
+          <div class="project-card-description">${project.description}</div>
+          <div class="project-tags">
+            ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `,
+      )
+      .join('');
+  }
+
+  function openPlanet(id: string): void {
+    const planet = planets.find((p) => p.id === id);
+
+    if (!planet) return;
+
+    modalTitle.textContent = planet.name;
+    modalDescription.textContent = planet.description;
+    renderProjects(planet.projects);
+    modal.showModal();
+  }
+
+  const clickablePlanets = document.querySelectorAll<HTMLElement>('[data-planet-id]');
+
+  clickablePlanets.forEach((element) => {
+    element.addEventListener('click', () => {
+      const id = element.getAttribute('data-planet-id');
+      if (id) openPlanet(id);
+    });
+  });
+
+  closeButton?.addEventListener('click', () => {
+    modal.close();
+  });
+
+  modal.addEventListener('click', (event: MouseEvent) => {
+    const rect = modal.getBoundingClientRect();
+    const isInDialog =
+      rect.top <= event.clientY &&
+      event.clientY <= rect.top + rect.height &&
+      rect.left <= event.clientX &&
+      event.clientX <= rect.left + rect.width;
+
+    if (!isInDialog) {
+      modal.close();
+    }
+  });
+</script>
