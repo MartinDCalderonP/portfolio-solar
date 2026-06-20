@@ -18,13 +18,13 @@ export interface PlanetContent {
 
 export const planets: PlanetContent[] = [
   {
-    id: 'sol',
+    id: 'sun',
     name: 'Sol',
     title: 'Martín Calderón',
     description:
       'Centro creativo del sistema. Estudiante de Comunicación apasionado por la publicidad, el diseño y contar historias que conectan.',
-    colorVar: 'var(--color-sol)',
-    orbitVar: 'var(--orbit-sol)',
+    colorVar: 'var(--color-sun)',
+    orbitVar: 'var(--orbit-sun)',
     size: '80px',
     projects: [],
   },

@@ -1,8 +1,9 @@
 ---
 import PlanetIcon from '../PlanetIcon/PlanetIcon.astro';
+import Sun from '../PlanetIcon/Sun.astro';
 import type { PlanetContent } from '../../data/portfolio';
 import './Planet.css';
-import './Sol.css';
+import './Sun.css';
 
 interface Props {
   planet: PlanetContent;
@@ -20,17 +21,17 @@ const orbitRadiusValue = orbitVar;
 const durationDefault = (index + 1) * 5 + 8;
 const selfDuration = Math.max(2, 12 - index);
 const isMars = id === 'mars';
-const isSol = id === 'sol';
+const isSun = id === 'sun';
 ---
 
 {
-  isSol ? (
-    <div class="sol" data-planet-id={id}>
-      <div class="sol-glow" />
-      <div class="sol-core">
-        <span class="sol-text">M</span>
+  isSun ? (
+    <div class="sun" data-planet-id={id}>
+      <div class="sun-glow" />
+      <div class="sun-core">
+        <Sun />
       </div>
-      <span class="sol-label">{name}</span>
+      <span class="sun-label">{name}</span>
     </div>
   ) : (
     <div

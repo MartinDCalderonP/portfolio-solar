@@ -5,7 +5,7 @@
   --color-mercury: #b0b0b0;
   --color-neptune: #3a6ad4;
   --color-saturn: #d4b86a;
-  --color-sol: #ffcc00;
+  --color-sun: #ffcc00;
   --color-text: #e8e8f0;
   --color-text-dim: #aabbcc;
   --color-earth: #4a90d9;
@@ -14,13 +14,13 @@
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --glow-mars: 0 0 20px 5px rgba(212, 68, 42, 0.6);
-  --glow-sol: 0 0 40px 10px rgba(255, 204, 0, 0.4);
+  --glow-sun: 0 0 60px 15px rgba(255, 204, 0, 0.6);
   --orbit-jupiter: 300px;
   --orbit-mars: 230px;
   --orbit-mercury: 80px;
   --orbit-neptune: 500px;
   --orbit-saturn: 370px;
-  --orbit-sol: 0px;
+  --orbit-sun: 0px;
   --orbit-earth: 170px;
   --orbit-uranus: 440px;
   --orbit-venus: 120px;
