@@ -62,6 +62,14 @@ import './PlanetModal.css';
 
   const clickablePlanets = document.querySelectorAll<HTMLElement>('[data-planet-id]');
 
+  const closeWithAnimation = (): void => {
+    modal.classList.add('closing');
+    modal.addEventListener('animationend', () => {
+      modal.close();
+      modal.classList.remove('closing');
+    }, { once: true });
+  };
+
   clickablePlanets.forEach((element) => {
     element.addEventListener('click', () => {
       const id = element.getAttribute('data-planet-id');
@@ -69,9 +77,7 @@ import './PlanetModal.css';
     });
   });
 
-  closeButton?.addEventListener('click', () => {
-    modal.close();
-  });
+  closeButton?.addEventListener('click', closeWithAnimation);
 
   modal.addEventListener('click', (event: MouseEvent) => {
     const rect = modal.getBoundingClientRect();
@@ -82,7 +88,12 @@ import './PlanetModal.css';
       event.clientX <= rect.left + rect.width;
 
     if (!isInDialog) {
-      modal.close();
+      closeWithAnimation();
     }
+  });
+
+  modal.addEventListener('cancel', (event: Event) => {
+    event.preventDefault();
+    closeWithAnimation();
   });
 </script>
