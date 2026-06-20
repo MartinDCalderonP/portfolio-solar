@@ -1,3 +1,5 @@
+import { AUTHOR_NAME } from '../constants';
+
 export interface Project {
   id: string;
   title: string;
@@ -22,7 +24,7 @@ export const planets: PlanetContent[] = [
   {
     id: 'sun',
     name: 'Sol',
-    title: 'Martín Calderón',
+    title: AUTHOR_NAME,
     description:
       'Centro creativo del sistema. Estudiante de Comunicación apasionado por la publicidad, el diseño y contar historias que conectan.',
     colorVar: 'var(--color-sun)',
