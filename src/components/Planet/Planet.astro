@@ -15,11 +15,16 @@ const {
   index,
 } = Astro.props;
 
-const { id, name, colorVar, size, orbitVar } = planet;
+const { colorVar, id, name, orbitVar, size } = planet;
+
+const ORBIT_DURATION_MULTIPLIER = 5;
+const ORBIT_DURATION_OFFSET = 8;
+const ROTATION_DURATION_BASE = 12;
+const ROTATION_DURATION_MIN = 2;
 
 const orbitRadiusValue = orbitVar;
-const durationDefault = (index + 1) * 5 + 8;
-const selfDuration = Math.max(2, 12 - index);
+const durationDefault = (index + 1) * ORBIT_DURATION_MULTIPLIER + ORBIT_DURATION_OFFSET;
+const selfDuration = Math.max(ROTATION_DURATION_MIN, ROTATION_DURATION_BASE - index);
 const isMars = id === 'mars';
 const isSun = id === 'sun';
 ---
