@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      '@justinribeiro/lite-youtube':
+        specifier: ^1.9.0
+        version: 1.9.0
       astro:
         specifier: ^6.4.8
         version: 6.4.8(rollup@4.62.0)
@@ -377,6 +380,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@justinribeiro/lite-youtube@1.9.0':
+    resolution: {integrity: sha512-+VZutWCVEpXNGR00ch/8g8snexv5q8zN0NCJWrXdRBYQe0Oel1HKDl9BVEM7FzZbf/IWPGIdWs4WcGMxXITFKA==}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -1684,6 +1690,8 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@justinribeiro/lite-youtube@1.9.0': {}
 
   '@oslojs/encoding@1.1.0': {}
 
