@@ -25,9 +25,18 @@
   background: var(--planet-color);
   border-radius: 50%;
   box-shadow: 0 0 8px 2px color-mix(in srgb, var(--planet-color) 40%, transparent);
+  cursor: pointer;
   height: var(--planet-size);
+  position: relative;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   width: var(--planet-size);
+}
+
+.planet-dot::before {
+  border-radius: 50%;
+  content: '';
+  inset: calc(var(--planet-size) * -0.3);
+  position: absolute;
 }
 
 .planet-dot.marte {
@@ -35,13 +44,17 @@
   box-shadow: var(--glow-marte);
 }
 
-.orbit:hover .planet-dot {
+.planet-dot:hover {
   box-shadow: 0 0 20px 8px color-mix(in srgb, var(--planet-color) 60%, transparent);
   transform: scale(1.5);
 }
 
-.orbit:hover .planet-dot.marte {
+.planet-dot.marte:hover {
   box-shadow: 0 0 30px 12px rgba(212, 68, 42, 0.8);
+}
+
+.planet-wrapper:hover .planet-label {
+  opacity: 1;
 }
 
 .planet-label {
@@ -55,10 +68,6 @@
   text-transform: uppercase;
   transition: opacity 0.3s ease;
   white-space: nowrap;
-}
-
-.orbit:hover .planet-label {
-  opacity: 1;
 }
 
 @keyframes spin {
