@@ -24,7 +24,6 @@
 
 .planet-dot {
   animation: rotate-self var(--self-duration) linear infinite;
-  background: var(--planet-color);
   border-radius: 50%;
   box-shadow: 0 0 8px 2px color-mix(in srgb, var(--planet-color) 40%, transparent);
   height: var(--planet-size);
@@ -32,6 +31,12 @@
   position: relative;
   transition: box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   width: var(--planet-size);
+}
+
+.planet-dot svg {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .planet-dot::before {
@@ -68,11 +73,7 @@
   margin-top: 6px;
   opacity: 0;
   pointer-events: none;
-  text-shadow:
-    -1px -1px 0 var(--color-bg),
-     1px -1px 0 var(--color-bg),
-    -1px  1px 0 var(--color-bg),
-     1px  1px 0 var(--color-bg);
+  text-shadow: -1px -1px 0 var(--color-bg), 1px -1px 0 var(--color-bg), -1px 1px 0 var(--color-bg), 1px 1px 0 var(--color-bg);
   text-transform: uppercase;
   transition: opacity 0.4s ease-out;
   white-space: nowrap;

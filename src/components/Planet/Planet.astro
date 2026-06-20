@@ -1,4 +1,5 @@
 ---
+import PlanetIcon from '../PlanetIcon/PlanetIcon.astro';
 import type { PlanetContent } from '../../data/portfolio';
 import './Planet.css';
 import './Sol.css';
@@ -53,7 +54,9 @@ const isSol = id === 'sol';
             '--planet-color': colorVar,
             '--self-duration': `${selfDuration}s`,
           }}
-        />
+        >
+          <PlanetIcon planetId={id} />
+        </div>
         <span class="planet-label">{name}</span>
       </div>
     </div>

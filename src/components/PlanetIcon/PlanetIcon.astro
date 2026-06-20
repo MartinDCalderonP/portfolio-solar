@@ -1,0 +1,25 @@
+---
+import Jupiter from './Jupiter.astro';
+import Marte from './Marte.astro';
+import Mercurio from './Mercurio.astro';
+import Neptuno from './Neptuno.astro';
+import Saturno from './Saturno.astro';
+import Tierra from './Tierra.astro';
+import Urano from './Urano.astro';
+import Venus from './Venus.astro';
+
+interface Props {
+  planetId: string;
+}
+
+const { planetId } = Astro.props;
+---
+
+{planetId === 'mercurio' && <Mercurio />}
+{planetId === 'venus' && <Venus />}
+{planetId === 'tierra' && <Tierra />}
+{planetId === 'marte' && <Marte />}
+{planetId === 'jupiter' && <Jupiter />}
+{planetId === 'saturno' && <Saturno />}
+{planetId === 'urano' && <Urano />}
+{planetId === 'neptuno' && <Neptuno />}
