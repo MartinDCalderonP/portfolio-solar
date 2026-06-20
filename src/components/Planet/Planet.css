@@ -16,7 +16,7 @@
   flex-direction: column;
   left: 50%;
   position: absolute;
-  top: 0;
+  top: calc(var(--planet-size) * -0.5);
   transform: translateX(-50%);
 }
 

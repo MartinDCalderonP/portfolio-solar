@@ -40,11 +40,15 @@ const isSol = id === 'sol';
         '--orbit-duration': `${durationDefault}s`,
       }}
     >
-      <div class="planet-wrapper">
+      <div
+        class="planet-wrapper"
+        style={{
+          '--planet-size': size,
+        }}
+      >
         <div
           class={`planet-dot${isMarte ? ' marte' : ''}`}
           style={{
-            '--planet-size': size,
             '--planet-color': colorVar,
             '--self-duration': `${selfDuration}s`,
           }}
