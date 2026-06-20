@@ -2,7 +2,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   width: 100%;
 }
 
@@ -14,6 +13,7 @@
   position: relative;
   transform-origin: center center;
   width: min(90vw, 1000px);
+  z-index: calc(var(--z-header) + 1);
 }
 
 @media (max-width: 1100px) {
