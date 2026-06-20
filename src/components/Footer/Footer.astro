@@ -5,7 +5,7 @@ const PORTFOLIO_URL = 'https://portfolio-martindcalderonp.vercel.app/';
 ---
 
 <footer class="footer">
-  <div class="footer-line">© 2026 — Todos los derechos reservados</div>
+  <div class="footer-line">© <span id="footer-year" /> — Todos los derechos reservados</div>
   <div class="footer-separator" />
   <div class="footer-line">
     Diseñado y desarrollado por
@@ -13,3 +13,8 @@ const PORTFOLIO_URL = 'https://portfolio-martindcalderonp.vercel.app/';
     </a>
   </div>
 </footer>
+
+<script>
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+</script>
