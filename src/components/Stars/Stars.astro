@@ -20,7 +20,7 @@ function generateStars(): string {
           animation-delay: ${delay}s;
           animation-duration: ${duration}s;
         "
-      />`,
+      ></div>`,
     );
   }
 
@@ -30,7 +30,7 @@ function generateStars(): string {
 
 <div class="stars-container" set:html={generateStars()} />
 
-<style>
+<style is:global>
   .stars-container {
     inset: 0;
     overflow: hidden;
