@@ -3,9 +3,10 @@ import './Spaceship.css';
 
 interface ShipConfig {
   className: string;
-  inlinePosition: string;
   delay: number;
   duration: number;
+  emoji: string;
+  inlinePosition: string;
 }
 
 const ANIMATION_DURATION = 60;
@@ -20,32 +21,36 @@ const randomTop = (): number =>
 const shipConfigs: ShipConfig[] = [
   {
     className: 'spaceship--right-to-left',
-    inlinePosition: `top: ${randomTop()}%; right: ${SHIP_OFFSET};`,
     delay: 0 * DELAY_GAP,
     duration: ANIMATION_DURATION,
-  },
-  {
-    className: 'spaceship--left-to-right',
-    inlinePosition: `top: ${randomTop()}%; left: ${SHIP_OFFSET};`,
-    delay: 1 * DELAY_GAP,
-    duration: ANIMATION_DURATION,
+    emoji: '🚀',
+    inlinePosition: `top: ${randomTop()}%; right: ${SHIP_OFFSET};`,
   },
   {
     className: 'spaceship--bottom-left-to-top-right',
-    inlinePosition: `bottom: ${SHIP_OFFSET}; left: ${SHIP_OFFSET};`,
-    delay: 2 * DELAY_GAP,
+    delay: 1 * DELAY_GAP,
     duration: ANIMATION_DURATION,
+    emoji: '🚀',
+    inlinePosition: `bottom: ${SHIP_OFFSET}; left: ${SHIP_OFFSET};`,
   },
   {
     className: 'spaceship--bottom-right-to-top-left',
+    delay: 2 * DELAY_GAP,
+    duration: ANIMATION_DURATION,
+    emoji: '🚀',
     inlinePosition: `bottom: ${SHIP_OFFSET}; right: ${SHIP_OFFSET};`,
+  },
+  {
+    className: 'spaceship--left-to-right',
     delay: 3 * DELAY_GAP,
     duration: ANIMATION_DURATION,
+    emoji: '🛸',
+    inlinePosition: `top: ${randomTop()}%; left: ${SHIP_OFFSET};`,
   },
 ];
 
 const hashes: string[] = shipConfigs.map(
-  ({ className, inlinePosition, delay, duration }) =>
+  ({ className, delay, duration, emoji, inlinePosition }) =>
     `<div
       class="spaceship ${className}"
       style="
@@ -53,7 +58,7 @@ const hashes: string[] = shipConfigs.map(
         animation-delay: ${delay}s;
         animation-duration: ${duration}s;
       "
-    >🚀</div>`,
+    >${emoji}</div>`,
 );
 ---
 
