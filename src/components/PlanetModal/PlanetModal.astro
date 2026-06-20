@@ -25,11 +25,12 @@ import './PlanetModal.css';
   const modalProjects = document.getElementById('modal-projects') as HTMLElement;
   const closeButton = document.getElementById('modal-close');
 
-  function renderProjects(
+  const renderProjects = (
     projects: import('../../data/portfolio').Project[],
-  ): void {
+  ): void => {
     if (!projects.length) {
       modalProjects.innerHTML = '';
+
       return;
     }
 
@@ -46,10 +47,10 @@ import './PlanetModal.css';
       `,
       )
       .join('');
-  }
+  };
 
-  function openPlanet(id: string): void {
-    const planet = planets.find((p) => p.id === id);
+  const openPlanet = (id: string): void => {
+    const planet = planets.find(({ id: planetId }) => planetId === id);
 
     if (!planet) return;
 
@@ -57,7 +58,7 @@ import './PlanetModal.css';
     modalDescription.textContent = planet.description;
     renderProjects(planet.projects);
     modal.showModal();
-  }
+  };
 
   const clickablePlanets = document.querySelectorAll<HTMLElement>('[data-planet-id]');
 
