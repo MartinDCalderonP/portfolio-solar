@@ -3,7 +3,7 @@ import type { PlanetContent } from '../../data/portfolio';
 import './Planet.css';
 import './Sol.css';
 
-interface PlanetProps {
+interface Props {
   planet: PlanetContent;
   index: number;
 }
@@ -11,7 +11,7 @@ interface PlanetProps {
 const {
   planet,
   index,
-}: PlanetProps = Astro.props;
+} = Astro.props;
 
 const { id, name, colorVar, size, orbitVar } = planet;
 
