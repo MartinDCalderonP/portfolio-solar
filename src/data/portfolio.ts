@@ -20,7 +20,7 @@ export const planets: PlanetContent[] = [
   {
     id: 'sol',
     name: 'Sol',
-    title: 'Martín',
+    title: 'Martín Calderón',
     description:
       'Centro creativo del sistema. Estudiante de Comunicación apasionado por la publicidad, el diseño y contar historias que conectan.',
     colorVar: 'var(--color-sol)',

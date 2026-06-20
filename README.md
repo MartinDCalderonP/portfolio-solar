@@ -13,17 +13,17 @@ Built with **Astro 5** + **TypeScript** + **vanilla CSS**. No external frontend 
 
 ## Solar System
 
-| Planet      | Section               |
-|-------------|-----------------------|
-| ☀️ Sun      | Martín (identity)     |
-| Mercury     | Skills                |
-| Venus       | About me              |
-| 🌍 Earth    | Education             |
-| 🔴 Mars     | Featured projects     |
-| Jupiter     | Experience            |
-| Saturn      | Contact               |
-| Uranus      | Reflection            |
-| Neptune     | Extras                |
+| Planet      | Section                      |
+|-------------|------------------------------|
+| ☀️ Sun      | Martín Calderón (identity)   |
+| Mercury     | Skills                       |
+| Venus       | About me                     |
+| 🌍 Earth    | Education                    |
+| 🔴 Mars     | Featured projects            |
+| Jupiter     | Experience                   |
+| Saturn      | Contact                      |
+| Uranus      | Reflection                   |
+| Neptune     | Extras                       |
 
 Click any planet to open the modal with detailed info.
 
