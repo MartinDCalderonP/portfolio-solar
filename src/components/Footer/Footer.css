@@ -1,0 +1,27 @@
+.footer {
+  padding: 32px;
+  pointer-events: none;
+  text-align: center;
+
+  .footer-line {
+    color: var(--color-text-dim);
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .footer-separator {
+    height: 8px;
+  }
+
+  .footer-link {
+    color: var(--color-text);
+    pointer-events: auto;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
