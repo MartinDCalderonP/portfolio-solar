@@ -58,36 +58,38 @@
 }
 
 .planet-label {
+  animation: counter-spin var(--orbit-duration) linear infinite;
   color: var(--color-text-dim);
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 1px;
+  font-size: 13px;
+  letter-spacing: 2px;
   margin-top: 6px;
   opacity: 0;
   pointer-events: none;
+  text-shadow:
+    -1px -1px 0 var(--color-bg),
+     1px -1px 0 var(--color-bg),
+    -1px  1px 0 var(--color-bg),
+     1px  1px 0 var(--color-bg);
   text-transform: uppercase;
   transition: opacity 0.3s ease;
   white-space: nowrap;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes rotate-self {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes marte-pulse {
   0%,
-  100% {
-    box-shadow: 0 0 20px 5px rgba(212, 68, 42, 0.6);
-  }
-  50% {
-    box-shadow: 0 0 35px 12px rgba(212, 68, 42, 0.9);
-  }
+  100% { box-shadow: 0 0 20px 5px rgba(212, 68, 42, 0.6); }
+  50% { box-shadow: 0 0 35px 12px rgba(212, 68, 42, 0.9); }
+}
+
+@keyframes counter-spin {
+  to { transform: rotate(-360deg); }
 }
