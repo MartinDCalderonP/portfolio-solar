@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { AUTHOR_NAME, SITE_DESCRIPTION } from '../constants';
+import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '../constants';
 
 const PAGE_TITLE = `${AUTHOR_NAME} — Portfolio Creativo`;
 ---
@@ -14,11 +14,13 @@ const PAGE_TITLE = `${AUTHOR_NAME} — Portfolio Creativo`;
     <meta name="description" content={SITE_DESCRIPTION} />
     <meta name="robots" content="index, follow" />
 
+    <link rel="canonical" href={SITE_URL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta property="og:title" content={PAGE_TITLE} />
     <meta property="og:description" content={SITE_DESCRIPTION} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={SITE_URL} />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={PAGE_TITLE} />
@@ -32,6 +34,7 @@ const PAGE_TITLE = `${AUTHOR_NAME} — Portfolio Creativo`;
       "@context": "https://schema.org",
       "@type": "Person",
       "name": AUTHOR_NAME,
+      "url": SITE_URL,
       "description": SITE_DESCRIPTION,
     })} />
   </head>
