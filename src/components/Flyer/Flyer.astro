@@ -1,7 +1,7 @@
 ---
-import './Spaceship.css';
+import './Flyer.css';
 
-interface ShipConfig {
+interface FlyerConfig {
   className: string;
   delay: number;
   duration: number;
@@ -18,30 +18,30 @@ const TOP_RANGE_MIN = 10;
 const randomTop = (): number =>
   Math.random() * (TOP_RANGE_MAX - TOP_RANGE_MIN) + TOP_RANGE_MIN;
 
-const shipConfigs: ShipConfig[] = [
+const flyerConfigs: FlyerConfig[] = [
   {
-    className: 'spaceship--right-to-left',
+    className: 'flyer--right-to-left',
     delay: 0 * DELAY_GAP,
     duration: ANIMATION_DURATION,
-    emoji: '🚀',
+    emoji: '🛰️',
     inlinePosition: `top: ${randomTop()}%; right: ${SHIP_OFFSET};`,
   },
   {
-    className: 'spaceship--bottom-left-to-top-right',
+    className: 'flyer--bottom-left-to-top-right',
     delay: 1 * DELAY_GAP,
     duration: ANIMATION_DURATION,
     emoji: '🚀',
     inlinePosition: `bottom: ${SHIP_OFFSET}; left: ${SHIP_OFFSET};`,
   },
   {
-    className: 'spaceship--bottom-right-to-top-left',
+    className: 'flyer--bottom-right-to-top-left',
     delay: 2 * DELAY_GAP,
     duration: ANIMATION_DURATION,
-    emoji: '🚀',
+    emoji: '☄️',
     inlinePosition: `bottom: ${SHIP_OFFSET}; right: ${SHIP_OFFSET};`,
   },
   {
-    className: 'spaceship--left-to-right',
+    className: 'flyer--left-to-right',
     delay: 3 * DELAY_GAP,
     duration: ANIMATION_DURATION,
     emoji: '🛸',
@@ -49,10 +49,10 @@ const shipConfigs: ShipConfig[] = [
   },
 ];
 
-const hashes: string[] = shipConfigs.map(
+const hashes: string[] = flyerConfigs.map(
   ({ className, delay, duration, emoji, inlinePosition }) =>
     `<div
-      class="spaceship ${className}"
+      class="flyer ${className}"
       style="
         ${inlinePosition}
         animation-delay: ${delay}s;
@@ -62,4 +62,4 @@ const hashes: string[] = shipConfigs.map(
 );
 ---
 
-<div class="spaceship-container" set:html={hashes.join('')} />
+<div class="flyer-container" set:html={hashes.join('')} />
