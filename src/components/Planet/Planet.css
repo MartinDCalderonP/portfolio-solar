@@ -30,7 +30,7 @@
   height: var(--planet-size);
   pointer-events: auto;
   position: relative;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   width: var(--planet-size);
 }
 
@@ -48,7 +48,7 @@
 
 .planet-dot:hover {
   box-shadow: 0 0 20px 8px color-mix(in srgb, var(--planet-color) 60%, transparent);
-  transform: scale(1.5);
+  scale: 1.5;
 }
 
 .planet-dot.marte:hover {
@@ -74,7 +74,7 @@
     -1px  1px 0 var(--color-bg),
      1px  1px 0 var(--color-bg);
   text-transform: uppercase;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease-out;
   white-space: nowrap;
 }
 
