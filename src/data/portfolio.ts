@@ -6,14 +6,16 @@ export interface Project {
 }
 
 export interface PlanetContent {
+  colorVar: string;
+  description: string;
   id: string;
   name: string;
-  title: string;
-  description: string;
-  colorVar: string;
   orbitVar: string;
-  size: string;
   projects: Project[];
+  size: string;
+  song: string;
+  title: string;
+  youtubeId: string;
 }
 
 export const planets: PlanetContent[] = [
@@ -26,6 +28,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-sun)',
     orbitVar: 'var(--orbit-sun)',
     size: '80px',
+    song: 'Here Comes the Sun — The Beatles',
+    youtubeId: 'KQetemT1sWc',
     projects: [],
   },
   {
@@ -37,6 +41,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
+    song: 'Mr. Bad Guy — Freddie Mercury',
+    youtubeId: 'v_Mb25ASCr8',
     projects: [],
   },
   {
@@ -48,6 +54,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-venus)',
     orbitVar: 'var(--orbit-venus)',
     size: '22px',
+    song: 'The Final Countdown — Europe',
+    youtubeId: '9jK-NcRmVcw',
     projects: [],
   },
   {
@@ -59,6 +67,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-earth)',
     orbitVar: 'var(--orbit-earth)',
     size: '24px',
+    song: 'Piedra en el Agua — Karamelo Santo',
+    youtubeId: 'AWGhln9_7_s',
     projects: [
       {
         id: 'formacion-1',
@@ -77,6 +87,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-mars)',
     orbitVar: 'var(--orbit-mars)',
     size: '28px',
+    song: 'I Turned into a Martian — Misfits',
+    youtubeId: '9vaA8WTzmSo',
     projects: [
       {
         id: 'proyecto-1',
@@ -107,6 +119,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-jupiter)',
     orbitVar: 'var(--orbit-jupiter)',
     size: '36px',
+    song: 'Fly Me to the Moon — Frank Sinatra',
+    youtubeId: 'JYuyWrkwpok',
     projects: [
       {
         id: 'exp-1',
@@ -125,6 +139,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-saturn)',
     orbitVar: 'var(--orbit-saturn)',
     size: '30px',
+    song: 'El anillo del Capitán Beto — Invisible',
+    youtubeId: '38jG_1bELEs',
     projects: [],
   },
   {
@@ -136,6 +152,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-uranus)',
     orbitVar: 'var(--orbit-uranus)',
     size: '20px',
+    song: 'Moonage Daydream — David Bowie',
+    youtubeId: '6pXoQ6iYO1w',
     projects: [
       {
         id: 'reflexion-1',
@@ -155,6 +173,8 @@ export const planets: PlanetContent[] = [
     colorVar: 'var(--color-neptune)',
     orbitVar: 'var(--orbit-neptune)',
     size: '18px',
+    song: 'Sal — Cerati',
+    youtubeId: '50j63cIBcvs',
     projects: [],
   },
 ];

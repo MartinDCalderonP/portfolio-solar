@@ -11,11 +11,15 @@ import './PlanetModal.css';
       <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
     </div>
     <p class="modal-description" id="modal-description" />
+    <p class="modal-song">🎵 Música que escuché mientras hacía esta sección:</p>
+    <div class="embed-wrapper" id="embed-wrapper" />
     <div id="modal-projects" />
   </div>
 </dialog>
 
 <script>
+  import '@justinribeiro/lite-youtube';
+
   const modal = document.getElementById('planet-modal') as HTMLDialogElement;
   const planets: import('../../data/portfolio').PlanetContent[] = JSON.parse(
     modal.getAttribute('data-planets') ?? '[]',
@@ -24,6 +28,7 @@ import './PlanetModal.css';
   const modalDescription = document.getElementById('modal-description') as HTMLElement;
   const modalProjects = document.getElementById('modal-projects') as HTMLElement;
   const closeButton = document.getElementById('modal-close');
+  const embedWrapper = document.getElementById('embed-wrapper') as HTMLElement;
 
   const renderProjects = (
     projects: import('../../data/portfolio').Project[],
@@ -57,6 +62,15 @@ import './PlanetModal.css';
     modalTitle.textContent = planet.name;
     modalDescription.textContent = planet.description;
     renderProjects(planet.projects);
+
+    embedWrapper.innerHTML = '';
+
+    const element = document.createElement('lite-youtube');
+    element.setAttribute('playlabel', planet.song);
+    element.setAttribute('videoid', planet.youtubeId);
+    element.style.width = '100%';
+    embedWrapper.append(element);
+
     modal.showModal();
   };
 
