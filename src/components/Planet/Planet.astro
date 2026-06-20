@@ -34,7 +34,6 @@ const isSol = id === 'sol';
   ) : (
     <div
       class="orbit"
-      data-planet-id={id}
       style={{
         '--orbit-radius': orbitRadiusValue,
         '--orbit-duration': `${durationDefault}s`,
@@ -43,6 +42,7 @@ const isSol = id === 'sol';
     >
       <div
         class="planet-wrapper"
+        data-planet-id={id}
         style={{
           '--planet-size': size,
         }}

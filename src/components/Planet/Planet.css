@@ -1,10 +1,10 @@
 .orbit {
   animation: spin var(--orbit-duration) linear infinite;
-  cursor: pointer;
   height: calc(var(--orbit-radius) * 2);
   left: 50%;
   margin-left: calc(var(--orbit-radius) * -1);
   margin-top: calc(var(--orbit-radius) * -1);
+  pointer-events: none;
   position: absolute;
   top: 50%;
   width: calc(var(--orbit-radius) * 2);
@@ -12,9 +12,11 @@
 
 .planet-wrapper {
   align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   left: 50%;
+  pointer-events: auto;
   position: absolute;
   top: calc(var(--planet-size) * -0.5);
   transform: translateX(-50%);
@@ -25,8 +27,8 @@
   background: var(--planet-color);
   border-radius: 50%;
   box-shadow: 0 0 8px 2px color-mix(in srgb, var(--planet-color) 40%, transparent);
-  cursor: pointer;
   height: var(--planet-size);
+  pointer-events: auto;
   position: relative;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   width: var(--planet-size);
