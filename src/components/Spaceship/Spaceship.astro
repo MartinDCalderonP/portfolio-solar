@@ -1,57 +1,61 @@
 ---
-const hashes: string[] = [];
+import './Spaceship.css';
 
-for (let i = 0; i < 4; i++) {
-  const top = Math.random() * 60 + 10;
-  const delay = i * 3;
-  const duration = Math.random() * 4 + 6;
+interface ShipConfig {
+  className: string;
+  inlinePosition: string;
+  delay: number;
+  duration: number;
+}
 
-  hashes.push(
+const ANIMATION_DURATION = 60;
+const DELAY_GAP = 15;
+const SHIP_OFFSET = '-60px';
+const TOP_RANGE_MAX = 70;
+const TOP_RANGE_MIN = 10;
+
+const shipConfigs: ShipConfig[] = [
+  {
+    className: 'spaceship--right-to-left',
+    inlinePosition: `top: ${randomTop()}%; right: ${SHIP_OFFSET};`,
+    delay: 0 * DELAY_GAP,
+    duration: ANIMATION_DURATION,
+  },
+  {
+    className: 'spaceship--left-to-right',
+    inlinePosition: `top: ${randomTop()}%; left: ${SHIP_OFFSET};`,
+    delay: 1 * DELAY_GAP,
+    duration: ANIMATION_DURATION,
+  },
+  {
+    className: 'spaceship--bottom-left-to-top-right',
+    inlinePosition: `bottom: ${SHIP_OFFSET}; left: ${SHIP_OFFSET};`,
+    delay: 2 * DELAY_GAP,
+    duration: ANIMATION_DURATION,
+  },
+  {
+    className: 'spaceship--bottom-right-to-top-left',
+    inlinePosition: `bottom: ${SHIP_OFFSET}; right: ${SHIP_OFFSET};`,
+    delay: 3 * DELAY_GAP,
+    duration: ANIMATION_DURATION,
+  },
+];
+
+function randomTop(): number {
+  return Math.random() * (TOP_RANGE_MAX - TOP_RANGE_MIN) + TOP_RANGE_MIN;
+}
+
+const hashes: string[] = shipConfigs.map(
+  ({ className, inlinePosition, delay, duration }) =>
     `<div
-      class="spaceship"
+      class="spaceship ${className}"
       style="
-        top: ${top}%;
+        ${inlinePosition}
         animation-delay: ${delay}s;
         animation-duration: ${duration}s;
       "
     >🚀</div>`,
-  );
-}
+);
 ---
 
 <div class="spaceship-container" set:html={hashes.join('')} />
-
-<style is:global>
-  .spaceship-container {
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    position: fixed;
-    z-index: var(--z-spaceship);
-  }
-
-  .spaceship {
-    animation: fly linear infinite;
-    font-size: 24px;
-    position: absolute;
-    right: -60px;
-    transform: rotate(-15deg);
-  }
-
-  @keyframes fly {
-    0% {
-      transform: translateX(0) rotate(-15deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(calc(-100vw - 80px)) rotate(-15deg);
-      opacity: 0;
-    }
-  }
-</style>
