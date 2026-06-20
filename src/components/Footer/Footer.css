@@ -1,7 +1,11 @@
 .footer {
-  padding: 32px;
+  padding: 16px;
   pointer-events: none;
   text-align: center;
+
+  @media (min-width: 601px) {
+    padding: 32px;
+  }
 
   .footer-line {
     color: var(--color-text-dim);

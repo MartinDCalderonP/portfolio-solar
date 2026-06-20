@@ -9,8 +9,12 @@
   .flyer--left-to-right,
   .flyer--bottom-left-to-top-right,
   .flyer--bottom-right-to-top-left {
-    font-size: 24px;
+    font-size: 18px;
     position: absolute;
+
+    @media (min-width: 601px) {
+      font-size: 24px;
+    }
   }
 
   .flyer--right-to-left {

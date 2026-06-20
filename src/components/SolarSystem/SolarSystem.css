@@ -10,20 +10,21 @@
     height: min(90vw, 1000px);
     justify-content: center;
     position: relative;
+    transform: scale(0.35);
     transform-origin: center center;
     width: min(90vw, 1000px);
     z-index: calc(var(--z-header) + 1);
 
-    @media (max-width: 1100px) {
-      transform: scale(0.7);
-    }
-
-    @media (max-width: 768px) {
+    @media (min-width: 481px) {
       transform: scale(0.5);
     }
 
-    @media (max-width: 480px) {
-      transform: scale(0.35);
+    @media (min-width: 769px) {
+      transform: scale(0.7);
+    }
+
+    @media (min-width: 1101px) {
+      transform: scale(1);
     }
 
     .orbital-ring {
