@@ -1,8 +1,6 @@
 ---
 import './Footer.css';
-import { AUTHOR_NAME } from '../../constants';
-
-const PORTFOLIO_URL = 'https://portfolio-martindcalderonp.vercel.app/';
+import { AUTHOR_NAME, DEV_PORTFOLIO_URL } from '../../constants';
 ---
 
 <footer class="footer">
@@ -10,7 +8,7 @@ const PORTFOLIO_URL = 'https://portfolio-martindcalderonp.vercel.app/';
   <div class="footer-separator" />
   <div class="footer-line">
     Diseñado y desarrollado por
-    <a class="footer-link" href={PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">{AUTHOR_NAME}
+    <a class="footer-link" href={DEV_PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">{AUTHOR_NAME}
     </a>
   </div>
 </footer>
