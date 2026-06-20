@@ -20,6 +20,16 @@
     top: calc(var(--planet-size) * -0.5);
     transform: translateX(-50%);
 
+    &:focus-visible {
+      outline: 2px solid var(--color-text);
+      outline-offset: 4px;
+
+      .planet-dot {
+        box-shadow: 0 0 20px 8px color-mix(in srgb, var(--planet-color) 60%, transparent);
+        scale: 1.5;
+      }
+    }
+
     .planet-dot {
       animation: rotate-self var(--self-duration) linear infinite;
       border-radius: 50%;
@@ -58,7 +68,8 @@
       }
     }
 
-    &:hover .planet-label {
+    &:hover .planet-label,
+    &:focus-visible .planet-label {
       opacity: 1;
     }
 

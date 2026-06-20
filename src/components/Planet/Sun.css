@@ -6,6 +6,19 @@
   position: relative;
   z-index: 20;
 
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+
+    .sun-core {
+      transform: scale(1.1);
+    }
+
+    .sun-label {
+      opacity: 1;
+    }
+  }
+
   .sun-glow {
     animation: sun-pulse 3s ease-in-out infinite;
     background: radial-gradient(circle, rgba(255, 204, 0, 0.5) 0%, transparent 70%);
@@ -61,13 +74,19 @@
     font-size: 12px;
     left: 50%;
     letter-spacing: 2px;
+    opacity: 0;
     pointer-events: none;
     position: absolute;
     text-shadow: var(--text-stroke);
     text-transform: uppercase;
     top: calc(100% + 6px);
     transform: translateX(-50%);
+    transition: opacity 0.4s ease-out;
     white-space: nowrap;
+  }
+
+  &:hover .sun-label {
+    opacity: 1;
   }
 }
 

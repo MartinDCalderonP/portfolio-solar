@@ -84,10 +84,18 @@ import './PlanetModal.css';
     }, { once: true });
   };
 
+  const openPlanetFromElement = (element: HTMLElement): void => {
+    const id = element.getAttribute('data-planet-id');
+    if (id) openPlanet(id);
+  };
+
   clickablePlanets.forEach((element) => {
-    element.addEventListener('click', () => {
-      const id = element.getAttribute('data-planet-id');
-      if (id) openPlanet(id);
+    element.addEventListener('click', () => openPlanetFromElement(element));
+    element.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openPlanetFromElement(element);
+      }
     });
   });
 

@@ -31,7 +31,7 @@ const isSun = id === 'sun';
 
 {
   isSun ? (
-    <div class="sun" data-planet-id={id}>
+    <div class="sun" data-planet-id={id} role="button" tabindex="0">
       <div class="sun-glow" />
       <div class="sun-core">
         <Sun />
@@ -50,9 +50,11 @@ const isSun = id === 'sun';
       <div
         class="planet-wrapper"
         data-planet-id={id}
+        role="button"
         style={{
           '--planet-size': size,
         }}
+        tabindex="0"
       >
         <div
           class={`planet-dot${isMars ? ' mars' : ''}`}
