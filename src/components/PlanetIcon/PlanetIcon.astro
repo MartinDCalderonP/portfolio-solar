@@ -1,11 +1,11 @@
 ---
+import Earth from './Earth.astro';
 import Jupiter from './Jupiter.astro';
-import Marte from './Marte.astro';
-import Mercurio from './Mercurio.astro';
-import Neptuno from './Neptuno.astro';
-import Saturno from './Saturno.astro';
-import Tierra from './Tierra.astro';
-import Urano from './Urano.astro';
+import Mars from './Mars.astro';
+import Mercury from './Mercury.astro';
+import Neptune from './Neptune.astro';
+import Saturn from './Saturn.astro';
+import Uranus from './Uranus.astro';
 import Venus from './Venus.astro';
 
 interface Props {
@@ -15,11 +15,11 @@ interface Props {
 const { planetId } = Astro.props;
 ---
 
-{planetId === 'mercurio' && <Mercurio />}
+{planetId === 'mercury' && <Mercury />}
 {planetId === 'venus' && <Venus />}
-{planetId === 'tierra' && <Tierra />}
-{planetId === 'marte' && <Marte />}
+{planetId === 'earth' && <Earth />}
+{planetId === 'mars' && <Mars />}
 {planetId === 'jupiter' && <Jupiter />}
-{planetId === 'saturno' && <Saturno />}
-{planetId === 'urano' && <Urano />}
-{planetId === 'neptuno' && <Neptuno />}
+{planetId === 'saturn' && <Saturn />}
+{planetId === 'uranus' && <Uranus />}
+{planetId === 'neptune' && <Neptune />}

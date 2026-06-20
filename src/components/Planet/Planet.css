@@ -46,9 +46,9 @@
   position: absolute;
 }
 
-.planet-dot.marte {
-  animation: rotate-self var(--self-duration) linear infinite, marte-pulse 2s ease-in-out infinite;
-  box-shadow: var(--glow-marte);
+.planet-dot.mars {
+  animation: rotate-self var(--self-duration) linear infinite, mars-pulse 2s ease-in-out infinite;
+  box-shadow: var(--glow-mars);
 }
 
 .planet-dot:hover {
@@ -56,7 +56,7 @@
   scale: 1.5;
 }
 
-.planet-dot.marte:hover {
+.planet-dot.mars:hover {
   box-shadow: 0 0 30px 12px rgba(212, 68, 42, 0.8);
 }
 
@@ -87,7 +87,7 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes marte-pulse {
+@keyframes mars-pulse {
   0%,
   100% { box-shadow: 0 0 20px 5px rgba(212, 68, 42, 0.6); }
   50% { box-shadow: 0 0 35px 12px rgba(212, 68, 42, 0.9); }

@@ -29,13 +29,13 @@ export const planets: PlanetContent[] = [
     projects: [],
   },
   {
-    id: 'mercurio',
+    id: 'mercury',
     name: 'Mercurio',
     title: 'Skills & Herramientas',
     description:
       'Las herramientas que uso para dar vida a las ideas. Siempre aprendiendo y sumando nuevas.',
-    colorVar: 'var(--color-mercurio)',
-    orbitVar: 'var(--orbit-mercurio)',
+    colorVar: 'var(--color-mercury)',
+    orbitVar: 'var(--orbit-mercury)',
     size: '16px',
     projects: [],
   },
@@ -51,13 +51,13 @@ export const planets: PlanetContent[] = [
     projects: [],
   },
   {
-    id: 'tierra',
+    id: 'earth',
     name: 'Tierra',
     title: 'Formación',
     description:
       'Recorrido académico que construyó mi base creativa y estratégica.',
-    colorVar: 'var(--color-tierra)',
-    orbitVar: 'var(--orbit-tierra)',
+    colorVar: 'var(--color-earth)',
+    orbitVar: 'var(--orbit-earth)',
     size: '24px',
     projects: [
       {
@@ -69,13 +69,13 @@ export const planets: PlanetContent[] = [
     ],
   },
   {
-    id: 'marte',
+    id: 'mars',
     name: 'Marte',
     title: 'Proyectos destacados',
     description:
       'Mis trabajos más relevantes. Piezas publicitarias, campañas y proyectos creativos.',
-    colorVar: 'var(--color-marte)',
-    orbitVar: 'var(--orbit-marte)',
+    colorVar: 'var(--color-mars)',
+    orbitVar: 'var(--orbit-mars)',
     size: '28px',
     projects: [
       {
@@ -117,24 +117,24 @@ export const planets: PlanetContent[] = [
     ],
   },
   {
-    id: 'saturno',
+    id: 'saturn',
     name: 'Saturno',
     title: 'Contacto',
     description:
       'Conectemos. Si querés colaborar, contratarme o simplemente charlar de ideas.',
-    colorVar: 'var(--color-saturno)',
-    orbitVar: 'var(--orbit-saturno)',
+    colorVar: 'var(--color-saturn)',
+    orbitVar: 'var(--orbit-saturn)',
     size: '30px',
     projects: [],
   },
   {
-    id: 'urano',
+    id: 'uranus',
     name: 'Urano',
     title: 'Reflexión final',
     description:
       'Mi paso por Creatividad Publicitaria: lo que aprendí, los desafíos y lo que me llevo.',
-    colorVar: 'var(--color-urano)',
-    orbitVar: 'var(--orbit-urano)',
+    colorVar: 'var(--color-uranus)',
+    orbitVar: 'var(--orbit-uranus)',
     size: '20px',
     projects: [
       {
@@ -147,13 +147,13 @@ export const planets: PlanetContent[] = [
     ],
   },
   {
-    id: 'neptuno',
+    id: 'neptune',
     name: 'Neptuno',
     title: 'Extras',
     description:
       'Hobbies, intereses y todo lo que me inspira fuera del aula.',
-    colorVar: 'var(--color-neptuno)',
-    orbitVar: 'var(--orbit-neptuno)',
+    colorVar: 'var(--color-neptune)',
+    orbitVar: 'var(--orbit-neptune)',
     size: '18px',
     projects: [],
   },
