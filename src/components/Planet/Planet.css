@@ -49,7 +49,7 @@
       &::before {
         border-radius: 50%;
         content: '';
-        inset: calc(var(--planet-size) * -0.3);
+        inset: calc(var(--planet-size) * -1);
         position: absolute;
       }
 
