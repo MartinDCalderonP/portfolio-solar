@@ -42,6 +42,10 @@
   width: 100%;
 }
 
+.sun-core svg text {
+  text-shadow: var(--text-stroke);
+}
+
 .sun-flare {
   animation: sun-flare-pulse 4s ease-in-out infinite;
   animation-delay: calc(var(--i, 0) * -1.5s);
@@ -60,6 +64,7 @@
   letter-spacing: 2px;
   pointer-events: none;
   position: absolute;
+  text-shadow: var(--text-stroke);
   text-transform: uppercase;
   top: calc(100% + 6px);
   transform: translateX(-50%);

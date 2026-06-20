@@ -24,6 +24,7 @@
   --orbit-earth: 170px;
   --orbit-uranus: 440px;
   --orbit-venus: 120px;
+  --text-stroke: -1px -1px 0 var(--color-bg), 1px -1px 0 var(--color-bg), -1px 1px 0 var(--color-bg), 1px 1px 0 var(--color-bg);
   --z-header: 3;
   --z-modal: 10;
   --z-spaceship: 1;
