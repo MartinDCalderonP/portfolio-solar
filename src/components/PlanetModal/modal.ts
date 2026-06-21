@@ -67,6 +67,18 @@ const renderProjects = (projects: Project[]): void => {
   });
 };
 
+const renderDescription = (text: string): void => {
+  modalDescription.innerHTML = '';
+
+  text.split('\n\n').forEach((paragraph) => {
+    const paragraphEl = document.createElement('p');
+
+    paragraphEl.className = 'modal-description-paragraph';
+    paragraphEl.textContent = paragraph;
+    modalDescription.append(paragraphEl);
+  });
+};
+
 const openPlanet = (id: string): void => {
   const planet = planets.find(({ id: planetId }) => planetId === id);
 
@@ -74,7 +86,7 @@ const openPlanet = (id: string): void => {
 
   modalTitle.textContent = planet.name;
   modalSubtitle.textContent = planet.title;
-  modalDescription.textContent = planet.description;
+  renderDescription(planet.description);
   renderProjects(planet.projects ?? []);
 
   embedWrapper.innerHTML = '';
