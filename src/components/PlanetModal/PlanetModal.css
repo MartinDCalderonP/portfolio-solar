@@ -64,6 +64,19 @@
         }
       }
 
+      .modal-subtitle {
+        color: var(--color-text-dim);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+
+        @media (min-width: 601px) {
+          font-size: 13px;
+        }
+      }
+
       .modal-close {
         align-items: center;
         background: none;

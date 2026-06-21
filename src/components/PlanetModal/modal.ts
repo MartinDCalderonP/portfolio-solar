@@ -18,6 +18,7 @@ const planets: PlanetContent[] = JSON.parse(
   modal.dataset.planets ?? '[]',
 );
 const modalTitle = getElementOrThrow('modal-title');
+const modalSubtitle = getElementOrThrow('modal-subtitle');
 const modalDescription = getElementOrThrow('modal-description');
 const modalProjects = getElementOrThrow('modal-projects');
 const closeButton = document.getElementById('modal-close');
@@ -72,6 +73,7 @@ const openPlanet = (id: string): void => {
   if (!planet) return;
 
   modalTitle.textContent = planet.name;
+  modalSubtitle.textContent = planet.title;
   modalDescription.textContent = planet.description;
   renderProjects(planet.projects);
 
