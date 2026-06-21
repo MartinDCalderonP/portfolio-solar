@@ -75,7 +75,7 @@ const openPlanet = (id: string): void => {
   modalTitle.textContent = planet.name;
   modalSubtitle.textContent = planet.title;
   modalDescription.textContent = planet.description;
-  renderProjects(planet.projects);
+  renderProjects(planet.projects ?? []);
 
   embedWrapper.innerHTML = '';
 

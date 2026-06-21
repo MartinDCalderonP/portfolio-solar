@@ -11,7 +11,7 @@ export interface PlanetContent {
   id: string;
   name: string;
   orbitVar: string;
-  projects: Project[];
+  projects?: Project[];
   size: string;
   song: string;
   title: string;
@@ -30,7 +30,6 @@ export const planets: PlanetContent[] = [
     size: '80px',
     song: 'Here Comes the Sun — The Beatles',
     youtubeId: 'KQetemT1sWc',
-    projects: [],
   },
   {
     id: 'mercury',
@@ -43,7 +42,6 @@ export const planets: PlanetContent[] = [
     size: '16px',
     song: 'Mr. Bad Guy — Freddie Mercury',
     youtubeId: 'v_Mb25ASCr8',
-    projects: [],
   },
   {
     id: 'venus',
@@ -56,7 +54,6 @@ export const planets: PlanetContent[] = [
     size: '22px',
     song: 'The Final Countdown — Europe',
     youtubeId: '9jK-NcRmVcw',
-    projects: [],
   },
   {
     id: 'earth',
@@ -141,7 +138,6 @@ export const planets: PlanetContent[] = [
     size: '30px',
     song: 'El anillo del Capitán Beto — Invisible',
     youtubeId: '38jG_1bELEs',
-    projects: [],
   },
   {
     id: 'uranus',
@@ -175,6 +171,5 @@ export const planets: PlanetContent[] = [
     size: '18px',
     song: 'Sal — Cerati',
     youtubeId: '50j63cIBcvs',
-    projects: [],
   },
 ];
