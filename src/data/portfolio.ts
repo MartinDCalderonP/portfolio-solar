@@ -1,5 +1,3 @@
-import { AUTHOR_NAME } from '../constants';
-
 export interface Project {
   id: string;
   title: string;
@@ -24,9 +22,9 @@ export const planets: PlanetContent[] = [
   {
     id: 'sun',
     name: 'Sol',
-    title: AUTHOR_NAME,
+    title: 'Bienvenido!',
     description:
-      'Centro creativo del sistema. Estudiante de Comunicación apasionado por la publicidad, el diseño y contar historias que conectan.',
+      'Bienvenido a mi portfolio solar. Soy Martín, nombre que viene de Martinus, dios romano de la guerra. Este sitio recorre mi viaje por Creatividad Publicitaria, planeta por planeta.',
     colorVar: 'var(--color-sun)',
     orbitVar: 'var(--orbit-sun)',
     size: '80px',
@@ -37,9 +35,9 @@ export const planets: PlanetContent[] = [
   {
     id: 'mercury',
     name: 'Mercurio',
-    title: 'Skills & Herramientas',
+    title: 'Experiencia',
     description:
-      'Las herramientas que uso para dar vida a las ideas. Siempre aprendiendo y sumando nuevas.',
+      'Mi recorrido en el mundo de la comunicación y la publicidad.',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
@@ -50,9 +48,9 @@ export const planets: PlanetContent[] = [
   {
     id: 'venus',
     name: 'Venus',
-    title: 'Sobre mí',
+    title: 'Skills & Herramientas',
     description:
-      'Creativo en formación, curioso por naturaleza. Me gusta encontrar el concepto detrás de cada idea y llevarlo a cabo con atención al detalle.',
+      'Las herramientas que uso para dar vida a las ideas.',
     colorVar: 'var(--color-venus)',
     orbitVar: 'var(--orbit-venus)',
     size: '22px',
@@ -85,7 +83,7 @@ export const planets: PlanetContent[] = [
     name: 'Marte',
     title: 'Proyectos destacados',
     description:
-      'Mis trabajos más relevantes. Piezas publicitarias, campañas y proyectos creativos.',
+      'Mis trabajos más relevantes. De Marte vengo —literalmente— y estas son mis piezas.',
     colorVar: 'var(--color-mars)',
     orbitVar: 'var(--orbit-mars)',
     size: '28px',
@@ -115,9 +113,9 @@ export const planets: PlanetContent[] = [
   {
     id: 'jupiter',
     name: 'Júpiter',
-    title: 'Experiencia',
+    title: 'Sobre mí',
     description:
-      'Experiencia laboral y colaboraciones en el mundo de la comunicación y la publicidad.',
+      'Vengo llegando de Marte, donde dejé mis proyectos. Acá va un poco más sobre quién soy.',
     colorVar: 'var(--color-jupiter)',
     orbitVar: 'var(--orbit-jupiter)',
     size: '36px',
@@ -135,9 +133,9 @@ export const planets: PlanetContent[] = [
   {
     id: 'saturn',
     name: 'Saturno',
-    title: 'Contacto',
+    title: 'Reflexión final',
     description:
-      'Conectemos. Si querés colaborar, contratarme o simplemente charlar de ideas.',
+      'Mi paso por Creatividad Publicitaria: lo que aprendí, los desafíos y lo que me llevo.',
     colorVar: 'var(--color-saturn)',
     orbitVar: 'var(--orbit-saturn)',
     size: '30px',
@@ -148,9 +146,9 @@ export const planets: PlanetContent[] = [
   {
     id: 'uranus',
     name: 'Urano',
-    title: 'Reflexión final',
+    title: 'Contacto',
     description:
-      'Mi paso por Creatividad Publicitaria: lo que aprendí, los desafíos y lo que me llevo.',
+      'Conectemos. Si querés colaborar, contratarme o simplemente charlar de ideas.',
     colorVar: 'var(--color-uranus)',
     orbitVar: 'var(--orbit-uranus)',
     size: '20px',
