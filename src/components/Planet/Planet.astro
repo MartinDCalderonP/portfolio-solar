@@ -25,7 +25,6 @@ const ROTATION_DURATION_MIN = 2;
 const orbitRadiusValue = orbitVar;
 const durationDefault = (index + 1) * ORBIT_DURATION_MULTIPLIER + ORBIT_DURATION_OFFSET;
 const selfDuration = Math.max(ROTATION_DURATION_MIN, ROTATION_DURATION_BASE - index);
-const isMars = id === 'mars';
 const isSun = id === 'sun';
 ---
 
@@ -57,7 +56,7 @@ const isSun = id === 'sun';
         tabindex="0"
       >
         <div
-          class={`planet-dot${isMars ? ' mars' : ''}`}
+          class="planet-dot"
           style={{
             '--planet-color': colorVar,
             '--self-duration': `${selfDuration}s`,

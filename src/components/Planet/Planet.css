@@ -53,15 +53,6 @@
         position: absolute;
       }
 
-      &.mars {
-        animation: rotate-self var(--self-duration) linear infinite, mars-pulse 2s ease-in-out infinite;
-        box-shadow: var(--glow-mars);
-
-        &:hover {
-          box-shadow: 0 0 30px 12px rgba(212, 68, 42, 0.8);
-        }
-      }
-
       &:hover {
         box-shadow: 0 0 20px 8px color-mix(in srgb, var(--planet-color) 60%, transparent);
         scale: 1.5;
@@ -96,12 +87,6 @@
 
 @keyframes rotate-self {
   to { transform: rotate(360deg); }
-}
-
-@keyframes mars-pulse {
-  0%,
-  100% { box-shadow: 0 0 20px 5px rgba(212, 68, 42, 0.6); }
-  50% { box-shadow: 0 0 35px 12px rgba(212, 68, 42, 0.9); }
 }
 
 @keyframes counter-spin {
