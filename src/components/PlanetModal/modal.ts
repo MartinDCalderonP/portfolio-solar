@@ -24,20 +24,26 @@ const modalProjects = getElementOrThrow('modal-projects');
 const closeButton = document.getElementById('modal-close');
 const embedWrapper = getElementOrThrow('embed-wrapper');
 
-const createProjectCard = (project: Project): HTMLDivElement => {
+const createProjectCard = ({
+  description,
+  link,
+  logo,
+  title,
+  year,
+}: Project): HTMLDivElement => {
   const card = document.createElement('div');
 
   card.className = 'project-card';
 
-  if (project.logo) {
+  if (logo) {
     const imageWrapper = document.createElement('div');
 
     imageWrapper.className = 'project-card-image';
 
     const image = document.createElement('img');
 
-    image.alt = project.title;
-    image.src = project.logo;
+    image.alt = title;
+    image.src = logo;
     imageWrapper.append(image);
     card.append(imageWrapper);
   }
@@ -46,30 +52,30 @@ const createProjectCard = (project: Project): HTMLDivElement => {
 
   body.className = 'project-card-body';
 
-  const title = document.createElement('div');
+  const titleEl = document.createElement('div');
 
-  title.className = 'project-card-title';
-  title.textContent = `${project.title} (${project.year})`;
-  body.append(title);
+  titleEl.className = 'project-card-title';
+  titleEl.textContent = `${title} (${year})`;
+  body.append(titleEl);
 
-  const description = document.createElement('div');
+  const descriptionEl = document.createElement('div');
 
-  description.className = 'project-card-description';
-  description.textContent = project.description;
-  body.append(description);
+  descriptionEl.className = 'project-card-description';
+  descriptionEl.textContent = description;
+  body.append(descriptionEl);
 
-  if (project.link) {
-    const link = document.createElement('a');
+  if (link) {
+    const linkEl = document.createElement('a');
 
-    link.className = 'project-link';
-    link.href = project.link;
-    link.rel = 'noopener noreferrer';
-    link.target = '_blank';
+    linkEl.className = 'project-link';
+    linkEl.href = link;
+    linkEl.rel = 'noopener noreferrer';
+    linkEl.target = '_blank';
 
-    const isSpotify = project.link.includes('open.spotify.com');
+    const isSpotify = link.includes('open.spotify.com');
 
-    link.textContent = isSpotify ? 'Escuchar en Spotify 🎙️' : 'Ver proyecto 🔗';
-    body.append(link);
+    linkEl.textContent = isSpotify ? 'Escuchar en Spotify 🎙️' : 'Ver proyecto 🔗';
+    body.append(linkEl);
   }
 
   card.append(body);
