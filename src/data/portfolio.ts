@@ -234,6 +234,12 @@ export const planets: PlanetContent[] = [
         description: 'ET N°17 DE 13 Brigadier General Cornelio Saavedra. Formación técnica en construcción, diseño arquitectónico y planos. 2006 - 2012.',
         year: 2012,
       },
+      {
+        id: 'refrigeracion',
+        title: 'Técnico Superior en Sistemas de Refrigeración',
+        description: 'Centro de Educación No Formal Venezuela. Formación técnica en sistemas de refrigeración y climatización. 2018.',
+        year: 2018,
+      },
     ],
   },
   {
