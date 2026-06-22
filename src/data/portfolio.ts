@@ -2,6 +2,7 @@ export interface Project {
   description: string;
   id: string;
   link?: string;
+  logo?: string;
   title: string;
   year: number;
 }
@@ -37,7 +38,7 @@ export const planets: PlanetContent[] = [
     name: 'Mercurio',
     title: 'Experiencia',
     description:
-      'A lo largo de la cursada fui sumando trabajos que me formaron como comunicador. Desde proyectos grupales hasta producciones propias, cada uno me enseñó algo distinto.',
+      'A lo largo de la cursada fui sumando trabajos que me formaron como comunicador. Desde proyectos grupales hasta producciones propias, cada uno me enseñó algo distinto. El diseño (gráfico, arquitectónico, conceptual) siempre estuvo presente de alguna forma.',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
@@ -56,7 +57,14 @@ export const planets: PlanetContent[] = [
         title: 'Chapa a Mano',
         description: 'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
         link: 'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view',
-        year: 2023,
+        year: 2022,
+      },
+      {
+        id: 'centro-cultural',
+        title: 'Centro Cultural',
+        description: 'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
+        link: 'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view',
+        year: 2016,
       },
     ],
   },
@@ -65,12 +73,85 @@ export const planets: PlanetContent[] = [
     name: 'Venus',
     title: 'Skills & Herramientas',
     description:
-      'Las herramientas que uso para dar vida a las ideas.',
+      'A lo largo de los años fui acumulando herramientas de distintos ámbitos (diseño, programación, comunicación, producción audiovisual, redacción y liderazgo) que hoy conviven y se potencian en mi perfil profesional.',
     colorVar: 'var(--color-venus)',
     orbitVar: 'var(--orbit-venus)',
     size: '22px',
     song: 'The Final Countdown — Europe',
     youtubeId: '9jK-NcRmVcw',
+    projects: [
+      {
+        id: 'autocad',
+        title: 'AutoCAD',
+        description: 'Diseño asistido por computadora para proyectos arquitectónicos.',
+        logo: '/logos/autocad.png',
+        year: 2008,
+      },
+      {
+        id: 'redaccion-opinion',
+        title: 'Redacción de textos de opinión',
+        description: 'Escritura de columnas y artículos de opinión para medios digitales e impresos.',
+        year: 2012,
+      },
+      {
+        id: 'java',
+        title: 'Java',
+        description: 'Programación orientada a objetos.',
+        logo: '/logos/java.png',
+        year: 2018,
+      },
+      {
+        id: 'javascript',
+        title: 'JavaScript',
+        description: 'Desarrollo web dinámico e interactivo.',
+        logo: '/logos/javascript.png',
+        year: 2019,
+      },
+      {
+        id: 'react',
+        title: 'React',
+        description: 'Desarrollo de interfaces web modernas.',
+        logo: '/logos/react.png',
+        year: 2020,
+      },
+      {
+        id: 'audacity',
+        title: 'Audacity',
+        description: 'Edición y producción de audio.',
+        logo: '/logos/audacity.png',
+        year: 2021,
+      },
+      {
+        id: 'conceptualizacion',
+        title: 'Conceptualización creativa',
+        description: 'Desarrollo de conceptos e ideas para campañas y proyectos.',
+        year: 2022,
+      },
+      {
+        id: 'redaccion-periodistica',
+        title: 'Redacción de textos periodísticos',
+        description: 'Redacción de noticias, crónicas y contenido editorial para distintos soportes.',
+        year: 2022,
+      },
+      {
+        id: 'liderazgo',
+        title: 'Liderazgo de equipos de trabajo',
+        description: 'Coordinación y gestión de equipos en proyectos multidisciplinarios.',
+        year: 2022,
+      },
+      {
+        id: 'copywriting',
+        title: 'Copywriting',
+        description: 'Redacción publicitaria y creativa.',
+        year: 2023,
+      },
+      {
+        id: 'locucion',
+        title: 'Locución',
+        description: 'Locución y narración para proyectos audiovisuales.',
+        year: 2023,
+      },
+    ],
   },
   {
     id: 'earth',

@@ -29,17 +29,34 @@ const createProjectCard = (project: Project): HTMLDivElement => {
 
   card.className = 'project-card';
 
+  if (project.logo) {
+    const imageWrapper = document.createElement('div');
+
+    imageWrapper.className = 'project-card-image';
+
+    const image = document.createElement('img');
+
+    image.alt = project.title;
+    image.src = project.logo;
+    imageWrapper.append(image);
+    card.append(imageWrapper);
+  }
+
+  const body = document.createElement('div');
+
+  body.className = 'project-card-body';
+
   const title = document.createElement('div');
 
   title.className = 'project-card-title';
   title.textContent = `${project.title} (${project.year})`;
-  card.append(title);
+  body.append(title);
 
   const description = document.createElement('div');
 
   description.className = 'project-card-description';
   description.textContent = project.description;
-  card.append(description);
+  body.append(description);
 
   if (project.link) {
     const link = document.createElement('a');
@@ -52,8 +69,10 @@ const createProjectCard = (project: Project): HTMLDivElement => {
     const isSpotify = project.link.includes('open.spotify.com');
 
     link.textContent = isSpotify ? 'Escuchar en Spotify 🎙️' : 'Ver proyecto 🔗';
-    card.append(link);
+    body.append(link);
   }
+
+  card.append(body);
 
   return card;
 };
