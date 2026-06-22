@@ -270,6 +270,14 @@ export const planets: PlanetContent[] = [
     youtubeId: '9vaA8WTzmSo',
     projects: [
       {
+        id: 'anccom',
+        title: 'Agencia de Noticias de la Carrera de Comunicación (ANCCom)',
+        description:
+          'Web que diseñé con notas periodísticas que redacté para la Agencia de Noticias de la Carrera de Comunicación (ANCCom) de la UBA.',
+        links: ['https://news-martin-calderon.vercel.app/'],
+        year: 2025
+      },
+      {
         id: 'contienda-podcast',
         title: 'Contienda Podcast',
         description:
