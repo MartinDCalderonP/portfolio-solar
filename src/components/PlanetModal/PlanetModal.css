@@ -119,6 +119,10 @@
       }
     }
 
+      #modal-projects > .link-button {
+      margin: 0 8px 8px 0;
+    }
+
     .modal-song {
       color: var(--color-text-dim);
       font-size: 13px;
