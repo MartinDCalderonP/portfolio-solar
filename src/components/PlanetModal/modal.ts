@@ -48,7 +48,10 @@ const createProjectCard = (project: Project): HTMLDivElement => {
     link.href = project.link;
     link.rel = 'noopener noreferrer';
     link.target = '_blank';
-    link.textContent = 'Escuchar en Spotify 🎙️';
+
+    const isSpotify = project.link.includes('open.spotify.com');
+
+    link.textContent = isSpotify ? 'Escuchar en Spotify 🎙️' : 'Ver proyecto 🔗';
     card.append(link);
   }
 

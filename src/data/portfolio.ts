@@ -51,6 +51,13 @@ export const planets: PlanetContent[] = [
         link: 'https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL',
         year: 2023,
       },
+      {
+        id: 'chapa-a-mano',
+        title: 'Chapa a Mano',
+        description: 'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
+        link: 'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view',
+        year: 2023,
+      },
     ],
   },
   {
