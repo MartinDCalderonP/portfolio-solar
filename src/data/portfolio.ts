@@ -1,3 +1,11 @@
+export interface Experience {
+  description?: string;
+  endDate: string;
+  id: string;
+  startDate: string;
+  title: string;
+}
+
 export interface Project {
   description?: string;
   id: string;
@@ -10,6 +18,7 @@ export interface Project {
 export interface PlanetContent {
   colorVar: string;
   description: string;
+  experiences?: Experience[];
   id: string;
   name: string;
   orbitVar: string;
@@ -36,35 +45,63 @@ export const planets: PlanetContent[] = [
   {
     id: 'mercury',
     name: 'Mercurio',
-    title: 'Experiencia',
+    title: 'Experiencia profesional',
     description:
-      'A lo largo de la cursada fui sumando trabajos que me formaron como comunicador. Desde proyectos grupales hasta producciones propias, cada uno me enseñó algo distinto. El diseño (gráfico, arquitectónico, conceptual) siempre estuvo presente de alguna forma. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día.',
+      'A lo largo de los años fui sumando experiencia en el mundo del desarrollo web, trabajando con clientes de todo el mundo y en equipos de distinto tamaño. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día.',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
     song: 'Mr. Bad Guy — Freddie Mercury',
     youtubeId: 'v_Mb25ASCr8',
-    projects: [
+    experiences: [
       {
-        id: 'contienda-podcast',
-        title: 'Contienda Podcast',
-        description: 'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
-        link: 'https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL',
-        year: 2023,
+        id: 'globant',
+        title: 'Globant - Full Stack Developer',
+        description: '- Desarrollé una aplicación web a medida para franquicias, centrándome en el rendimiento y la escalabilidad.\n- Mejoré los procesos de CI/CD y las pruebas para garantizar la fiabilidad del proyecto.\n- Creé una herramienta de IA para responder a los clientes de forma natural.\n- Principales tecnologías: Python, React, Jest, TypeScript y Material UI.',
+        startDate: 'Octubre 2025',
+        endDate: 'Presente',
       },
       {
-        id: 'chapa-a-mano',
-        title: 'Chapa a Mano',
-        description: 'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
-        link: 'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view',
-        year: 2022,
+        id: 'freelance',
+        title: 'Contractor / Freelance - Full Stack Developer',
+        description: '- Lideré el desarrollo de aplicaciones web full stack, trabajando principalmente en proyectos desde cero y algunos legados.\n- Diseñé y consumí APIs REST, utilicé WebSockets y Service Workers para notificaciones en apps PWA.\n- Coordiné equipos, organicé reuniones de intercambio técnico, formé a perfiles junior y colaboré en la resolución de bloqueos.\n- Administré pipelines CI/CD, estructuré proyectos desde su inicio y tomé requerimientos directamente con partners.\n- Diseñé interfaces y prototipos en Figma y Adobe XD.',
+        startDate: 'Agosto 2020',
+        endDate: 'Presente',
       },
       {
-        id: 'centro-cultural',
-        title: 'Centro Cultural',
-        description: 'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
-        link: 'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view',
-        year: 2016,
+        id: 'goama',
+        title: 'Goama - Front End Developer',
+        description: '- Me reuní regularmente con partners de Latinoamérica y Europa para relevar necesidades de negocio y adaptar la plataforma a cada mercado.\n- Implementé tests unitarios con Vitest, mejorando la estabilidad del código y su mantenimiento.\n- Optimicé el rendimiento de la interfaz mediante estrategias de renderizado eficientes.\n- Reduje en un 30% el tiempo de onboarding de nuevos clientes gracias a mejoras en los flujos y documentación personalizada.\n- Diseñé interfaces y definí la experiencia de usuario en la plataforma.\n- Desarrollé soluciones escalables ajustadas a los requerimientos técnicos y comerciales de cada región.\n- Principales tecnologías: React, Redux, TypeScript, CSS & Vite.',
+        startDate: 'Junio 2023',
+        endDate: 'Agosto 2025',
+      },
+      {
+        id: 'openbusiness',
+        title: 'OpenBusiness.AR - Front End Team Leader',
+        description: '- Lideré un equipo de desarrollo para construir una plataforma de inversión completa, definiendo el roadmap técnico y formando a desarrolladores junior.\n- Aseguré la calidad del código mediante revisiones regulares y fomenté espacios de intercambio de conocimiento.\n- Entregamos el proyecto dos semanas antes de lo previsto, mejorando el engagement con una interfaz intuitiva y altamente responsiva.\n- Principales tecnologías: React, TanStack Query, TypeScript & CSS Modules.',
+        startDate: 'Marzo 2023',
+        endDate: 'Julio 2023',
+      },
+      {
+        id: 'inventa',
+        title: 'Inventa - Software Engineer',
+        description: '- Desarrollé desde cero un sitio de e-commerce y su sistema de backoffice, con foco en rendimiento y escalabilidad.\n- Reduje los tiempos de carga en más de un 40% e implementé un sistema de diseño modular que facilitó el mantenimiento futuro.\n- Incorporé testing con Jest y Cypress, aumentando la confiabilidad y seguridad del proyecto.\n- Principales tecnologías: React, Next, JavaScript, TypeScript & Tailwind CSS.',
+        startDate: 'Febrero 2022',
+        endDate: 'Octubre 2022',
+      },
+      {
+        id: 'nlc-consultores',
+        title: 'NLC Consultores - Arquitectura',
+        description: '- Diseño y dibujo de planos en AutoCAD.\n- Asistencia a locales para relevamiento de medidas.\n- Trámites de diverso tipo, presencial y online.',
+        startDate: 'Enero 2012',
+        endDate: 'Diciembre 2018',
+      },
+      {
+        id: 'applaudo',
+        title: 'Applaudo Studios - React Developer',
+        description: '- Creación de numerosas aplicaciones web para diferentes fines.\n- Tecnologías principales: React, Next, Gatsby, JavaScript, TypeScript & Styled Components.',
+        startDate: 'Septiembre 2021',
+        endDate: 'Diciembre 2021',
       },
     ],
   },
@@ -204,7 +241,7 @@ export const planets: PlanetContent[] = [
     name: 'Marte',
     title: 'Proyectos destacados',
     description:
-      'Mis trabajos más relevantes. De Marte vengo —literalmente— y estas son mis piezas.',
+      'Proyectos académicos y personales que fui haciendo a lo largo de la carrera y que reflejan distintas facetas de mi formación como comunicador.',
     colorVar: 'var(--color-mars)',
     orbitVar: 'var(--orbit-mars)',
     size: '28px',
@@ -212,22 +249,25 @@ export const planets: PlanetContent[] = [
     youtubeId: '9vaA8WTzmSo',
     projects: [
       {
-        id: 'proyecto-1',
-        title: 'Campaña Concientización',
-        description: 'Pieza publicitaria para una ONG ambiental. Concepto, copy y dirección de arte.',
-        year: 2025,
+        id: 'contienda-podcast',
+        title: 'Contienda Podcast',
+        description: 'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
+        link: 'https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL',
+        year: 2023,
       },
       {
-        id: 'proyecto-2',
-        title: 'Rediseño de Marca',
-        description: 'Rebranding para un emprendimiento local. Identidad visual completa.',
-        year: 2024,
+        id: 'chapa-a-mano',
+        title: 'Chapa a Mano',
+        description: 'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
+        link: 'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view',
+        year: 2022,
       },
       {
-        id: 'proyecto-3',
-        title: 'Spot Audiovisual',
-        description: 'Producción y edición de un spot para redes sociales. Desde el guión hasta la post.',
-        year: 2025,
+        id: 'centro-cultural',
+        title: 'Centro Cultural',
+        description: 'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
+        link: 'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view',
+        year: 2016,
       },
     ],
   },

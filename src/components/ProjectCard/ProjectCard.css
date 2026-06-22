@@ -37,7 +37,14 @@
   .project-card-title {
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+  }
+
+  .experience-date {
+    color: var(--color-text-dim);
+    font-size: 12px;
+    margin-bottom: 10px;
+    opacity: 0.7;
   }
 
   .project-card-description {
@@ -45,6 +52,7 @@
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 10px;
+    white-space: pre-wrap;
   }
 }
 

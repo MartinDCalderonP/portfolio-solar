@@ -2,7 +2,7 @@ import '@justinribeiro/lite-youtube';
 import '../Chip/Chip.css';
 import '../LinkButton/LinkButton.css';
 
-import type { PlanetContent, Project } from '../../data/portfolio';
+import type { Experience, PlanetContent, Project } from '../../data/portfolio';
 
 const ENTER_KEY = 'Enter';
 const SPACE_KEY = ' ';
@@ -11,6 +11,21 @@ const LINKEDIN_HOST = 'linkedin.com';
 const TWITTER_HOSTS = ['x.com', 'twitter.com'];
 const GITHUB_HOST = 'github.com';
 const MAIL_PROTOCOL = 'mailto:';
+
+const MONTH_RANK: Record<string, number> = {
+  Enero: 1,
+  Febrero: 2,
+  Marzo: 3,
+  Abril: 4,
+  Mayo: 5,
+  Junio: 6,
+  Julio: 7,
+  Agosto: 8,
+  Septiembre: 9,
+  Octubre: 10,
+  Noviembre: 11,
+  Diciembre: 12,
+};
 
 const LINK_LABELS: Record<string, string> = {
   spotify: 'Escuchar en Spotify 🎙️',
@@ -43,6 +58,63 @@ const createLinkElement = (link: string): HTMLAnchorElement => {
   return element;
 };
 
+const DATE_RANK_MULTIPLIER = 100;
+
+const getDateRank = (date: string): number => {
+  const [month, year] = date.split(' ');
+
+  return Number.parseInt(year) * DATE_RANK_MULTIPLIER + (MONTH_RANK[month] ?? 0);
+};
+
+const createExperienceCard = ({
+  description,
+  endDate,
+  startDate,
+  title,
+}: Experience): HTMLDivElement => {
+  const card = document.createElement('div');
+
+  card.className = 'project-card';
+
+  const body = document.createElement('div');
+
+  body.className = 'project-card-body';
+
+  const titleEl = document.createElement('div');
+
+  titleEl.className = 'project-card-title';
+  titleEl.textContent = title;
+  body.append(titleEl);
+
+  const dateEl = document.createElement('div');
+
+  dateEl.className = 'experience-date';
+  dateEl.textContent = `${startDate} - ${endDate}`;
+  body.append(dateEl);
+
+  if (description) {
+    const descriptionEl = document.createElement('div');
+
+    descriptionEl.className = 'project-card-description';
+    descriptionEl.textContent = description;
+    body.append(descriptionEl);
+  }
+
+  card.append(body);
+
+  return card;
+};
+
+const renderExperiences = (experiences: Experience[]): void => {
+  const sortedExperiences = [...experiences].sort(({ startDate: a }, { startDate: b }) => {
+    return getDateRank(b) - getDateRank(a);
+  });
+
+  sortedExperiences.forEach((experience) => {
+    modalExperiences.append(createExperienceCard(experience));
+  });
+};
+
 const getElementOrThrow = (id: string): HTMLElement => {
   const element = document.getElementById(id);
 
@@ -59,6 +131,7 @@ const modalTitle = getElementOrThrow('modal-title');
 const modalSubtitle = getElementOrThrow('modal-subtitle');
 const modalDescription = getElementOrThrow('modal-description');
 const modalProjects = getElementOrThrow('modal-projects');
+const modalExperiences = getElementOrThrow('modal-experiences');
 const closeButton = document.getElementById('modal-close');
 const embedWrapper = getElementOrThrow('embed-wrapper');
 
@@ -131,8 +204,6 @@ const createProjectCard = ({
 };
 
 const renderProjects = (projects: Project[]): void => {
-  modalProjects.innerHTML = '';
-
   const sortedProjects = [...projects].sort(({ year: a }, { year: b }) => (b ?? 0) - (a ?? 0));
 
   sortedProjects.forEach((project) => {
@@ -159,8 +230,11 @@ const openPlanet = (id: string): void => {
 
   modalTitle.textContent = planet.name;
   modalSubtitle.textContent = planet.title;
+  modalProjects.innerHTML = '';
+  modalExperiences.innerHTML = '';
   renderDescription(planet.description);
   renderProjects(planet.projects ?? []);
+  renderExperiences(planet.experiences ?? []);
 
   embedWrapper.innerHTML = '';
 
