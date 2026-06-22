@@ -49,7 +49,7 @@ export const planets: PlanetContent[] = [
         title: 'Contienda Podcast',
         description: 'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
         link: 'https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL',
-        year: 2022,
+        year: 2023,
       },
     ],
   },
