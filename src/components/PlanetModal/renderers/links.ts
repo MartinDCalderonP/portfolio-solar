@@ -9,19 +9,22 @@ const MAIL_PROTOCOL = 'mailto:'
 const DEFAULT_LABEL = 'Ver proyecto 🔗'
 
 interface LinkPattern {
-  label: string;
-  test: (link: string) => boolean;
+  label: string
+  test: (link: string) => boolean
 }
 
 const LINK_PATTERNS: LinkPattern[] = [
-  { label: 'Escuchar en Spotify 🎙️', test: (link) => link.includes(SPOTIFY_HOST) },
+  {
+    label: 'Escuchar en Spotify 🎙️',
+    test: (link) => link.includes(SPOTIFY_HOST)
+  },
   { label: 'LinkedIn 🔗', test: (link) => link.includes(LINKEDIN_HOST) },
   {
     label: 'X / Twitter 🐦',
-    test: (link) => TWITTER_HOSTS.some((host) => link.includes(host)),
+    test: (link) => TWITTER_HOSTS.some((host) => link.includes(host))
   },
   { label: 'GitHub 🔗', test: (link) => link.includes(GITHUB_HOST) },
-  { label: 'Enviar correo 📧', test: (link) => link.startsWith(MAIL_PROTOCOL) },
+  { label: 'Enviar correo 📧', test: (link) => link.startsWith(MAIL_PROTOCOL) }
 ]
 
 interface GetLinkLabelParams {
