@@ -26,7 +26,9 @@ const initSharedAnalyser = (audio: HTMLAudioElement): void => {
 }
 
 const createGreetingButton = (): HTMLButtonElement => {
-  const audio = document.getElementById(GREETING_AUDIO_ID) as HTMLAudioElement | null
+  const audio = document.getElementById(
+    GREETING_AUDIO_ID
+  ) as HTMLAudioElement | null
   const button = document.createElement('button')
   const icon = document.createElement('span')
 
@@ -58,10 +60,11 @@ const createGreetingButton = (): HTMLButtonElement => {
     for (const value of dataArray) sum += value
 
     const energy = sum / dataArray.length / 255
-    const radius = MIN_GLOW_RADIUS + energy * (MAX_GLOW_RADIUS - MIN_GLOW_RADIUS)
+    const radius =
+      MIN_GLOW_RADIUS + energy * (MAX_GLOW_RADIUS - MIN_GLOW_RADIUS)
     const alpha = MIN_GLOW_ALPHA + energy * (MAX_GLOW_ALPHA - MIN_GLOW_ALPHA)
 
-    button.style.boxShadow = `0 0 ${radius}px color-mix(in srgb, var(--color-sun) ${alpha * 100}%, transparent)`
+    button.style.boxShadow = `0 0 ${radius}px color-mix(in srgb, var(--color-sun) ${alpha * 100}%, transparent), inset 0 0 ${radius * 0.5}px color-mix(in srgb, var(--color-sun) ${alpha * 60}%, transparent)`
 
     if (!audio.paused) animationId = requestAnimationFrame(updateGlow)
   }
