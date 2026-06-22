@@ -1,5 +1,6 @@
 ---
 import { planets } from '../../data/portfolio';
+import ModalContent from '../ModalContent/ModalContent.astro';
 import ModalNavButton from '../ModalNavButton/ModalNavButton.astro';
 import '../ProjectCard/ProjectCard.css';
 import './PlanetModal.css';
@@ -8,18 +9,7 @@ import './PlanetModal.css';
 <dialog class="modal" id="planet-modal" data-planets={JSON.stringify(planets)}>
   <ModalNavButton direction="prev" />
   <ModalNavButton direction="next" />
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2 class="modal-title" id="modal-title" />
-      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
-    </div>
-    <p class="modal-subtitle" id="modal-subtitle" />
-    <p class="modal-description" id="modal-description" />
-    <p class="modal-song">🎵 Música que escuché mientras hacía esta sección:</p>
-    <div class="embed-wrapper" id="embed-wrapper" />
-    <div id="modal-projects" />
-    <div id="modal-experiences" />
-  </div>
+  <ModalContent />
 </dialog>
 
 <script>

@@ -1,0 +1,35 @@
+.modal-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .modal-title {
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 700;
+
+    @media (min-width: 601px) {
+      font-size: 24px;
+    }
+  }
+
+  .modal-close {
+    align-items: center;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 32px;
+    justify-content: center;
+    transition: background 0.2s ease;
+    width: 32px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

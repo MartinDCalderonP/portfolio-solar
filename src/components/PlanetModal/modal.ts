@@ -1,121 +1,12 @@
 import '@justinribeiro/lite-youtube';
-import '../Chip/Chip.css';
-import '../LinkButton/LinkButton.css';
 
-import type { Experience, PlanetContent, Project } from '../../data/portfolio';
+import type { PlanetContent } from '../../data/portfolio';
 
-const ARROW_LEFT = 'ArrowLeft';
-const ARROW_RIGHT = 'ArrowRight';
-const ENTER_KEY = 'Enter';
-const SPACE_KEY = ' ';
-const SPOTIFY_HOST = 'open.spotify.com';
-const LINKEDIN_HOST = 'linkedin.com';
-const TWITTER_HOSTS = ['x.com', 'twitter.com'];
-const GITHUB_HOST = 'github.com';
-const MAIL_PROTOCOL = 'mailto:';
-
-const MONTH_RANK: Record<string, number> = {
-  Enero: 1,
-  Febrero: 2,
-  Marzo: 3,
-  Abril: 4,
-  Mayo: 5,
-  Junio: 6,
-  Julio: 7,
-  Agosto: 8,
-  Septiembre: 9,
-  Octubre: 10,
-  Noviembre: 11,
-  Diciembre: 12,
-};
-
-const LINK_LABELS: Record<string, string> = {
-  spotify: 'Escuchar en Spotify 🎙️',
-  linkedin: 'LinkedIn 🔗',
-  twitter: 'X / Twitter 🐦',
-  github: 'GitHub 🔗',
-  email: 'Enviar correo 📧',
-  default: 'Ver proyecto 🔗',
-};
-
-const getLinkLabel = (link: string): string => {
-  if (link.includes(SPOTIFY_HOST)) return LINK_LABELS.spotify;
-  if (link.includes(LINKEDIN_HOST)) return LINK_LABELS.linkedin;
-  if (TWITTER_HOSTS.some((host) => link.includes(host))) return LINK_LABELS.twitter;
-  if (link.includes(GITHUB_HOST)) return LINK_LABELS.github;
-  if (link.startsWith(MAIL_PROTOCOL)) return LINK_LABELS.email;
-
-  return LINK_LABELS.default;
-};
-
-const createLinkElement = (link: string): HTMLAnchorElement => {
-  const element = document.createElement('a');
-
-  element.className = 'link-button';
-  element.href = link;
-  element.rel = 'noopener noreferrer';
-  element.target = '_blank';
-  element.textContent = getLinkLabel(link);
-
-  return element;
-};
-
-const DATE_RANK_MULTIPLIER = 100;
-
-const getDateRank = (date: string): number => {
-  const [month, year] = date.split(' ');
-
-  return Number.parseInt(year) * DATE_RANK_MULTIPLIER + (MONTH_RANK[month] ?? 0);
-};
-
-const createExperienceCard = ({
-  description,
-  endDate,
-  startDate,
-  title,
-}: Experience): HTMLDivElement => {
-  const card = document.createElement('div');
-
-  card.className = 'project-card';
-
-  const body = document.createElement('div');
-
-  body.className = 'project-card-body';
-
-  const titleEl = document.createElement('div');
-
-  titleEl.className = 'project-card-title';
-  titleEl.textContent = title;
-  body.append(titleEl);
-
-  const dateEl = document.createElement('div');
-
-  dateEl.className = 'experience-date';
-  dateEl.textContent = `${startDate} - ${endDate}`;
-  body.append(dateEl);
-
-  if (description) {
-    const descriptionEl = document.createElement('div');
-
-    descriptionEl.className = 'project-card-description';
-    descriptionEl.textContent = description;
-    body.append(descriptionEl);
-  }
-
-  card.append(body);
-
-  return card;
-};
-
-const renderExperiences = (experiences: Experience[]): void => {
-  const sortedExperiences = [...experiences].sort(({ startDate: a }, { startDate: b }) => {
-    return getDateRank(b) - getDateRank(a);
-  });
-
-  sortedExperiences.forEach((experience) => {
-    modalExperiences.append(createExperienceCard(experience));
-  });
-};
+import { renderDescription } from './renderers/description';
+import { renderExperiences } from './renderers/experiences';
+import { renderProjects } from './renderers/projects';
+import { ARROW_LEFT, ARROW_RIGHT, navigateTo } from './navigation';
+import { setupPlanetTriggers } from './planet-setup';
 
 const getElementOrThrow = (id: string): HTMLElement => {
   const element = document.getElementById(id);
@@ -140,92 +31,33 @@ const prevButton = document.getElementById('modal-nav-prev');
 const nextButton = document.getElementById('modal-nav-next');
 let currentPlanetIndex = -1;
 
-const createProjectCard = ({
-  description,
-  link,
-  logo,
-  title,
-  year,
-}: Project): HTMLElement => {
-  if (!year && link) {
-    return createLinkElement(link);
-  }
-
-  if (!year && !link) {
-    const chip = document.createElement('span');
-
-    chip.className = 'chip';
-
-    const titleSpan = document.createTextNode(title);
-    const levelSpan = document.createElement('span');
-
-    levelSpan.className = 'chip-level';
-    levelSpan.textContent = description ?? '';
-
-    chip.append(titleSpan, levelSpan);
-    return chip;
-  }
-
-  const card = document.createElement('div');
-
-  card.className = 'project-card';
-
-  if (logo) {
-    const imageWrapper = document.createElement('div');
-
-    imageWrapper.className = 'project-card-image';
-
-    const image = document.createElement('img');
-
-    image.alt = title;
-    image.src = logo;
-    imageWrapper.append(image);
-    card.append(imageWrapper);
-  }
-
-  const body = document.createElement('div');
-
-  body.className = 'project-card-body';
-
-  const titleEl = document.createElement('div');
-
-  titleEl.className = 'project-card-title';
-  titleEl.textContent = `${title} (${year})`;
-  body.append(titleEl);
-
-  const descriptionEl = document.createElement('div');
-
-  descriptionEl.className = 'project-card-description';
-  descriptionEl.textContent = description ?? null;
-  body.append(descriptionEl);
-
-  if (link) {
-    body.append(createLinkElement(link));
-  }
-
-  card.append(body);
-
-  return card;
+const animateClose = (onEnd?: () => void): void => {
+  modal.classList.add('closing');
+  modal.addEventListener('animationend', () => {
+    modal.close();
+    modal.classList.remove('closing');
+    onEnd?.();
+  }, { once: true });
 };
 
-const renderProjects = (projects: Project[]): void => {
-  const sortedProjects = [...projects].sort(({ year: a }, { year: b }) => (b ?? 0) - (a ?? 0));
+const closeWithAnimation = (): void => animateClose();
 
-  sortedProjects.forEach((project) => {
-    modalProjects.append(createProjectCard(project));
-  });
+const goPrev = (): void => {
+  currentPlanetIndex = navigateTo(-1, currentPlanetIndex, planets, modal, openPlanet);
 };
 
-const renderDescription = (text: string): void => {
-  modalDescription.innerHTML = '';
+const goNext = (): void => {
+  currentPlanetIndex = navigateTo(1, currentPlanetIndex, planets, modal, openPlanet);
+};
 
-  text.split('\n\n').forEach((paragraph) => {
-    const paragraphEl = document.createElement('p');
+const createYouTubeEmbed = (videoId: string, label: string): HTMLElement => {
+  const element = document.createElement('lite-youtube');
 
-    paragraphEl.className = 'modal-description-paragraph';
-    paragraphEl.textContent = paragraph;
-    modalDescription.append(paragraphEl);
-  });
+  element.setAttribute('playlabel', label);
+  element.setAttribute('videoid', videoId);
+  element.style.width = '100%';
+
+  return element;
 };
 
 const openPlanet = (id: string): void => {
@@ -234,87 +66,43 @@ const openPlanet = (id: string): void => {
   if (index === -1) return;
 
   currentPlanetIndex = index;
-  const planet = planets[index];
+  const { description, experiences, name, projects, song, title, youtubeId } = planets[index];
 
-  modalTitle.textContent = planet.name;
-  modalSubtitle.textContent = planet.title;
+  modalTitle.textContent = name;
+  modalSubtitle.textContent = title;
   modalProjects.innerHTML = '';
   modalExperiences.innerHTML = '';
-  renderDescription(planet.description);
-  renderProjects(planet.projects ?? []);
-  renderExperiences(planet.experiences ?? []);
+  renderDescription(modalDescription, description);
+  renderProjects(modalProjects, projects ?? []);
+  renderExperiences(modalExperiences, experiences ?? []);
 
   embedWrapper.innerHTML = '';
-
-  const element = document.createElement('lite-youtube');
-
-  element.setAttribute('playlabel', planet.song);
-  element.setAttribute('videoid', planet.youtubeId);
-  element.style.width = '100%';
-  embedWrapper.append(element);
+  embedWrapper.append(createYouTubeEmbed(youtubeId, song));
 
   modal.showModal();
 };
 
-const navigateTo = (direction: number): void => {
-  const totalPlanets = planets.length;
-  const nextIndex = (currentPlanetIndex + direction + totalPlanets) % totalPlanets;
-  const nextId = planets[nextIndex].id;
-
-  modal.classList.add('closing');
-  modal.addEventListener('animationend', () => {
-    modal.close();
-    modal.classList.remove('closing');
-    openPlanet(nextId);
-  }, { once: true });
-};
-
-const clickablePlanets = document.querySelectorAll<HTMLElement>('[data-planet-id]');
-
-const closeWithAnimation = (): void => {
-  modal.classList.add('closing');
-  modal.addEventListener('animationend', () => {
-    modal.close();
-    modal.classList.remove('closing');
-  }, { once: true });
-};
-
-const openPlanetFromElement = (element: HTMLElement): void => {
-  const id = element.dataset.planetId;
-  if (id) openPlanet(id);
-};
-
-clickablePlanets.forEach((element) => {
-  element.addEventListener('click', () => openPlanetFromElement(element));
-  element.addEventListener('keydown', (event: KeyboardEvent) => {
-    const isActivationKey = event.key === ENTER_KEY || event.key === SPACE_KEY;
-
-    if (isActivationKey) {
-      event.preventDefault();
-      openPlanetFromElement(element);
-    }
-  });
-});
+setupPlanetTriggers(openPlanet);
 
 closeButton?.addEventListener('click', closeWithAnimation);
 
 prevButton?.addEventListener('click', (event: MouseEvent) => {
   event.stopPropagation();
-  navigateTo(-1);
+  goPrev();
 });
 nextButton?.addEventListener('click', (event: MouseEvent) => {
   event.stopPropagation();
-  navigateTo(1);
+  goNext();
 });
 
 modal.addEventListener('keydown', (event: KeyboardEvent) => {
   if (event.key === ARROW_LEFT) {
     event.preventDefault();
-    navigateTo(-1);
+    goPrev();
   }
   if (event.key === ARROW_RIGHT) {
     event.preventDefault();
-    navigateTo(1);
+    goNext();
   }
 });
 
