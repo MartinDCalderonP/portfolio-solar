@@ -168,7 +168,7 @@ export const planets: PlanetContent[] = [
       {
         id: 'uba-comunicacion',
         title: 'Universidad de Buenos Aires (UBA)',
-        description: 'Licenciatura en Ciencias de la Comunicación Social. Facultad de Ciencias Sociales (FSOC). Formación en comunicación, publicidad y análisis del discurso. En curso.',
+        description: 'Licenciatura en Ciencias de la Comunicación Social en la Facultad de Ciencias Sociales (FSoc) de la UBA. Formación en comunicación, publicidad y análisis del discurso. 2019 - En curso.',
         year: 2026,
       },
       {
