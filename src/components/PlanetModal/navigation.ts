@@ -1,5 +1,7 @@
 import type { PlanetContent } from '../../data/portfolio'
 
+import { animateClose } from './close'
+
 const ARROW_LEFT = 'ArrowLeft'
 const ARROW_RIGHT = 'ArrowRight'
 
@@ -10,7 +12,6 @@ interface PlanetIdPayload {
 interface NavigateToParams {
   currentIndex: number
   direction: number
-  modal: HTMLDialogElement
   onOpenPlanet: (payload: PlanetIdPayload) => void
   planets: PlanetContent[]
 }
@@ -18,7 +19,6 @@ interface NavigateToParams {
 const navigateTo = ({
   currentIndex,
   direction,
-  modal,
   onOpenPlanet,
   planets
 }: NavigateToParams): number => {
@@ -26,16 +26,9 @@ const navigateTo = ({
   const nextIndex = (currentIndex + direction + totalPlanets) % totalPlanets
   const nextId = planets[nextIndex].id
 
-  modal.classList.add('closing')
-  modal.addEventListener(
-    'animationend',
-    () => {
-      modal.close()
-      modal.classList.remove('closing')
-      onOpenPlanet({ id: nextId })
-    },
-    { once: true }
-  )
+  animateClose({
+    onEnd: () => onOpenPlanet({ id: nextId })
+  })
 
   return nextIndex
 }

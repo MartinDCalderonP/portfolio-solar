@@ -1,93 +1,39 @@
 import '@justinribeiro/lite-youtube'
-
-import type { PlanetContent } from '../../data/portfolio'
-
 import { renderDescription } from './renderers/description'
 import { renderExperiences } from './renderers/experiences'
 import { renderProjects } from './renderers/projects'
 import { ARROW_LEFT, ARROW_RIGHT, navigateTo } from './navigation'
 import { setupPlanetTriggers } from './planet-setup'
+import { closeWithAnimation } from './close'
+import {
+  closeButton,
+  embedWrapper,
+  modal,
+  modalDescription,
+  modalExperiences,
+  modalProjects,
+  modalSubtitle,
+  modalTitle,
+  nextButton,
+  planets,
+  prevButton
+} from './domExtraction'
+import { createYouTubeEmbed } from './embed'
+import { setupClickOutside } from './click-outside'
 
-interface GetElementOrThrowParams {
-  id: string
-}
-
-const getElementOrThrow = ({ id }: GetElementOrThrowParams): HTMLElement => {
-  const element = document.getElementById(id)
-
-  if (!element) throw new Error(`Element #${id} not found`)
-
-  return element
-}
-
-const modal = document.getElementById('planet-modal') as HTMLDialogElement
-const planets: PlanetContent[] = JSON.parse(modal.dataset.planets ?? '[]')
-const modalTitle = getElementOrThrow({ id: 'modal-title' })
-const modalSubtitle = getElementOrThrow({ id: 'modal-subtitle' })
-const modalDescription = getElementOrThrow({ id: 'modal-description' })
-const modalProjects = getElementOrThrow({ id: 'modal-projects' })
-const modalExperiences = getElementOrThrow({ id: 'modal-experiences' })
-const closeButton = document.getElementById('modal-close')
-const embedWrapper = getElementOrThrow({ id: 'embed-wrapper' })
-const prevButton = document.getElementById('modal-nav-prev')
-const nextButton = document.getElementById('modal-nav-next')
 let currentPlanetIndex = -1
 
-interface AnimateCloseParams {
-  onEnd?: () => void
+interface GoToPlanetParams {
+  direction: number
 }
 
-const animateClose = ({ onEnd }: AnimateCloseParams): void => {
-  modal.classList.add('closing')
-  modal.addEventListener(
-    'animationend',
-    () => {
-      modal.close()
-      modal.classList.remove('closing')
-      onEnd?.()
-    },
-    { once: true }
-  )
-}
-
-const closeWithAnimation = (): void => animateClose({})
-
-const goPrev = (): void => {
+const goToPlanet = ({ direction }: GoToPlanetParams): void => {
   currentPlanetIndex = navigateTo({
     currentIndex: currentPlanetIndex,
-    direction: -1,
-    modal,
+    direction,
     onOpenPlanet: openPlanet,
     planets
   })
-}
-
-const goNext = (): void => {
-  currentPlanetIndex = navigateTo({
-    currentIndex: currentPlanetIndex,
-    direction: 1,
-    modal,
-    onOpenPlanet: openPlanet,
-    planets
-  })
-}
-
-interface CreateYouTubeEmbedParams {
-  label: string
-  videoId: string
-}
-
-const createYouTubeEmbed = ({
-  label,
-  videoId
-}: CreateYouTubeEmbedParams): HTMLElement => {
-  const element = document.createElement('lite-youtube')
-
-  element.setAttribute('playlabel', label)
-  element.setAttribute('videoid', videoId)
-  element.style.width = '100%'
-
-  return element
 }
 
 interface OpenPlanetParams {
@@ -121,41 +67,28 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
 }
 
 setupPlanetTriggers({ openPlanet })
-
 closeButton?.addEventListener('click', closeWithAnimation)
-
 prevButton?.addEventListener('click', (event: MouseEvent) => {
   event.stopPropagation()
-  goPrev()
+  goToPlanet({ direction: -1 })
 })
 nextButton?.addEventListener('click', (event: MouseEvent) => {
   event.stopPropagation()
-  goNext()
+  goToPlanet({ direction: 1 })
 })
 
 modal.addEventListener('keydown', (event: KeyboardEvent) => {
   if (event.key === ARROW_LEFT) {
     event.preventDefault()
-    goPrev()
+    goToPlanet({ direction: -1 })
   }
   if (event.key === ARROW_RIGHT) {
     event.preventDefault()
-    goNext()
+    goToPlanet({ direction: 1 })
   }
 })
 
-modal.addEventListener('click', (event: MouseEvent) => {
-  const rect = modal.getBoundingClientRect()
-  const isVerticallyInside =
-    rect.top <= event.clientY && event.clientY <= rect.top + rect.height
-  const isHorizontallyInside =
-    rect.left <= event.clientX && event.clientX <= rect.left + rect.width
-  const isInDialog = isVerticallyInside && isHorizontallyInside
-
-  if (!isInDialog) {
-    closeWithAnimation()
-  }
-})
+setupClickOutside()
 
 modal.addEventListener('cancel', (event: Event) => {
   event.preventDefault()
