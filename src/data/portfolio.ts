@@ -1,5 +1,5 @@
 export interface Project {
-  description: string;
+  description?: string;
   id: string;
   link?: string;
   logo?: string;
@@ -258,25 +258,21 @@ export const planets: PlanetContent[] = [
       {
         id: 'contacto-linkedin',
         title: 'LinkedIn',
-        description: 'Conectemos profesionalmente.',
         link: 'https://www.linkedin.com/in/martincalderon92',
       },
       {
         id: 'contacto-x',
         title: 'X / Twitter',
-        description: 'Seguime en @martomartian.',
         link: 'https://x.com/martomartian',
       },
       {
         id: 'contacto-github',
         title: 'GitHub',
-        description: 'Mis proyectos open source.',
         link: 'https://github.com/MartinDCalderonP',
       },
       {
         id: 'contacto-email',
         title: 'Correo electrónico',
-        description: 'Escribime a martincalderon92@outlook.com.',
         link: 'mailto:martincalderon92@outlook.com',
       },
     ],

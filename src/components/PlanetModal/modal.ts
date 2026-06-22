@@ -1,9 +1,46 @@
 import '@justinribeiro/lite-youtube';
+import '../LinkButton/LinkButton.css';
 
 import type { PlanetContent, Project } from '../../data/portfolio';
 
 const ENTER_KEY = 'Enter';
 const SPACE_KEY = ' ';
+const SPOTIFY_HOST = 'open.spotify.com';
+const LINKEDIN_HOST = 'linkedin.com';
+const TWITTER_HOSTS = ['x.com', 'twitter.com'];
+const GITHUB_HOST = 'github.com';
+const MAIL_PROTOCOL = 'mailto:';
+
+const LINK_LABELS: Record<string, string> = {
+  spotify: 'Escuchar en Spotify 🎙️',
+  linkedin: 'LinkedIn 🔗',
+  twitter: 'X / Twitter 🐦',
+  github: 'GitHub 🔗',
+  email: 'Enviar correo 📧',
+  default: 'Ver proyecto 🔗',
+};
+
+const getLinkLabel = (link: string): string => {
+  if (link.includes(SPOTIFY_HOST)) return LINK_LABELS.spotify;
+  if (link.includes(LINKEDIN_HOST)) return LINK_LABELS.linkedin;
+  if (TWITTER_HOSTS.some((host) => link.includes(host))) return LINK_LABELS.twitter;
+  if (link.includes(GITHUB_HOST)) return LINK_LABELS.github;
+  if (link.startsWith(MAIL_PROTOCOL)) return LINK_LABELS.email;
+
+  return LINK_LABELS.default;
+};
+
+const createLinkElement = (link: string): HTMLAnchorElement => {
+  const element = document.createElement('a');
+
+  element.className = 'link-button';
+  element.href = link;
+  element.rel = 'noopener noreferrer';
+  element.target = '_blank';
+  element.textContent = getLinkLabel(link);
+
+  return element;
+};
 
 const getElementOrThrow = (id: string): HTMLElement => {
   const element = document.getElementById(id);
@@ -30,10 +67,14 @@ const createProjectCard = ({
   logo,
   title,
   year,
-}: Project): HTMLDivElement => {
+}: Project): HTMLElement => {
   const card = document.createElement('div');
 
   card.className = 'project-card';
+
+  if (!year) {
+    return createLinkElement(link ?? '#');
+  }
 
   if (logo) {
     const imageWrapper = document.createElement('div');
@@ -55,39 +96,20 @@ const createProjectCard = ({
   const titleEl = document.createElement('div');
 
   titleEl.className = 'project-card-title';
-  titleEl.textContent = year ? `${title} (${year})` : title;
+  titleEl.textContent = `${title} (${year})`;
   body.append(titleEl);
 
   const descriptionEl = document.createElement('div');
 
   descriptionEl.className = 'project-card-description';
-  descriptionEl.textContent = description;
-  body.append(descriptionEl);
+
+  if (description) {
+    descriptionEl.textContent = description;
+    body.append(descriptionEl);
+  }
 
   if (link) {
-    const linkEl = document.createElement('a');
-
-    linkEl.className = 'project-link';
-    linkEl.href = link;
-    linkEl.rel = 'noopener noreferrer';
-    linkEl.target = '_blank';
-
-    const isSpotify = link.includes('open.spotify.com');
-    const isLinkedIn = link.includes('linkedin.com');
-    const isTwitter = link.includes('x.com') || link.includes('twitter.com');
-    const isGitHub = link.includes('github.com');
-    const isEmail = link.startsWith('mailto:');
-
-    const isSpotifyLink = isSpotify ? 'Escuchar en Spotify 🎙️' : '';
-    const isLinkedInLink = isLinkedIn ? 'LinkedIn 🔗' : '';
-    const isTwitterLink = isTwitter ? 'X / Twitter 🐦' : '';
-    const isGitHubLink = isGitHub ? 'GitHub 🔗' : '';
-    const isEmailLink = isEmail ? 'Enviar correo 📧' : '';
-    const defaultLink = 'Ver proyecto 🔗';
-
-    linkEl.textContent =
-      isSpotifyLink || isLinkedInLink || isTwitterLink || isGitHubLink || isEmailLink || defaultLink;
-    body.append(linkEl);
+    body.append(createLinkElement(link));
   }
 
   card.append(body);
