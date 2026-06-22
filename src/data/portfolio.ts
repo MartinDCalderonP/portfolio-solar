@@ -1,8 +1,7 @@
 export interface Project {
+  description: string;
   id: string;
   title: string;
-  description: string;
-  tags: string[];
 }
 
 export interface PlanetContent {
@@ -71,7 +70,6 @@ export const planets: PlanetContent[] = [
         id: 'formacion-1',
         title: 'UBA - Ciencias de la Comunicación',
         description: 'Facultad de Ciencias Sociales. Formación en comunicación, publicidad y análisis del discurso.',
-        tags: ['Universidad', 'Comunicación'],
       },
     ],
   },
@@ -91,19 +89,16 @@ export const planets: PlanetContent[] = [
         id: 'proyecto-1',
         title: 'Campaña Concientización',
         description: 'Pieza publicitaria para una ONG ambiental. Concepto, copy y dirección de arte.',
-        tags: ['Campaña', 'Copy', 'Dirección de arte'],
       },
       {
         id: 'proyecto-2',
         title: 'Rediseño de Marca',
         description: 'Rebranding para un emprendimiento local. Identidad visual completa.',
-        tags: ['Branding', 'Identidad visual'],
       },
       {
         id: 'proyecto-3',
         title: 'Spot Audiovisual',
         description: 'Producción y edición de un spot para redes sociales. Desde el guión hasta la post.',
-        tags: ['Audiovisual', 'Edición'],
       },
     ],
   },
@@ -123,7 +118,6 @@ export const planets: PlanetContent[] = [
         id: 'exp-1',
         title: 'Agencia Creativa X',
         description: 'Asistente de creatividad. Colaboración en campañas para clientes de consumo masivo.',
-        tags: ['Agencia', 'Creatividad'],
       },
     ],
   },
@@ -156,7 +150,6 @@ export const planets: PlanetContent[] = [
         title: 'Mi viaje en la materia',
         description:
           'A lo largo de la cursada descubrí que la creatividad no es solo inspiración, sino proceso. Aprendí a conceptualizar, a mirar desde otras perspectivas y a defender mis ideas con argumentos. El desafío más grande fue salir de mi zona de confort y animarme a proponer sin miedo al error. Me llevo herramientas para toda la carrera.',
-        tags: ['Aprendizaje', 'Creatividad', 'Proceso'],
       },
     ],
   },

@@ -24,15 +24,6 @@ const modalProjects = getElementOrThrow('modal-projects');
 const closeButton = document.getElementById('modal-close');
 const embedWrapper = getElementOrThrow('embed-wrapper');
 
-const createTagElement = (tag: string): HTMLSpanElement => {
-  const element = document.createElement('span');
-
-  element.className = 'project-tag';
-  element.textContent = tag;
-
-  return element;
-};
-
 const createProjectCard = (project: Project): HTMLDivElement => {
   const card = document.createElement('div');
 
@@ -49,12 +40,6 @@ const createProjectCard = (project: Project): HTMLDivElement => {
   description.className = 'project-card-description';
   description.textContent = project.description;
   card.append(description);
-
-  const tagsContainer = document.createElement('div');
-
-  tagsContainer.className = 'project-tags';
-  project.tags.forEach((tag) => tagsContainer.append(createTagElement(tag)));
-  card.append(tagsContainer);
 
   return card;
 };
