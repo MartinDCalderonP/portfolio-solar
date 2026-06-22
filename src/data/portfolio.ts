@@ -1,32 +1,32 @@
 export interface Experience {
-  description?: string;
-  endDate: string;
-  id: string;
-  startDate: string;
-  title: string;
+  description?: string
+  endDate: string
+  id: string
+  startDate: string
+  title: string
 }
 
 export interface Project {
-  description?: string;
-  id: string;
-  link?: string;
-  logo?: string;
-  title: string;
-  year?: number;
+  description?: string
+  id: string
+  links?: string[]
+  logo?: string
+  title: string
+  year?: number
 }
 
 export interface PlanetContent {
-  colorVar: string;
-  description: string;
-  experiences?: Experience[];
-  id: string;
-  name: string;
-  orbitVar: string;
-  projects?: Project[];
-  size: string;
-  song: string;
-  title: string;
-  youtubeId: string;
+  colorVar: string
+  description: string
+  experiences?: Experience[]
+  id: string
+  name: string
+  orbitVar: string
+  projects?: Project[]
+  size: string
+  song: string
+  title: string
+  youtubeId: string
 }
 
 export const planets: PlanetContent[] = [
@@ -40,7 +40,7 @@ export const planets: PlanetContent[] = [
     orbitVar: 'var(--orbit-sun)',
     size: '80px',
     song: 'Here Comes the Sun - The Beatles',
-    youtubeId: 'KQetemT1sWc',
+    youtubeId: 'KQetemT1sWc'
   },
   {
     id: 'mercury',
@@ -57,53 +57,60 @@ export const planets: PlanetContent[] = [
       {
         id: 'globant',
         title: 'Globant - Full Stack Developer',
-        description: '- Desarrollé una aplicación web a medida para franquicias, centrándome en el rendimiento y la escalabilidad.\n- Mejoré los procesos de CI/CD y las pruebas para garantizar la fiabilidad del proyecto.\n- Creé una herramienta de IA para responder a los clientes de forma natural.\n- Principales tecnologías: Python, React, Jest, TypeScript y Material UI.',
+        description:
+          '- Desarrollé una aplicación web a medida para franquicias, centrándome en el rendimiento y la escalabilidad.\n- Mejoré los procesos de CI/CD y las pruebas para garantizar la fiabilidad del proyecto.\n- Creé una herramienta de IA para responder a los clientes de forma natural.\n- Principales tecnologías: Python, React, Jest, TypeScript y Material UI.',
         startDate: 'Octubre 2025',
-        endDate: 'Presente',
+        endDate: 'Presente'
       },
       {
         id: 'freelance',
         title: 'Contractor / Freelance - Full Stack Developer',
-        description: '- Lideré el desarrollo de aplicaciones web full stack, trabajando principalmente en proyectos desde cero y algunos legados.\n- Diseñé y consumí APIs REST, utilicé WebSockets y Service Workers para notificaciones en apps PWA.\n- Coordiné equipos, organicé reuniones de intercambio técnico, formé a perfiles junior y colaboré en la resolución de bloqueos.\n- Administré pipelines CI/CD, estructuré proyectos desde su inicio y tomé requerimientos directamente con partners.\n- Diseñé interfaces y prototipos en Figma y Adobe XD.',
+        description:
+          '- Lideré el desarrollo de aplicaciones web full stack, trabajando principalmente en proyectos desde cero y algunos legados.\n- Diseñé y consumí APIs REST, utilicé WebSockets y Service Workers para notificaciones en apps PWA.\n- Coordiné equipos, organicé reuniones de intercambio técnico, formé a perfiles junior y colaboré en la resolución de bloqueos.\n- Administré pipelines CI/CD, estructuré proyectos desde su inicio y tomé requerimientos directamente con partners.\n- Diseñé interfaces y prototipos en Figma y Adobe XD.',
         startDate: 'Agosto 2020',
-        endDate: 'Presente',
+        endDate: 'Presente'
       },
       {
         id: 'goama',
         title: 'Goama - Front End Developer',
-        description: '- Me reuní regularmente con partners de Latinoamérica y Europa para relevar necesidades de negocio y adaptar la plataforma a cada mercado.\n- Implementé tests unitarios con Vitest, mejorando la estabilidad del código y su mantenimiento.\n- Optimicé el rendimiento de la interfaz mediante estrategias de renderizado eficientes.\n- Reduje en un 30% el tiempo de onboarding de nuevos clientes gracias a mejoras en los flujos y documentación personalizada.\n- Diseñé interfaces y definí la experiencia de usuario en la plataforma.\n- Desarrollé soluciones escalables ajustadas a los requerimientos técnicos y comerciales de cada región.\n- Principales tecnologías: React, Redux, TypeScript, CSS & Vite.',
+        description:
+          '- Me reuní regularmente con partners de Latinoamérica y Europa para relevar necesidades de negocio y adaptar la plataforma a cada mercado.\n- Implementé tests unitarios con Vitest, mejorando la estabilidad del código y su mantenimiento.\n- Optimicé el rendimiento de la interfaz mediante estrategias de renderizado eficientes.\n- Reduje en un 30% el tiempo de onboarding de nuevos clientes gracias a mejoras en los flujos y documentación personalizada.\n- Diseñé interfaces y definí la experiencia de usuario en la plataforma.\n- Desarrollé soluciones escalables ajustadas a los requerimientos técnicos y comerciales de cada región.\n- Principales tecnologías: React, Redux, TypeScript, CSS & Vite.',
         startDate: 'Junio 2023',
-        endDate: 'Agosto 2025',
+        endDate: 'Agosto 2025'
       },
       {
         id: 'openbusiness',
         title: 'OpenBusiness.AR - Front End Team Leader',
-        description: '- Lideré un equipo de desarrollo para construir una plataforma de inversión completa, definiendo el roadmap técnico y formando a desarrolladores junior.\n- Aseguré la calidad del código mediante revisiones regulares y fomenté espacios de intercambio de conocimiento.\n- Entregamos el proyecto dos semanas antes de lo previsto, mejorando el engagement con una interfaz intuitiva y altamente responsiva.\n- Principales tecnologías: React, TanStack Query, TypeScript & CSS Modules.',
+        description:
+          '- Lideré un equipo de desarrollo para construir una plataforma de inversión completa, definiendo el roadmap técnico y formando a desarrolladores junior.\n- Aseguré la calidad del código mediante revisiones regulares y fomenté espacios de intercambio de conocimiento.\n- Entregamos el proyecto dos semanas antes de lo previsto, mejorando el engagement con una interfaz intuitiva y altamente responsiva.\n- Principales tecnologías: React, TanStack Query, TypeScript & CSS Modules.',
         startDate: 'Marzo 2023',
-        endDate: 'Julio 2023',
+        endDate: 'Julio 2023'
       },
       {
         id: 'inventa',
         title: 'Inventa - Software Engineer',
-        description: '- Desarrollé desde cero un sitio de e-commerce y su sistema de backoffice, con foco en rendimiento y escalabilidad.\n- Reduje los tiempos de carga en más de un 40% e implementé un sistema de diseño modular que facilitó el mantenimiento futuro.\n- Incorporé testing con Jest y Cypress, aumentando la confiabilidad y seguridad del proyecto.\n- Principales tecnologías: React, Next, JavaScript, TypeScript & Tailwind CSS.',
+        description:
+          '- Desarrollé desde cero un sitio de e-commerce y su sistema de backoffice, con foco en rendimiento y escalabilidad.\n- Reduje los tiempos de carga en más de un 40% e implementé un sistema de diseño modular que facilitó el mantenimiento futuro.\n- Incorporé testing con Jest y Cypress, aumentando la confiabilidad y seguridad del proyecto.\n- Principales tecnologías: React, Next, JavaScript, TypeScript & Tailwind CSS.',
         startDate: 'Febrero 2022',
-        endDate: 'Octubre 2022',
+        endDate: 'Octubre 2022'
       },
       {
         id: 'nlc-consultores',
         title: 'NLC Consultores - Arquitectura',
-        description: '- Diseño y dibujo de planos en AutoCAD.\n- Asistencia a locales para relevamiento de medidas.\n- Trámites de diverso tipo, presencial y online.',
+        description:
+          '- Diseño y dibujo de planos en AutoCAD.\n- Asistencia a locales para relevamiento de medidas.\n- Trámites de diverso tipo, presencial y online.',
         startDate: 'Enero 2012',
-        endDate: 'Diciembre 2018',
+        endDate: 'Diciembre 2018'
       },
       {
         id: 'applaudo',
         title: 'Applaudo Studios - React Developer',
-        description: '- Creación de numerosas aplicaciones web para diferentes fines.\n- Tecnologías principales: React, Next, Gatsby, JavaScript, TypeScript & Styled Components.',
+        description:
+          '- Creación de numerosas aplicaciones web para diferentes fines.\n- Tecnologías principales: React, Next, Gatsby, JavaScript, TypeScript & Styled Components.',
         startDate: 'Septiembre 2021',
-        endDate: 'Diciembre 2021',
-      },
-    ],
+        endDate: 'Diciembre 2021'
+      }
+    ]
   },
   {
     id: 'venus',
@@ -120,95 +127,100 @@ export const planets: PlanetContent[] = [
       {
         id: 'autocad',
         title: 'AutoCAD',
-        description: 'Diseño asistido por computadora para proyectos arquitectónicos.',
+        description:
+          'Diseño asistido por computadora para proyectos arquitectónicos.',
         logo: '/logos/autocad.png',
-        year: 2008,
+        year: 2008
       },
       {
         id: 'redaccion-opinion',
         title: 'Redacción de textos de opinión',
-        description: 'Escritura de columnas y artículos de opinión para medios digitales e impresos.',
-        year: 2012,
+        description:
+          'Escritura de columnas y artículos de opinión para medios digitales e impresos.',
+        year: 2012
       },
       {
         id: 'java',
         title: 'Java',
         description: 'Programación orientada a objetos.',
         logo: '/logos/java.png',
-        year: 2018,
+        year: 2018
       },
       {
         id: 'javascript',
         title: 'JavaScript',
         description: 'Desarrollo web dinámico e interactivo.',
         logo: '/logos/javascript.png',
-        year: 2019,
+        year: 2019
       },
       {
         id: 'react',
         title: 'React',
         description: 'Desarrollo de interfaces web modernas.',
         logo: '/logos/react.png',
-        year: 2020,
+        year: 2020
       },
       {
         id: 'audacity',
         title: 'Audacity',
         description: 'Edición y producción de audio.',
         logo: '/logos/audacity.png',
-        year: 2021,
+        year: 2021
       },
       {
         id: 'conceptualizacion',
         title: 'Conceptualización creativa',
-        description: 'Desarrollo de conceptos e ideas para campañas y proyectos.',
-        year: 2022,
+        description:
+          'Desarrollo de conceptos e ideas para campañas y proyectos.',
+        year: 2022
       },
       {
         id: 'redaccion-periodistica',
         title: 'Redacción de textos periodísticos',
-        description: 'Redacción de noticias, crónicas y contenido editorial para distintos soportes.',
-        year: 2022,
+        description:
+          'Redacción de noticias, crónicas y contenido editorial para distintos soportes.',
+        year: 2022
       },
       {
         id: 'liderazgo',
         title: 'Liderazgo de equipos de trabajo',
-        description: 'Coordinación y gestión de equipos en proyectos multidisciplinarios.',
-        year: 2022,
+        description:
+          'Coordinación y gestión de equipos en proyectos multidisciplinarios.',
+        year: 2022
       },
       {
         id: 'copywriting',
         title: 'Copywriting',
         description: 'Redacción publicitaria y creativa.',
-        year: 2023,
+        year: 2023
       },
       {
         id: 'locucion',
         title: 'Locución',
         description: 'Locución y narración para proyectos audiovisuales.',
-        year: 2023,
+        year: 2023
       },
       {
         id: 'espanol',
         title: 'Español',
-        description: 'Nativo',
+        description: 'Nativo'
       },
       {
         id: 'ingles',
         title: 'Inglés',
-        description: 'Nivel avanzado · Certificado EF SET C2 Proficient',
+        description: 'Nivel avanzado · Certificado EF SET C2 Proficient'
       },
       {
         id: 'portugues',
         title: 'Portugués',
-        description: 'Nivel intermedio',
+        description: 'Nivel intermedio'
       },
       {
         id: 'frances',
         title: 'Francés',
-        description: 'Nivel básico',
-      },
-    ],
+        description: 'Nivel básico'
+      }
+    ]
   },
   {
     id: 'earth',
@@ -225,22 +237,25 @@ export const planets: PlanetContent[] = [
       {
         id: 'uba-comunicacion',
         title: 'Universidad de Buenos Aires (UBA)',
-        description: 'Licenciatura en Ciencias de la Comunicación Social en la Facultad de Ciencias Sociales (FSoc) de la UBA. Formación en comunicación, publicidad y análisis del discurso. 2019 - En curso.',
-        year: 2026,
+        description:
+          'Licenciatura en Ciencias de la Comunicación Social en la Facultad de Ciencias Sociales (FSoc) de la UBA. Formación en comunicación, publicidad y análisis del discurso. 2019 - En curso.',
+        year: 2026
       },
       {
         id: 'maestro-mayor-obras',
         title: 'Maestro Mayor de Obras',
-        description: 'ET N°17 DE 13 Brigadier General Cornelio Saavedra. Formación técnica en construcción, diseño arquitectónico y planos. 2006 - 2012.',
-        year: 2012,
+        description:
+          'ET N°17 DE 13 Brigadier General Cornelio Saavedra. Formación técnica en construcción, diseño arquitectónico y planos. 2006 - 2012.',
+        year: 2012
       },
       {
         id: 'refrigeracion',
         title: 'Técnico Superior en Sistemas de Refrigeración',
-        description: 'Centro de Educación No Formal Venezuela. Formación técnica en sistemas de refrigeración y climatización. 2018.',
-        year: 2018,
-      },
-    ],
+        description:
+          'Centro de Educación No Formal Venezuela. Formación técnica en sistemas de refrigeración y climatización. 2018.',
+        year: 2018
+      }
+    ]
   },
   {
     id: 'mars',
@@ -257,25 +272,43 @@ export const planets: PlanetContent[] = [
       {
         id: 'contienda-podcast',
         title: 'Contienda Podcast',
-        description: 'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
-        link: 'https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL',
-        year: 2023,
+        description:
+          'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
+        links: ['https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL'],
+        year: 2023
       },
       {
         id: 'chapa-a-mano',
         title: 'Chapa a Mano',
-        description: 'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
-        link: 'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view',
-        year: 2022,
+        description:
+          'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
+        links: [
+          'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view'
+        ],
+        year: 2022
       },
       {
         id: 'centro-cultural',
         title: 'Centro Cultural',
-        description: 'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
-        link: 'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view',
-        year: 2016,
+        description:
+          'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
+        links: [
+          'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view'
+        ],
+        year: 2016
       },
-    ],
+      {
+        id: 'youtube-clone',
+        title: 'YouTube Clone',
+        description:
+          'Clon de YouTube con ReactJS y Material UI. Buscá videos, explorá canales y reproducí contenido usando la API de YouTube. Tema oscuro y responsive.',
+        links: [
+          'https://clone-6c8d2.web.app/',
+          'https://github.com/MartinDCalderonP/YouTube-Clone'
+        ],
+        year: 2021
+      }
+    ]
   },
   {
     id: 'jupiter',
@@ -292,10 +325,11 @@ export const planets: PlanetContent[] = [
       {
         id: 'exp-1',
         title: 'Agencia Creativa X',
-        description: 'Asistente de creatividad. Colaboración en campañas para clientes de consumo masivo.',
-        year: 2024,
-      },
-    ],
+        description:
+          'Asistente de creatividad. Colaboración en campañas para clientes de consumo masivo.',
+        year: 2024
+      }
+    ]
   },
   {
     id: 'saturn',
@@ -307,7 +341,7 @@ export const planets: PlanetContent[] = [
     orbitVar: 'var(--orbit-saturn)',
     size: '30px',
     song: 'El anillo del Capitán Beto - Invisible',
-    youtubeId: '38jG_1bELEs',
+    youtubeId: '38jG_1bELEs'
   },
   {
     id: 'uranus',
@@ -324,31 +358,30 @@ export const planets: PlanetContent[] = [
       {
         id: 'contacto-linkedin',
         title: 'LinkedIn',
-        link: 'https://www.linkedin.com/in/martincalderon92',
+        links: ['https://www.linkedin.com/in/martincalderon92']
       },
       {
         id: 'contacto-x',
         title: 'X / Twitter',
-        link: 'https://x.com/martomartian',
+        links: ['https://x.com/martomartian']
       },
       {
         id: 'contacto-github',
         title: 'GitHub',
-        link: 'https://github.com/MartinDCalderonP',
+        links: ['https://github.com/MartinDCalderonP']
       },
       {
         id: 'contacto-email',
         title: 'Correo electrónico',
-        link: 'mailto:martincalderon92@outlook.com',
-      },
-    ],
+        links: ['mailto:martincalderon92@outlook.com']
+      }
+    ]
   },
   {
     id: 'neptune',
     name: 'Neptuno',
     title: 'Extras',
-    description:
-      'Hobbies, intereses y todo lo que me inspira fuera del aula.',
+    description: 'Hobbies, intereses y todo lo que me inspira fuera del aula.',
     colorVar: 'var(--color-neptune)',
     orbitVar: 'var(--orbit-neptune)',
     size: '18px',
@@ -358,57 +391,62 @@ export const planets: PlanetContent[] = [
       {
         id: 'cert-ef-set',
         title: 'EF SET English Certificate',
-        description: '74/100 (C2 Proficient). Certificación de nivel de inglés.',
-        year: 2022,
+        description:
+          '74/100 (C2 Proficient). Certificación de nivel de inglés.',
+        year: 2022
       },
       {
         id: 'cert-full-stack-python',
         title: 'Curso Full Stack Python',
-        description: 'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Python, lenguajes de programación.',
-        year: 2020,
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Python, lenguajes de programación.',
+        year: 2020
       },
       {
         id: 'cert-scrum',
         title: 'Scrum Foundations Professional Certificate (SFPC)',
         description: 'CertiProf. Metodologías ágiles y gestión de proyectos.',
-        year: 2020,
+        year: 2020
       },
       {
         id: 'cert-react',
         title: 'Curso de React',
         description: 'Comunidad IT. Desarrollo de interfaces web con React.',
-        year: 2020,
+        year: 2020
       },
       {
         id: 'cert-british-council',
         title: 'LearnEnglish Select Blended Intermediate',
         description: 'British Council. Curso de inglés nivel intermedio.',
-        year: 2020,
+        year: 2020
       },
       {
         id: 'cert-git',
         title: 'Introducción a Git',
         description: 'KODOTI. Control de versiones y trabajo colaborativo.',
-        year: 2020,
+        year: 2020
       },
       {
         id: 'cert-desarrollo-web',
         title: 'Curso de Desarrollo Web',
-        description: 'Gobierno de la Ciudad de Buenos Aires. Aptitudes: lenguajes de programación.',
-        year: 2019,
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: lenguajes de programación.',
+        year: 2019
       },
       {
         id: 'cert-codo-a-codo',
         title: 'Codo a Codo',
-        description: 'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Java, lenguajes de programación.',
-        year: 2018,
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Java, lenguajes de programación.',
+        year: 2018
       },
       {
         id: 'cert-impresion-3d',
         title: 'Curso de Impresión 3D',
-        description: 'Gobierno de la Ciudad de Buenos Aires. Fabricación digital y modelado 3D.',
-        year: 2018,
-      },
-    ],
-  },
-];
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Fabricación digital y modelado 3D.',
+        year: 2018
+      }
+    ]
+  }
+]

@@ -5,16 +5,22 @@ import { createLinkElement } from './links'
 
 const createProjectCard = ({
   description,
-  link,
+  links,
   logo,
   title,
   year
 }: Project): HTMLElement => {
-  if (!year && link) {
-    return createLinkElement({ link })
+  if (!year && links) {
+    if (links.length === 1) return createLinkElement({ link: links[0] })
+
+    const wrapper = document.createElement('div')
+
+    wrapper.className = 'project-card-links'
+    links.forEach((link) => wrapper.append(createLinkElement({ link })))
+    return wrapper
   }
 
-  if (!year && !link) {
+  if (!year && !links) {
     const chip = document.createElement('span')
 
     chip.className = 'chip'
@@ -62,8 +68,8 @@ const createProjectCard = ({
   descriptionEl.textContent = description ?? null
   body.append(descriptionEl)
 
-  if (link) {
-    body.append(createLinkElement({ link }))
+  if (links) {
+    links.forEach((link) => body.append(createLinkElement({ link })))
   }
 
   card.append(body)
