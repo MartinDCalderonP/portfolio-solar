@@ -281,10 +281,10 @@ export const planets: PlanetContent[] = [
         year: 2026
       },
       {
-        id: 'anccom',
-        title: 'Agencia de Noticias de la Carrera de Comunicación (ANCCom)',
+        id: 'news-portfolio',
+        title: 'News Portfolio',
         description:
-          'Web que diseñé con notas periodísticas que redacté para la Agencia de Noticias de la Carrera de Comunicación (ANCCom) de la UBA.',
+          'Web que diseñé con notas periodísticas que redacté para la Agencia de Noticias de la Carrera de Comunicación (ANCCom) de la UBA. Construida con Astro.',
         links: ['https://news-martin-calderon.vercel.app/'],
         year: 2025
       },
