@@ -42,6 +42,43 @@ const PAGE_TITLE = `${AUTHOR_NAME} - Portfolio Creativo`;
       "url": SITE_URL,
       "description": SITE_DESCRIPTION,
     })} />
+
+    <script>
+      const TAB_AWAY_TITLE = 'Volvé, viajero!';
+      const originalTitle = document.title;
+      const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+      const originalFavicon = favicon?.href ?? '';
+
+      const createEmojiFavicon = (emoji: string): string => {
+        const canvas = document.createElement('canvas');
+
+        canvas.height = 32;
+        canvas.width = 32;
+
+        const context = canvas.getContext('2d');
+
+        if (!context) return originalFavicon;
+
+        context.font = '28px sans-serif';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(emoji, 16, 17);
+
+        return canvas.toDataURL();
+      };
+
+      const awayFavicon = createEmojiFavicon('🧑🏽‍🚀');
+
+      document.addEventListener('visibilitychange', () => {
+        const isHidden = document.hidden;
+
+        document.title = isHidden ? TAB_AWAY_TITLE : originalTitle;
+
+        if (favicon) {
+          favicon.href = isHidden ? awayFavicon : originalFavicon;
+        }
+      });
+    </script>
   </head>
   <body>
     <slot />
