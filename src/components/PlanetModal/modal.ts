@@ -1,4 +1,5 @@
 import '@justinribeiro/lite-youtube'
+import { createGreetingButton } from '../AudioGreeting/greeting-button'
 import { renderDescription } from './renderers/description'
 import { renderExperiences } from './renderers/experiences'
 import { renderProjects } from './renderers/projects'
@@ -22,7 +23,6 @@ import { createYouTubeEmbed } from './embed'
 import { setupClickOutside } from './click-outside'
 
 let currentPlanetIndex = -1
-
 interface GoToPlanetParams {
   direction: number
 }
@@ -43,6 +43,7 @@ interface OpenPlanetParams {
 const openPlanet = ({ id }: OpenPlanetParams): void => {
   const index = planets.findIndex(({ id: planetId }) => planetId === id)
 
+  ;(document.getElementById('greeting-audio') as HTMLAudioElement)?.pause()
   if (index === -1) return
 
   currentPlanetIndex = index
@@ -54,15 +55,19 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   modalProjects.innerHTML = ''
   modalExperiences.innerHTML = ''
   renderDescription({ container: modalDescription, text: description })
+
+  if (id === 'sun') {
+    const firstParagraph = modalDescription.querySelector('p')
+
+    if (firstParagraph) firstParagraph.after(createGreetingButton())
+  }
   renderProjects({ container: modalProjects, projects: projects ?? [] })
   renderExperiences({
     container: modalExperiences,
     experiences: experiences ?? []
   })
-
   embedWrapper.innerHTML = ''
   embedWrapper.append(createYouTubeEmbed({ label: song, videoId: youtubeId }))
-
   document.body.style.overflow = 'hidden'
   modal.showModal()
 }
@@ -88,9 +93,7 @@ modal.addEventListener('keydown', (event: KeyboardEvent) => {
     goToPlanet({ direction: 1 })
   }
 })
-
 setupClickOutside()
-
 modal.addEventListener('cancel', (event: Event) => {
   event.preventDefault()
   closeWithAnimation()
