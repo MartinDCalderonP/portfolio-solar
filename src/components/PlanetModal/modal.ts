@@ -4,6 +4,8 @@ import '../LinkButton/LinkButton.css';
 
 import type { Experience, PlanetContent, Project } from '../../data/portfolio';
 
+const ARROW_LEFT = 'ArrowLeft';
+const ARROW_RIGHT = 'ArrowRight';
 const ENTER_KEY = 'Enter';
 const SPACE_KEY = ' ';
 const SPOTIFY_HOST = 'open.spotify.com';
@@ -134,6 +136,9 @@ const modalProjects = getElementOrThrow('modal-projects');
 const modalExperiences = getElementOrThrow('modal-experiences');
 const closeButton = document.getElementById('modal-close');
 const embedWrapper = getElementOrThrow('embed-wrapper');
+const prevButton = document.getElementById('modal-nav-prev');
+const nextButton = document.getElementById('modal-nav-next');
+let currentPlanetIndex = -1;
 
 const createProjectCard = ({
   description,
@@ -224,9 +229,12 @@ const renderDescription = (text: string): void => {
 };
 
 const openPlanet = (id: string): void => {
-  const planet = planets.find(({ id: planetId }) => planetId === id);
+  const index = planets.findIndex(({ id: planetId }) => planetId === id);
 
-  if (!planet) return;
+  if (index === -1) return;
+
+  currentPlanetIndex = index;
+  const planet = planets[index];
 
   modalTitle.textContent = planet.name;
   modalSubtitle.textContent = planet.title;
@@ -246,6 +254,19 @@ const openPlanet = (id: string): void => {
   embedWrapper.append(element);
 
   modal.showModal();
+};
+
+const navigateTo = (direction: number): void => {
+  const totalPlanets = planets.length;
+  const nextIndex = (currentPlanetIndex + direction + totalPlanets) % totalPlanets;
+  const nextId = planets[nextIndex].id;
+
+  modal.classList.add('closing');
+  modal.addEventListener('animationend', () => {
+    modal.close();
+    modal.classList.remove('closing');
+    openPlanet(nextId);
+  }, { once: true });
 };
 
 const clickablePlanets = document.querySelectorAll<HTMLElement>('[data-planet-id]');
@@ -276,6 +297,26 @@ clickablePlanets.forEach((element) => {
 });
 
 closeButton?.addEventListener('click', closeWithAnimation);
+
+prevButton?.addEventListener('click', (event: MouseEvent) => {
+  event.stopPropagation();
+  navigateTo(-1);
+});
+nextButton?.addEventListener('click', (event: MouseEvent) => {
+  event.stopPropagation();
+  navigateTo(1);
+});
+
+modal.addEventListener('keydown', (event: KeyboardEvent) => {
+  if (event.key === ARROW_LEFT) {
+    event.preventDefault();
+    navigateTo(-1);
+  }
+  if (event.key === ARROW_RIGHT) {
+    event.preventDefault();
+    navigateTo(1);
+  }
+});
 
 modal.addEventListener('click', (event: MouseEvent) => {
   const rect = modal.getBoundingClientRect();

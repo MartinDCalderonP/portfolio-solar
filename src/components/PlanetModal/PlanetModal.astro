@@ -1,11 +1,13 @@
 ---
-import type { PlanetContent } from '../../data/portfolio';
 import { planets } from '../../data/portfolio';
+import ModalNavButton from '../ModalNavButton/ModalNavButton.astro';
 import '../ProjectCard/ProjectCard.css';
 import './PlanetModal.css';
 ---
 
 <dialog class="modal" id="planet-modal" data-planets={JSON.stringify(planets)}>
+  <ModalNavButton direction="prev" />
+  <ModalNavButton direction="next" />
   <div class="modal-content">
     <div class="modal-header">
       <h2 class="modal-title" id="modal-title" />

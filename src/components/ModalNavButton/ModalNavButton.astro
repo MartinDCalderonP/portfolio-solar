@@ -1,0 +1,35 @@
+---
+import './ModalNavButton.css';
+
+export interface Props {
+  direction: 'prev' | 'next';
+}
+
+const { direction } = Astro.props;
+
+const LABELS: Record<string, string> = {
+  prev: 'Anterior',
+  next: 'Siguiente',
+};
+
+const PATHS: Record<string, string> = {
+  prev: 'M11 2L5 8L11 14',
+  next: 'M5 2L11 8L5 14',
+};
+---
+
+<button
+  class={`modal-nav modal-nav--${direction}`}
+  id={`modal-nav-${direction}`}
+  aria-label={LABELS[direction]}
+>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path
+      d={PATHS[direction]}
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2.5"
+    />
+  </svg>
+</button>
