@@ -1,7 +1,9 @@
 export interface Project {
   description: string;
   id: string;
+  link?: string;
   title: string;
+  year: number;
 }
 
 export interface PlanetContent {
@@ -35,12 +37,21 @@ export const planets: PlanetContent[] = [
     name: 'Mercurio',
     title: 'Experiencia',
     description:
-      'Mi recorrido en el mundo de la comunicación y la publicidad.',
+      'A lo largo de la cursada fui sumando trabajos que me formaron como comunicador. Desde proyectos grupales hasta producciones propias, cada uno me enseñó algo distinto.',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
     song: 'Mr. Bad Guy — Freddie Mercury',
     youtubeId: 'v_Mb25ASCr8',
+    projects: [
+      {
+        id: 'contienda-podcast',
+        title: 'Contienda Podcast',
+        description: 'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión II. Idea original, locución, concepto y diseño general.',
+        link: 'https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL',
+        year: 2022,
+      },
+    ],
   },
   {
     id: 'venus',
@@ -70,6 +81,7 @@ export const planets: PlanetContent[] = [
         id: 'formacion-1',
         title: 'UBA - Ciencias de la Comunicación',
         description: 'Facultad de Ciencias Sociales. Formación en comunicación, publicidad y análisis del discurso.',
+        year: 2025,
       },
     ],
   },
@@ -89,16 +101,19 @@ export const planets: PlanetContent[] = [
         id: 'proyecto-1',
         title: 'Campaña Concientización',
         description: 'Pieza publicitaria para una ONG ambiental. Concepto, copy y dirección de arte.',
+        year: 2025,
       },
       {
         id: 'proyecto-2',
         title: 'Rediseño de Marca',
         description: 'Rebranding para un emprendimiento local. Identidad visual completa.',
+        year: 2024,
       },
       {
         id: 'proyecto-3',
         title: 'Spot Audiovisual',
         description: 'Producción y edición de un spot para redes sociales. Desde el guión hasta la post.',
+        year: 2025,
       },
     ],
   },
@@ -118,6 +133,7 @@ export const planets: PlanetContent[] = [
         id: 'exp-1',
         title: 'Agencia Creativa X',
         description: 'Asistente de creatividad. Colaboración en campañas para clientes de consumo masivo.',
+        year: 2024,
       },
     ],
   },
@@ -150,6 +166,7 @@ export const planets: PlanetContent[] = [
         title: 'Mi viaje en la materia',
         description:
           'A lo largo de la cursada descubrí que la creatividad no es solo inspiración, sino proceso. Aprendí a conceptualizar, a mirar desde otras perspectivas y a defender mis ideas con argumentos. El desafío más grande fue salir de mi zona de confort y animarme a proponer sin miedo al error. Me llevo herramientas para toda la carrera.',
+        year: 2026,
       },
     ],
   },
