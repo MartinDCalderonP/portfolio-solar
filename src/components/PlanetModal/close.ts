@@ -11,6 +11,7 @@ const animateClose = ({ onEnd }: AnimateCloseParams): void => {
     () => {
       modal.close()
       modal.classList.remove('closing')
+      document.body.style.overflow = ''
       onEnd?.()
     },
     { once: true }

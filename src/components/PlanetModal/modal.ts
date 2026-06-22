@@ -63,6 +63,7 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   embedWrapper.innerHTML = ''
   embedWrapper.append(createYouTubeEmbed({ label: song, videoId: youtubeId }))
 
+  document.body.style.overflow = 'hidden'
   modal.showModal()
 }
 
