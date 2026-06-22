@@ -21,6 +21,7 @@ import {
 } from './domExtraction'
 import { createYouTubeEmbed } from './embed'
 import { setupClickOutside } from './click-outside'
+import { lockScroll } from './scroll-lock'
 
 let currentPlanetIndex = -1
 interface GoToPlanetParams {
@@ -68,7 +69,7 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   })
   embedWrapper.innerHTML = ''
   embedWrapper.append(createYouTubeEmbed({ label: song, videoId: youtubeId }))
-  document.body.style.overflow = 'hidden'
+  lockScroll()
   modal.showModal()
 }
 

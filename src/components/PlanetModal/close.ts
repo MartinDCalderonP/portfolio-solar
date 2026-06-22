@@ -1,4 +1,5 @@
 import { modal } from './domExtraction'
+import { unlockScroll } from './scroll-lock'
 
 interface AnimateCloseParams {
   onEnd?: () => void
@@ -11,7 +12,7 @@ const animateClose = ({ onEnd }: AnimateCloseParams): void => {
     () => {
       modal.close()
       modal.classList.remove('closing')
-      document.body.style.overflow = ''
+      unlockScroll()
       onEnd?.()
     },
     { once: true }
