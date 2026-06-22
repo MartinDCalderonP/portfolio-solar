@@ -270,6 +270,17 @@ export const planets: PlanetContent[] = [
     youtubeId: '9vaA8WTzmSo',
     projects: [
       {
+        id: 'portfolio-solar',
+        title: 'Portfolio Solar',
+        description:
+          'Este mismo portfolio. Un sistema solar interactivo donde cada planeta representa una sección de mi perfil. Construido con Astro (no podía ser de otra manera) y TypeScript.',
+        links: [
+          'https://portfolio-solar-martin-calderon.vercel.app/',
+          'https://github.com/MartinDCalderonP/portfolio-solar'
+        ],
+        year: 2026
+      },
+      {
         id: 'anccom',
         title: 'Agencia de Noticias de la Carrera de Comunicación (ANCCom)',
         description:
