@@ -6,28 +6,30 @@ const TWITTER_HOSTS = ['x.com', 'twitter.com']
 const GITHUB_HOST = 'github.com'
 const MAIL_PROTOCOL = 'mailto:'
 
-const LINK_LABELS: Record<string, string> = {
-  spotify: 'Escuchar en Spotify 🎙️',
-  linkedin: 'LinkedIn 🔗',
-  twitter: 'X / Twitter 🐦',
-  github: 'GitHub 🔗',
-  email: 'Enviar correo 📧',
-  default: 'Ver proyecto 🔗'
+const DEFAULT_LABEL = 'Ver proyecto 🔗'
+
+interface LinkPattern {
+  label: string;
+  test: (link: string) => boolean;
 }
+
+const LINK_PATTERNS: LinkPattern[] = [
+  { label: 'Escuchar en Spotify 🎙️', test: (link) => link.includes(SPOTIFY_HOST) },
+  { label: 'LinkedIn 🔗', test: (link) => link.includes(LINKEDIN_HOST) },
+  {
+    label: 'X / Twitter 🐦',
+    test: (link) => TWITTER_HOSTS.some((host) => link.includes(host)),
+  },
+  { label: 'GitHub 🔗', test: (link) => link.includes(GITHUB_HOST) },
+  { label: 'Enviar correo 📧', test: (link) => link.startsWith(MAIL_PROTOCOL) },
+]
 
 interface GetLinkLabelParams {
   link: string
 }
 
 const getLinkLabel = ({ link }: GetLinkLabelParams): string => {
-  if (link.includes(SPOTIFY_HOST)) return LINK_LABELS.spotify
-  if (link.includes(LINKEDIN_HOST)) return LINK_LABELS.linkedin
-  if (TWITTER_HOSTS.some((host) => link.includes(host)))
-    return LINK_LABELS.twitter
-  if (link.includes(GITHUB_HOST)) return LINK_LABELS.github
-  if (link.startsWith(MAIL_PROTOCOL)) return LINK_LABELS.email
-
-  return LINK_LABELS.default
+  return LINK_PATTERNS.find(({ test }) => test(link))?.label ?? DEFAULT_LABEL
 }
 
 interface CreateLinkElementParams {
