@@ -1,16 +1,17 @@
-const renderDescription = (
-  container: HTMLElement,
-  text: string,
-): void => {
-  container.innerHTML = '';
+interface RenderDescriptionParams {
+  container: HTMLElement
+  text: string
+}
 
-  text.split('\n\n').forEach((paragraph) => {
-    const paragraphEl = document.createElement('p');
+const renderDescription = ({
+  container,
+  text
+}: RenderDescriptionParams): void => {
+  const paragraphs = text.split('\n').filter(Boolean)
 
-    paragraphEl.className = 'modal-description-paragraph';
-    paragraphEl.textContent = paragraph;
-    container.append(paragraphEl);
-  });
-};
+  container.innerHTML = paragraphs
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join('')
+}
 
-export { renderDescription };
+export { renderDescription }

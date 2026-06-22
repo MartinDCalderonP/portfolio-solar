@@ -1,27 +1,43 @@
-import type { PlanetContent } from '../../data/portfolio';
+import type { PlanetContent } from '../../data/portfolio'
 
-const ARROW_LEFT = 'ArrowLeft';
-const ARROW_RIGHT = 'ArrowRight';
+const ARROW_LEFT = 'ArrowLeft'
+const ARROW_RIGHT = 'ArrowRight'
 
-const navigateTo = (
-  direction: number,
-  currentIndex: number,
-  planets: PlanetContent[],
-  modal: HTMLDialogElement,
-  onOpenPlanet: (id: string) => void,
-): number => {
-  const totalPlanets = planets.length;
-  const nextIndex = (currentIndex + direction + totalPlanets) % totalPlanets;
-  const nextId = planets[nextIndex].id;
+interface PlanetIdPayload {
+  id: string
+}
 
-  modal.classList.add('closing');
-  modal.addEventListener('animationend', () => {
-    modal.close();
-    modal.classList.remove('closing');
-    onOpenPlanet(nextId);
-  }, { once: true });
+interface NavigateToParams {
+  currentIndex: number
+  direction: number
+  modal: HTMLDialogElement
+  onOpenPlanet: (payload: PlanetIdPayload) => void
+  planets: PlanetContent[]
+}
 
-  return nextIndex;
-};
+const navigateTo = ({
+  currentIndex,
+  direction,
+  modal,
+  onOpenPlanet,
+  planets
+}: NavigateToParams): number => {
+  const totalPlanets = planets.length
+  const nextIndex = (currentIndex + direction + totalPlanets) % totalPlanets
+  const nextId = planets[nextIndex].id
 
-export { ARROW_LEFT, ARROW_RIGHT, navigateTo };
+  modal.classList.add('closing')
+  modal.addEventListener(
+    'animationend',
+    () => {
+      modal.close()
+      modal.classList.remove('closing')
+      onOpenPlanet({ id: nextId })
+    },
+    { once: true }
+  )
+
+  return nextIndex
+}
+
+export { ARROW_LEFT, ARROW_RIGHT, navigateTo }

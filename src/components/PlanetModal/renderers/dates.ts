@@ -1,24 +1,30 @@
 const MONTH_RANK: Record<string, number> = {
-  Enero: 1,
-  Febrero: 2,
-  Marzo: 3,
-  Abril: 4,
-  Mayo: 5,
-  Junio: 6,
-  Julio: 7,
-  Agosto: 8,
-  Septiembre: 9,
-  Octubre: 10,
-  Noviembre: 11,
-  Diciembre: 12,
-};
+  January: 0,
+  February: 1,
+  March: 2,
+  April: 3,
+  May: 4,
+  June: 5,
+  July: 6,
+  August: 7,
+  September: 8,
+  October: 9,
+  November: 10,
+  December: 11
+}
 
-const DATE_RANK_MULTIPLIER = 100;
+interface GetDateRankParams {
+  date: string
+}
 
-const getDateRank = (date: string): number => {
-  const [month, year] = date.split(' ');
+const getDateRank = ({ date }: GetDateRankParams): number => {
+  if (date.toLowerCase() === 'present') return Infinity
 
-  return Number.parseInt(year) * DATE_RANK_MULTIPLIER + (MONTH_RANK[month] ?? 0);
-};
+  const [month, year] = date.split(' ')
+  const yearRank = Number.parseInt(year, 10)
+  const monthRank = MONTH_RANK[month] ?? 0
 
-export { getDateRank };
+  return yearRank * 12 + monthRank
+}
+
+export { getDateRank }

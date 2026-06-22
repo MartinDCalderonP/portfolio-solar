@@ -1,10 +1,10 @@
-import '../../LinkButton/LinkButton.css';
+import '../../LinkButton/LinkButton.css'
 
-const SPOTIFY_HOST = 'open.spotify.com';
-const LINKEDIN_HOST = 'linkedin.com';
-const TWITTER_HOSTS = ['x.com', 'twitter.com'];
-const GITHUB_HOST = 'github.com';
-const MAIL_PROTOCOL = 'mailto:';
+const SPOTIFY_HOST = 'open.spotify.com'
+const LINKEDIN_HOST = 'linkedin.com'
+const TWITTER_HOSTS = ['x.com', 'twitter.com']
+const GITHUB_HOST = 'github.com'
+const MAIL_PROTOCOL = 'mailto:'
 
 const LINK_LABELS: Record<string, string> = {
   spotify: 'Escuchar en Spotify 🎙️',
@@ -12,29 +12,40 @@ const LINK_LABELS: Record<string, string> = {
   twitter: 'X / Twitter 🐦',
   github: 'GitHub 🔗',
   email: 'Enviar correo 📧',
-  default: 'Ver proyecto 🔗',
-};
+  default: 'Ver proyecto 🔗'
+}
 
-const getLinkLabel = (link: string): string => {
-  if (link.includes(SPOTIFY_HOST)) return LINK_LABELS.spotify;
-  if (link.includes(LINKEDIN_HOST)) return LINK_LABELS.linkedin;
-  if (TWITTER_HOSTS.some((host) => link.includes(host))) return LINK_LABELS.twitter;
-  if (link.includes(GITHUB_HOST)) return LINK_LABELS.github;
-  if (link.startsWith(MAIL_PROTOCOL)) return LINK_LABELS.email;
+interface GetLinkLabelParams {
+  link: string
+}
 
-  return LINK_LABELS.default;
-};
+const getLinkLabel = ({ link }: GetLinkLabelParams): string => {
+  if (link.includes(SPOTIFY_HOST)) return LINK_LABELS.spotify
+  if (link.includes(LINKEDIN_HOST)) return LINK_LABELS.linkedin
+  if (TWITTER_HOSTS.some((host) => link.includes(host)))
+    return LINK_LABELS.twitter
+  if (link.includes(GITHUB_HOST)) return LINK_LABELS.github
+  if (link.startsWith(MAIL_PROTOCOL)) return LINK_LABELS.email
 
-const createLinkElement = (link: string): HTMLAnchorElement => {
-  const element = document.createElement('a');
+  return LINK_LABELS.default
+}
 
-  element.className = 'link-button';
-  element.href = link;
-  element.rel = 'noopener noreferrer';
-  element.target = '_blank';
-  element.textContent = getLinkLabel(link);
+interface CreateLinkElementParams {
+  link: string
+}
 
-  return element;
-};
+const createLinkElement = ({
+  link
+}: CreateLinkElementParams): HTMLAnchorElement => {
+  const element = document.createElement('a')
 
-export { createLinkElement };
+  element.className = 'link-button'
+  element.href = link
+  element.rel = 'noopener noreferrer'
+  element.target = '_blank'
+  element.textContent = getLinkLabel({ link })
+
+  return element
+}
+
+export { createLinkElement }

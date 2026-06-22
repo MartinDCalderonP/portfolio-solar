@@ -1,26 +1,37 @@
-const ENTER_KEY = 'Enter';
-const SPACE_KEY = ' ';
+interface PlanetIdPayload {
+  id: string
+}
 
-const setupPlanetTriggers = (openPlanet: (id: string) => void): void => {
-  const clickablePlanets = document.querySelectorAll<HTMLElement>('[data-planet-id]');
+interface SetupPlanetTriggersParams {
+  openPlanet: (payload: PlanetIdPayload) => void
+}
+
+const ENTER_KEY = 'Enter'
+const SPACE_KEY = ' '
+
+const setupPlanetTriggers = ({
+  openPlanet
+}: SetupPlanetTriggersParams): void => {
+  const clickablePlanets =
+    document.querySelectorAll<HTMLElement>('[data-planet-id]')
 
   const openPlanetFromElement = (element: HTMLElement): void => {
-    const id = element.dataset.planetId;
+    const id = element.dataset.planetId
 
-    if (id) openPlanet(id);
-  };
+    if (id) openPlanet({ id })
+  }
 
   clickablePlanets.forEach((element) => {
-    element.addEventListener('click', () => openPlanetFromElement(element));
+    element.addEventListener('click', () => openPlanetFromElement(element))
     element.addEventListener('keydown', (event: KeyboardEvent) => {
-      const isActivationKey = event.key === ENTER_KEY || event.key === SPACE_KEY;
+      const isActivationKey = event.key === ENTER_KEY || event.key === SPACE_KEY
 
       if (isActivationKey) {
-        event.preventDefault();
-        openPlanetFromElement(element);
+        event.preventDefault()
+        openPlanetFromElement(element)
       }
-    });
-  });
-};
+    })
+  })
+}
 
-export { setupPlanetTriggers };
+export { setupPlanetTriggers }

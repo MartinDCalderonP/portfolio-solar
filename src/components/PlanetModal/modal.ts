@@ -1,125 +1,163 @@
-import '@justinribeiro/lite-youtube';
+import '@justinribeiro/lite-youtube'
 
-import type { PlanetContent } from '../../data/portfolio';
+import type { PlanetContent } from '../../data/portfolio'
 
-import { renderDescription } from './renderers/description';
-import { renderExperiences } from './renderers/experiences';
-import { renderProjects } from './renderers/projects';
-import { ARROW_LEFT, ARROW_RIGHT, navigateTo } from './navigation';
-import { setupPlanetTriggers } from './planet-setup';
+import { renderDescription } from './renderers/description'
+import { renderExperiences } from './renderers/experiences'
+import { renderProjects } from './renderers/projects'
+import { ARROW_LEFT, ARROW_RIGHT, navigateTo } from './navigation'
+import { setupPlanetTriggers } from './planet-setup'
 
-const getElementOrThrow = (id: string): HTMLElement => {
-  const element = document.getElementById(id);
+interface GetElementOrThrowParams {
+  id: string
+}
 
-  if (!element) throw new Error(`Element #${id} not found`);
+const getElementOrThrow = ({ id }: GetElementOrThrowParams): HTMLElement => {
+  const element = document.getElementById(id)
 
-  return element;
-};
+  if (!element) throw new Error(`Element #${id} not found`)
 
-const modal = document.getElementById('planet-modal') as HTMLDialogElement;
-const planets: PlanetContent[] = JSON.parse(
-  modal.dataset.planets ?? '[]',
-);
-const modalTitle = getElementOrThrow('modal-title');
-const modalSubtitle = getElementOrThrow('modal-subtitle');
-const modalDescription = getElementOrThrow('modal-description');
-const modalProjects = getElementOrThrow('modal-projects');
-const modalExperiences = getElementOrThrow('modal-experiences');
-const closeButton = document.getElementById('modal-close');
-const embedWrapper = getElementOrThrow('embed-wrapper');
-const prevButton = document.getElementById('modal-nav-prev');
-const nextButton = document.getElementById('modal-nav-next');
-let currentPlanetIndex = -1;
+  return element
+}
 
-const animateClose = (onEnd?: () => void): void => {
-  modal.classList.add('closing');
-  modal.addEventListener('animationend', () => {
-    modal.close();
-    modal.classList.remove('closing');
-    onEnd?.();
-  }, { once: true });
-};
+const modal = document.getElementById('planet-modal') as HTMLDialogElement
+const planets: PlanetContent[] = JSON.parse(modal.dataset.planets ?? '[]')
+const modalTitle = getElementOrThrow({ id: 'modal-title' })
+const modalSubtitle = getElementOrThrow({ id: 'modal-subtitle' })
+const modalDescription = getElementOrThrow({ id: 'modal-description' })
+const modalProjects = getElementOrThrow({ id: 'modal-projects' })
+const modalExperiences = getElementOrThrow({ id: 'modal-experiences' })
+const closeButton = document.getElementById('modal-close')
+const embedWrapper = getElementOrThrow({ id: 'embed-wrapper' })
+const prevButton = document.getElementById('modal-nav-prev')
+const nextButton = document.getElementById('modal-nav-next')
+let currentPlanetIndex = -1
 
-const closeWithAnimation = (): void => animateClose();
+interface AnimateCloseParams {
+  onEnd?: () => void
+}
+
+const animateClose = ({ onEnd }: AnimateCloseParams): void => {
+  modal.classList.add('closing')
+  modal.addEventListener(
+    'animationend',
+    () => {
+      modal.close()
+      modal.classList.remove('closing')
+      onEnd?.()
+    },
+    { once: true }
+  )
+}
+
+const closeWithAnimation = (): void => animateClose({})
 
 const goPrev = (): void => {
-  currentPlanetIndex = navigateTo(-1, currentPlanetIndex, planets, modal, openPlanet);
-};
+  currentPlanetIndex = navigateTo({
+    currentIndex: currentPlanetIndex,
+    direction: -1,
+    modal,
+    onOpenPlanet: openPlanet,
+    planets
+  })
+}
 
 const goNext = (): void => {
-  currentPlanetIndex = navigateTo(1, currentPlanetIndex, planets, modal, openPlanet);
-};
+  currentPlanetIndex = navigateTo({
+    currentIndex: currentPlanetIndex,
+    direction: 1,
+    modal,
+    onOpenPlanet: openPlanet,
+    planets
+  })
+}
 
-const createYouTubeEmbed = (videoId: string, label: string): HTMLElement => {
-  const element = document.createElement('lite-youtube');
+interface CreateYouTubeEmbedParams {
+  label: string
+  videoId: string
+}
 
-  element.setAttribute('playlabel', label);
-  element.setAttribute('videoid', videoId);
-  element.style.width = '100%';
+const createYouTubeEmbed = ({
+  label,
+  videoId
+}: CreateYouTubeEmbedParams): HTMLElement => {
+  const element = document.createElement('lite-youtube')
 
-  return element;
-};
+  element.setAttribute('playlabel', label)
+  element.setAttribute('videoid', videoId)
+  element.style.width = '100%'
 
-const openPlanet = (id: string): void => {
-  const index = planets.findIndex(({ id: planetId }) => planetId === id);
+  return element
+}
 
-  if (index === -1) return;
+interface OpenPlanetParams {
+  id: string
+}
 
-  currentPlanetIndex = index;
-  const { description, experiences, name, projects, song, title, youtubeId } = planets[index];
+const openPlanet = ({ id }: OpenPlanetParams): void => {
+  const index = planets.findIndex(({ id: planetId }) => planetId === id)
 
-  modalTitle.textContent = name;
-  modalSubtitle.textContent = title;
-  modalProjects.innerHTML = '';
-  modalExperiences.innerHTML = '';
-  renderDescription(modalDescription, description);
-  renderProjects(modalProjects, projects ?? []);
-  renderExperiences(modalExperiences, experiences ?? []);
+  if (index === -1) return
 
-  embedWrapper.innerHTML = '';
-  embedWrapper.append(createYouTubeEmbed(youtubeId, song));
+  currentPlanetIndex = index
+  const { description, experiences, name, projects, song, title, youtubeId } =
+    planets[index]
 
-  modal.showModal();
-};
+  modalTitle.textContent = name
+  modalSubtitle.textContent = title
+  modalProjects.innerHTML = ''
+  modalExperiences.innerHTML = ''
+  renderDescription({ container: modalDescription, text: description })
+  renderProjects({ container: modalProjects, projects: projects ?? [] })
+  renderExperiences({
+    container: modalExperiences,
+    experiences: experiences ?? []
+  })
 
-setupPlanetTriggers(openPlanet);
+  embedWrapper.innerHTML = ''
+  embedWrapper.append(createYouTubeEmbed({ label: song, videoId: youtubeId }))
 
-closeButton?.addEventListener('click', closeWithAnimation);
+  modal.showModal()
+}
+
+setupPlanetTriggers({ openPlanet })
+
+closeButton?.addEventListener('click', closeWithAnimation)
 
 prevButton?.addEventListener('click', (event: MouseEvent) => {
-  event.stopPropagation();
-  goPrev();
-});
+  event.stopPropagation()
+  goPrev()
+})
 nextButton?.addEventListener('click', (event: MouseEvent) => {
-  event.stopPropagation();
-  goNext();
-});
+  event.stopPropagation()
+  goNext()
+})
 
 modal.addEventListener('keydown', (event: KeyboardEvent) => {
   if (event.key === ARROW_LEFT) {
-    event.preventDefault();
-    goPrev();
+    event.preventDefault()
+    goPrev()
   }
   if (event.key === ARROW_RIGHT) {
-    event.preventDefault();
-    goNext();
+    event.preventDefault()
+    goNext()
   }
-});
+})
 
 modal.addEventListener('click', (event: MouseEvent) => {
-  const rect = modal.getBoundingClientRect();
+  const rect = modal.getBoundingClientRect()
   const isVerticallyInside =
-    rect.top <= event.clientY && event.clientY <= rect.top + rect.height;
+    rect.top <= event.clientY && event.clientY <= rect.top + rect.height
   const isHorizontallyInside =
-    rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
-  const isInDialog = isVerticallyInside && isHorizontallyInside;
+    rect.left <= event.clientX && event.clientX <= rect.left + rect.width
+  const isInDialog = isVerticallyInside && isHorizontallyInside
 
   if (!isInDialog) {
-    closeWithAnimation();
+    closeWithAnimation()
   }
-});
+})
 
 modal.addEventListener('cancel', (event: Event) => {
-  event.preventDefault();
-  closeWithAnimation();
-});
+  event.preventDefault()
+  closeWithAnimation()
+})
