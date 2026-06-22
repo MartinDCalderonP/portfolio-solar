@@ -151,6 +151,26 @@ export const planets: PlanetContent[] = [
         description: 'Locución y narración para proyectos audiovisuales.',
         year: 2023,
       },
+      {
+        id: 'espanol',
+        title: 'Español',
+        description: 'Nativo',
+      },
+      {
+        id: 'ingles',
+        title: 'Inglés',
+        description: 'Nivel avanzado · Certificado EF SET C2 Proficient',
+      },
+      {
+        id: 'portugues',
+        title: 'Portugués',
+        description: 'Nivel intermedio',
+      },
+      {
+        id: 'frances',
+        title: 'Francés',
+        description: 'Nivel básico',
+      },
     ],
   },
   {

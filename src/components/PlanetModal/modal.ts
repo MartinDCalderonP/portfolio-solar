@@ -1,4 +1,5 @@
 import '@justinribeiro/lite-youtube';
+import '../Chip/Chip.css';
 import '../LinkButton/LinkButton.css';
 
 import type { PlanetContent, Project } from '../../data/portfolio';
@@ -68,13 +69,28 @@ const createProjectCard = ({
   title,
   year,
 }: Project): HTMLElement => {
+  if (!year && link) {
+    return createLinkElement(link);
+  }
+
+  if (!year && !link) {
+    const chip = document.createElement('span');
+
+    chip.className = 'chip';
+
+    const titleSpan = document.createTextNode(title);
+    const levelSpan = document.createElement('span');
+
+    levelSpan.className = 'chip-level';
+    levelSpan.textContent = description ?? '';
+
+    chip.append(titleSpan, levelSpan);
+    return chip;
+  }
+
   const card = document.createElement('div');
 
   card.className = 'project-card';
-
-  if (!year) {
-    return createLinkElement(link ?? '#');
-  }
 
   if (logo) {
     const imageWrapper = document.createElement('div');
@@ -102,11 +118,8 @@ const createProjectCard = ({
   const descriptionEl = document.createElement('div');
 
   descriptionEl.className = 'project-card-description';
-
-  if (description) {
-    descriptionEl.textContent = description;
-    body.append(descriptionEl);
-  }
+  descriptionEl.textContent = description ?? null;
+  body.append(descriptionEl);
 
   if (link) {
     body.append(createLinkElement(link));

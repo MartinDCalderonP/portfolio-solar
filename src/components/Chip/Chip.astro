@@ -1,0 +1,15 @@
+---
+import './Chip.css';
+
+export interface ChipProps {
+  description: string;
+  title: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<span class="chip">
+  {title}
+  <span class="chip-level">{description}</span>
+</span>
