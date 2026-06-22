@@ -55,7 +55,7 @@ const createProjectCard = ({
   const titleEl = document.createElement('div');
 
   titleEl.className = 'project-card-title';
-  titleEl.textContent = `${title} (${year})`;
+  titleEl.textContent = year ? `${title} (${year})` : title;
   body.append(titleEl);
 
   const descriptionEl = document.createElement('div');
@@ -73,8 +73,20 @@ const createProjectCard = ({
     linkEl.target = '_blank';
 
     const isSpotify = link.includes('open.spotify.com');
+    const isLinkedIn = link.includes('linkedin.com');
+    const isTwitter = link.includes('x.com') || link.includes('twitter.com');
+    const isGitHub = link.includes('github.com');
+    const isEmail = link.startsWith('mailto:');
 
-    linkEl.textContent = isSpotify ? 'Escuchar en Spotify 🎙️' : 'Ver proyecto 🔗';
+    const isSpotifyLink = isSpotify ? 'Escuchar en Spotify 🎙️' : '';
+    const isLinkedInLink = isLinkedIn ? 'LinkedIn 🔗' : '';
+    const isTwitterLink = isTwitter ? 'X / Twitter 🐦' : '';
+    const isGitHubLink = isGitHub ? 'GitHub 🔗' : '';
+    const isEmailLink = isEmail ? 'Enviar correo 📧' : '';
+    const defaultLink = 'Ver proyecto 🔗';
+
+    linkEl.textContent =
+      isSpotifyLink || isLinkedInLink || isTwitterLink || isGitHubLink || isEmailLink || defaultLink;
     body.append(linkEl);
   }
 
@@ -86,7 +98,7 @@ const createProjectCard = ({
 const renderProjects = (projects: Project[]): void => {
   modalProjects.innerHTML = '';
 
-  const sortedProjects = [...projects].sort(({ year: a }, { year: b }) => b - a);
+  const sortedProjects = [...projects].sort(({ year: a }, { year: b }) => (b ?? 0) - (a ?? 0));
 
   sortedProjects.forEach((project) => {
     modalProjects.append(createProjectCard(project));
