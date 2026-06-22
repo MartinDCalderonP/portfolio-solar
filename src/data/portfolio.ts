@@ -38,7 +38,7 @@ export const planets: PlanetContent[] = [
     name: 'Mercurio',
     title: 'Experiencia',
     description:
-      'A lo largo de la cursada fui sumando trabajos que me formaron como comunicador. Desde proyectos grupales hasta producciones propias, cada uno me enseñó algo distinto. El diseño (gráfico, arquitectónico, conceptual) siempre estuvo presente de alguna forma.',
+      'A lo largo de la cursada fui sumando trabajos que me formaron como comunicador. Desde proyectos grupales hasta producciones propias, cada uno me enseñó algo distinto. El diseño (gráfico, arquitectónico, conceptual) siempre estuvo presente de alguna forma. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día.',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
