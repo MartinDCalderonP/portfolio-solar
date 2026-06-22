@@ -32,7 +32,7 @@ const createProjectCard = (project: Project): HTMLDivElement => {
   const title = document.createElement('div');
 
   title.className = 'project-card-title';
-  title.textContent = `🪐 ${project.title}`;
+  title.textContent = `${project.title} (${project.year})`;
   card.append(title);
 
   const description = document.createElement('div');
@@ -41,13 +41,26 @@ const createProjectCard = (project: Project): HTMLDivElement => {
   description.textContent = project.description;
   card.append(description);
 
+  if (project.link) {
+    const link = document.createElement('a');
+
+    link.className = 'project-link';
+    link.href = project.link;
+    link.rel = 'noopener noreferrer';
+    link.target = '_blank';
+    link.textContent = 'Escuchar en Spotify 🎙️';
+    card.append(link);
+  }
+
   return card;
 };
 
 const renderProjects = (projects: Project[]): void => {
   modalProjects.innerHTML = '';
 
-  projects.forEach((project) => {
+  const sortedProjects = [...projects].sort(({ year: a }, { year: b }) => b - a);
+
+  sortedProjects.forEach((project) => {
     modalProjects.append(createProjectCard(project));
   });
 };
