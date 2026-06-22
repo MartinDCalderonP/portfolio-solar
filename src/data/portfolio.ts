@@ -4,7 +4,7 @@ export interface Project {
   link?: string;
   logo?: string;
   title: string;
-  year: number;
+  year?: number;
 }
 
 export interface PlanetContent {
@@ -166,10 +166,16 @@ export const planets: PlanetContent[] = [
     youtubeId: 'AWGhln9_7_s',
     projects: [
       {
-        id: 'formacion-1',
-        title: 'UBA - Ciencias de la Comunicación',
-        description: 'Facultad de Ciencias Sociales. Formación en comunicación, publicidad y análisis del discurso.',
-        year: 2025,
+        id: 'uba-comunicacion',
+        title: 'Universidad de Buenos Aires (UBA)',
+        description: 'Licenciatura en Ciencias de la Comunicación Social. Facultad de Ciencias Sociales (FSOC). Formación en comunicación, publicidad y análisis del discurso. En curso.',
+        year: 2026,
+      },
+      {
+        id: 'maestro-mayor-obras',
+        title: 'Maestro Mayor de Obras',
+        description: 'ET N°17 DE 13 Brigadier General Cornelio Saavedra. Formación técnica en construcción, diseño arquitectónico y planos. 2006 - 2012.',
+        year: 2012,
       },
     ],
   },
@@ -242,7 +248,7 @@ export const planets: PlanetContent[] = [
     name: 'Urano',
     title: 'Contacto',
     description:
-      'Conectemos. Si querés colaborar, contratarme o simplemente charlar de ideas.',
+      'Si querés colaborar, contratarme o simplemente charlar de ideas.',
     colorVar: 'var(--color-uranus)',
     orbitVar: 'var(--orbit-uranus)',
     size: '20px',
@@ -250,11 +256,28 @@ export const planets: PlanetContent[] = [
     youtubeId: '6pXoQ6iYO1w',
     projects: [
       {
-        id: 'reflexion-1',
-        title: 'Mi viaje en la materia',
-        description:
-          'A lo largo de la cursada descubrí que la creatividad no es solo inspiración, sino proceso. Aprendí a conceptualizar, a mirar desde otras perspectivas y a defender mis ideas con argumentos. El desafío más grande fue salir de mi zona de confort y animarme a proponer sin miedo al error. Me llevo herramientas para toda la carrera.',
-        year: 2026,
+        id: 'contacto-linkedin',
+        title: 'LinkedIn',
+        description: 'Conectemos profesionalmente.',
+        link: 'https://www.linkedin.com/in/martincalderon92',
+      },
+      {
+        id: 'contacto-x',
+        title: 'X / Twitter',
+        description: 'Seguime en @martomartian.',
+        link: 'https://x.com/martomartian',
+      },
+      {
+        id: 'contacto-github',
+        title: 'GitHub',
+        description: 'Mis proyectos open source.',
+        link: 'https://github.com/MartinDCalderonP',
+      },
+      {
+        id: 'contacto-email',
+        title: 'Correo electrónico',
+        description: 'Escribime a martincalderon92@outlook.com.',
+        link: 'mailto:martincalderon92@outlook.com',
       },
     ],
   },
@@ -269,5 +292,61 @@ export const planets: PlanetContent[] = [
     size: '18px',
     song: 'Sal — Cerati',
     youtubeId: '50j63cIBcvs',
+    projects: [
+      {
+        id: 'cert-ef-set',
+        title: 'EF SET English Certificate',
+        description: '74/100 (C2 Proficient). Certificación de nivel de inglés.',
+        year: 2022,
+      },
+      {
+        id: 'cert-full-stack-python',
+        title: 'Curso Full Stack Python',
+        description: 'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Python, lenguajes de programación.',
+        year: 2020,
+      },
+      {
+        id: 'cert-scrum',
+        title: 'Scrum Foundations Professional Certificate (SFPC)',
+        description: 'CertiProf. Metodologías ágiles y gestión de proyectos.',
+        year: 2020,
+      },
+      {
+        id: 'cert-react',
+        title: 'Curso de React',
+        description: 'Comunidad IT. Desarrollo de interfaces web con React.',
+        year: 2020,
+      },
+      {
+        id: 'cert-british-council',
+        title: 'LearnEnglish Select Blended Intermediate',
+        description: 'British Council. Curso de inglés nivel intermedio.',
+        year: 2020,
+      },
+      {
+        id: 'cert-git',
+        title: 'Introducción a Git',
+        description: 'KODOTI. Control de versiones y trabajo colaborativo.',
+        year: 2020,
+      },
+      {
+        id: 'cert-desarrollo-web',
+        title: 'Curso de Desarrollo Web',
+        description: 'Gobierno de la Ciudad de Buenos Aires. Aptitudes: lenguajes de programación.',
+        year: 2019,
+      },
+      {
+        id: 'cert-codo-a-codo',
+        title: 'Codo a Codo',
+        description: 'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Java, lenguajes de programación.',
+        year: 2018,
+      },
+      {
+        id: 'cert-impresion-3d',
+        title: 'Curso de Impresión 3D',
+        description: 'Gobierno de la Ciudad de Buenos Aires. Fabricación digital y modelado 3D.',
+        year: 2018,
+      },
+    ],
   },
 ];
