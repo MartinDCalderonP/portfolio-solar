@@ -1,0 +1,58 @@
+---
+import './AudioGreeting.css';
+---
+
+<audio hidden id="greeting-audio" preload="auto" src="/audio/intro.mp3" />
+<button class="greeting-button greeting-button--visible" id="greeting-button" aria-label="Reproducir saludo">
+  <span class="greeting-icon">▶</span>
+</button>
+
+<script>
+  const audio = document.getElementById('greeting-audio') as HTMLAudioElement;
+  const button = document.getElementById('greeting-button') as HTMLButtonElement;
+  const icon = button.querySelector('.greeting-icon') as HTMLSpanElement;
+
+  const setIcon = (iconChar: string, label: string): void => {
+    icon.style.transform = 'scale(0)';
+    setTimeout(() => {
+      icon.textContent = iconChar;
+      icon.style.transform = 'scale(1)';
+    }, 100);
+    button.setAttribute('aria-label', label);
+  };
+
+  const setPlaying = (): void => {
+    setIcon('⏸', 'Pausar saludo');
+  };
+
+  const setPaused = (): void => {
+    setIcon('▶', 'Reproducir saludo');
+  };
+
+  const toggleAudio = (): void => {
+    if (audio.paused) {
+      audio.play().catch(() => {});
+      setPlaying();
+    } else {
+      audio.pause();
+      setPaused();
+    }
+  };
+
+  const onFirstInteraction = (): void => {
+    audio.play().then(() => {
+      document.removeEventListener('click', onFirstInteraction);
+      document.removeEventListener('touchstart', onFirstInteraction);
+      setPlaying();
+    }).catch(() => {});
+  };
+
+  audio.addEventListener('ended', setPaused);
+
+  button.addEventListener('click', toggleAudio);
+
+  audio.play().then(setPlaying).catch(() => {
+    document.addEventListener('click', onFirstInteraction);
+    document.addEventListener('touchstart', onFirstInteraction);
+  });
+</script>
