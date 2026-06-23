@@ -62,8 +62,8 @@ export const planets: PlanetContent[] = [
           'Este mismo portfolio. Un sistema solar interactivo donde cada planeta representa una sección de mi perfil. Construido con Astro (no podía ser de otra manera) y TypeScript.',
         links: [
           'https://portfolio-solar-martin-calderon.vercel.app/',
-          'https://youtube.com/playlist?list=PLSBJK81hjmUpnCol9Szs9-68VyIX1UocL&si=DtaZG_fKwn23hOQ5',
-          'https://drive.google.com/drive/folders/1TJN2SbOd6EYoKjGW79huL6gHWerjeCJP?usp=sharing',
+          'https://www.youtube.com/playlist?list=PLgVa3U5E3U_v9arQnKK9kHmyELGVs9tIB',
+          'https://drive.google.com/drive/folders/1rD5LosbXPNbhz7V5jRzSbqWBuGL4dPZV?usp=sharing',
           'https://github.com/MartinDCalderonP/portfolio-solar'
         ],
         year: 2026
@@ -90,7 +90,7 @@ export const planets: PlanetContent[] = [
         description:
           'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
         links: [
-          'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view'
+          'https://drive.google.com/file/d/1UHkW02PR58wk_SO7qcQiRb6WwC81k_AT/view?usp=sharing'
         ],
         year: 2022
       },
@@ -100,7 +100,7 @@ export const planets: PlanetContent[] = [
         description:
           'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
         links: [
-          'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view'
+          'https://drive.google.com/file/d/1UHkW02PR58wk_SO7qcQiRb6WwC81k_AT/view?usp=sharing'
         ],
         year: 2016
       },
