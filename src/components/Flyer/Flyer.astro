@@ -1,22 +1,22 @@
 ---
-import './Flyer.css';
+import './Flyer.css'
 
 interface FlyerConfig {
-  className: string;
-  delay: number;
-  duration: number;
-  emoji: string;
-  inlinePosition: string;
+  className: string
+  delay: number
+  duration: number
+  emoji: string
+  inlinePosition: string
 }
 
-const ANIMATION_DURATION = 60;
-const DELAY_GAP = 15;
-const SHIP_OFFSET = '-60px';
-const TOP_RANGE_MAX = 70;
-const TOP_RANGE_MIN = 10;
+const ANIMATION_DURATION = 60
+const DELAY_GAP = 15
+const SHIP_OFFSET = '-60px'
+const TOP_RANGE_MAX = 70
+const TOP_RANGE_MIN = 10
 
 const randomTop = (): number =>
-  Math.random() * (TOP_RANGE_MAX - TOP_RANGE_MIN) + TOP_RANGE_MIN;
+  Math.random() * (TOP_RANGE_MAX - TOP_RANGE_MIN) + TOP_RANGE_MIN
 
 const flyerConfigs: FlyerConfig[] = [
   {
@@ -24,42 +24,43 @@ const flyerConfigs: FlyerConfig[] = [
     delay: 0 * DELAY_GAP,
     duration: ANIMATION_DURATION,
     emoji: '🛰️',
-    inlinePosition: `top: ${randomTop()}%; right: ${SHIP_OFFSET};`,
+    inlinePosition: `top: ${randomTop()}%; right: ${SHIP_OFFSET};`
   },
   {
     className: 'flyer--bottom-left-to-top-right',
     delay: 1 * DELAY_GAP,
     duration: ANIMATION_DURATION,
     emoji: '🚀',
-    inlinePosition: `bottom: ${SHIP_OFFSET}; left: ${SHIP_OFFSET};`,
+    inlinePosition: `bottom: ${SHIP_OFFSET}; left: ${SHIP_OFFSET};`
   },
   {
     className: 'flyer--bottom-right-to-top-left',
     delay: 2 * DELAY_GAP,
     duration: ANIMATION_DURATION,
     emoji: '☄️',
-    inlinePosition: `bottom: ${SHIP_OFFSET}; right: ${SHIP_OFFSET};`,
+    inlinePosition: `bottom: ${SHIP_OFFSET}; right: ${SHIP_OFFSET};`
   },
   {
     className: 'flyer--left-to-right',
     delay: 3 * DELAY_GAP,
     duration: ANIMATION_DURATION,
     emoji: '🛸',
-    inlinePosition: `top: ${randomTop()}%; left: ${SHIP_OFFSET};`,
-  },
-];
+    inlinePosition: `top: ${randomTop()}%; left: ${SHIP_OFFSET};`
+  }
+]
 
 const hashes: string[] = flyerConfigs.map(
   ({ className, delay, duration, emoji, inlinePosition }) =>
     `<div
+      aria-hidden="true"
       class="flyer ${className}"
       style="
         ${inlinePosition}
         animation-delay: ${delay}s;
         animation-duration: ${duration}s;
       "
-    >${emoji}</div>`,
-);
+    >${emoji}</div>`
+)
 ---
 
-<div class="flyer-container" set:html={hashes.join('')} />
+<div class='flyer-container' set:html={hashes.join('')} />
