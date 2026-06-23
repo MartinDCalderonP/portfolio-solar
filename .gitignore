@@ -3,3 +3,4 @@ dist/
 .astro/
 *.local
 .agents/skills
+.DS_Store
