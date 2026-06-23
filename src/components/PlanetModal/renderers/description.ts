@@ -7,10 +7,12 @@ const renderDescription = ({
   container,
   text
 }: RenderDescriptionParams): void => {
-  const paragraphs = text.split('\n').filter(Boolean)
+  const paragraphs = text.split('\n')
 
   container.innerHTML = paragraphs
-    .map((paragraph) => `<p>${paragraph}</p>`)
+    .map(
+      (paragraph) => `<p class="modal-description-paragraph">${paragraph}</p>`
+    )
     .join('')
 }
 
