@@ -1,87 +1,100 @@
 ---
-import '../styles/global.css';
-import AudioGreeting from '../components/AudioGreeting/AudioGreeting.astro';
-import { AUTHOR_NAME, OG_IMAGE_URL, SITE_DESCRIPTION, SITE_URL } from '../constants';
+import '../styles/global.css'
+import AudioGreeting from '../components/AudioGreeting/AudioGreeting.astro'
+import {
+  AUTHOR_NAME,
+  OG_IMAGE_URL,
+  SITE_DESCRIPTION,
+  SITE_URL
+} from '../constants'
 
-const PAGE_TITLE = `${AUTHOR_NAME} - Portfolio Creativo`;
+const PAGE_TITLE = `${AUTHOR_NAME} - Portfolio Creativo`
 ---
 
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang='es'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>{PAGE_TITLE}</title>
-    <meta name="description" content={SITE_DESCRIPTION} />
-    <meta name="robots" content="index, follow" />
+    <meta name='description' content={SITE_DESCRIPTION} />
+    <meta name='robots' content='index, follow' />
 
-    <link rel="canonical" href={SITE_URL} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel='canonical' href={SITE_URL} />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 
-    <meta property="og:title" content={PAGE_TITLE} />
-    <meta property="og:description" content={SITE_DESCRIPTION} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={OG_IMAGE_URL} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:url" content={SITE_URL} />
+    <meta property='og:title' content={PAGE_TITLE} />
+    <meta property='og:description' content={SITE_DESCRIPTION} />
+    <meta property='og:type' content='website' />
+    <meta property='og:image' content={OG_IMAGE_URL} />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:url' content={SITE_URL} />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={PAGE_TITLE} />
-    <meta name="twitter:description" content={SITE_DESCRIPTION} />
-    <meta name="twitter:image" content={OG_IMAGE_URL} />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={PAGE_TITLE} />
+    <meta name='twitter:description' content={SITE_DESCRIPTION} />
+    <meta name='twitter:image' content={OG_IMAGE_URL} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap'
+      rel='stylesheet'
+    />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": AUTHOR_NAME,
-      "url": SITE_URL,
-      "description": SITE_DESCRIPTION,
-    })} />
+    <script
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: AUTHOR_NAME,
+        url: SITE_URL,
+        description: SITE_DESCRIPTION
+      })}
+      type='application/ld+json'
+    />
 
     <script>
-      const TAB_AWAY_TITLE = 'Volvé, viajero!';
-      const originalTitle = document.title;
-      const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
-      const originalFavicon = favicon?.href ?? '';
+      const TAB_AWAY_TITLE = 'Volvé, viajero!'
+      const originalTitle = document.title
+      const favicon =
+        document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+      const originalFavicon = favicon?.href ?? ''
 
       const createEmojiFavicon = (emoji: string): string => {
-        const canvas = document.createElement('canvas');
+        const canvas = document.createElement('canvas')
 
-        canvas.height = 32;
-        canvas.width = 32;
+        canvas.height = 32
+        canvas.width = 32
 
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d')
 
-        if (!context) return originalFavicon;
+        if (!context) return originalFavicon
 
-        context.font = '28px sans-serif';
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-        context.fillText(emoji, 16, 17);
+        context.font = '28px sans-serif'
+        context.textAlign = 'center'
+        context.textBaseline = 'middle'
+        context.fillText(emoji, 16, 17)
 
-        return canvas.toDataURL();
-      };
+        return canvas.toDataURL()
+      }
 
-      const awayFavicon = createEmojiFavicon('🧑🏽‍🚀');
+      const awayFavicon = createEmojiFavicon('🧑🏽‍🚀')
 
       document.addEventListener('visibilitychange', () => {
-        const isHidden = document.hidden;
+        const isHidden = document.hidden
 
-        document.title = isHidden ? TAB_AWAY_TITLE : originalTitle;
+        document.title = isHidden ? TAB_AWAY_TITLE : originalTitle
 
         if (favicon) {
-          favicon.href = isHidden ? awayFavicon : originalFavicon;
+          favicon.href = isHidden ? awayFavicon : originalFavicon
         }
-      });
+      })
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+    <a class='skip-link' href='#main-content'>Saltar al contenido principal</a>
     <slot />
     <AudioGreeting />
   </body>
