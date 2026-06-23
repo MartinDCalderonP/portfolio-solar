@@ -76,7 +76,7 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
     if (firstParagraph) firstParagraph.after(createGreetingButton())
   }
 
-  if (id === 'neptune') {
+  if (id === 'uranus') {
     const img = document.createElement('img')
 
     img.className = 'planet-image'
@@ -86,7 +86,7 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   }
   renderProjects({ container: modalProjects, projects: projects ?? [] })
 
-  if (id === 'uranus') {
+  if (id === 'neptune') {
     const songElement = document.querySelector('.modal-song')
 
     if (songElement) {

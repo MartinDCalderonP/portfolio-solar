@@ -417,14 +417,27 @@ export const planets: PlanetContent[] = [
   {
     id: 'uranus',
     name: 'Urano',
-    title: 'Contacto',
+    title: 'Extras',
     description:
-      'Acá es donde el sistema solar se encuentra con el mundo real. Si algo de lo que viste te generó curiosidad, ganas de colaborar o simplemente querés charlar de sobre algunas ideas, estas son las vías. No importa si es un proyecto, un trabajo o una pregunta random, trataré de contestarte a la brevedad. 📡',
+      'Me encanta la música desde que tengo la memoria, canto y toco la guitarra. Los recitales son mis actividades favoritas. Como verán en la foto, me gustan mucho Los Besos (la banda!). Y, debido a que es de hace algunos años, no denota mi disfrute en hacer crecer y mantener el pelo largo. La imagen sí anticipa mi entusiasmo por El Señor de los Anillos: veo la trilogía completa al menos una vez al año, preferentemente en cines cuando la reestrenan. La vi por primera vez en su estreno original, hace 25 años, junto a mi (ya mencionado) padre. 🎸\n\nAunque paso gran parte del día frente a pantallas, valoro mucho salir a caminar por plazas, parques y reservas. La Reserva Ecológica Costanera Sur es uno de mis lugares favoritos de la Ciudad. También disfruto de las playas de la costa bonaerense y de viajar por el país para conocer nuevos lugares. Me interesa seguir formándome, probablemente en Exactas o en Económicas, o en lo que me llame la atención en su momento. ¿No tiene nada que ver con lo que ya hice? Ya veremos. 🤷🏾‍♂️',
+    image: '/logos/neptune-photo.jpg',
     colorVar: 'var(--color-uranus)',
     orbitVar: 'var(--orbit-uranus)',
     size: '20px',
     song: 'Moonage Daydream - David Bowie',
-    youtubeId: '6pXoQ6iYO1w',
+    youtubeId: '6pXoQ6iYO1w'
+  },
+  {
+    id: 'neptune',
+    name: 'Neptuno',
+    title: 'Contacto',
+    description:
+      'Acá es donde el sistema solar se encuentra con el mundo real. Si algo de lo que viste te generó curiosidad, ganas de colaborar o simplemente querés charlar de sobre algunas ideas, estas son las vías. No importa si es un proyecto, un trabajo o una pregunta random, trataré de contestarte a la brevedad. 📡',
+    colorVar: 'var(--color-neptune)',
+    orbitVar: 'var(--orbit-neptune)',
+    size: '18px',
+    song: 'Sal - Cerati',
+    youtubeId: '50j63cIBcvs',
     projects: [
       {
         id: 'contacto-linkedin',
@@ -447,18 +460,5 @@ export const planets: PlanetContent[] = [
         links: ['mailto:martincalderon92@outlook.com']
       }
     ]
-  },
-  {
-    id: 'neptune',
-    name: 'Neptuno',
-    title: 'Extras',
-    description:
-      'Me encanta la música desde que tengo la memoria, canto y toco la guitarra. Los recitales son mis activiades favoritas. Como verán en la foto, me gustan mucho Los Besos (la banda!). Y, debido a que es de hace algunos años, no denota mi disfrute en hacer crecer y mantener el pelo largo. La imagen sí anticipa mi entusiasmo por El Señor de los Anillos: veo la trilogía completa al menos una vez al año, preferentemente en cines cuando la reestrenan. La vi por primera vez en su estreno original, hace 25 años, junto a mi (ya mencionado) padre. 🎸\n\nAunque paso gran parte del día frente a pantallas, valoro mucho salir a caminar por plazas, parques y reservas. La Reserva Ecológica Costanera Sur es uno de mis lugares favoritos de la Ciudad. También disfruto de las playas de la costa bonaerense y de viajar por el país para conocer nuevos lugares. Me interesa seguir formándome, probablemente en Exactas o en Económicas, o en lo que me llame la atención en su momento. ¿No tiene nada que ver con lo que ya hice? Ya veremos. 🤷🏾‍♂️',
-    image: '/logos/neptune-photo.jpg',
-    colorVar: 'var(--color-neptune)',
-    orbitVar: 'var(--orbit-neptune)',
-    size: '18px',
-    song: 'Sal - Cerati',
-    youtubeId: '50j63cIBcvs'
   }
 ]
