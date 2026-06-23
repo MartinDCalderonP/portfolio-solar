@@ -71,6 +71,34 @@ body {
   color: white;
 }
 
+.skip-link {
+  background: var(--color-text);
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+  padding: 12px 20px;
+  position: fixed;
+  top: 0;
+  white-space: nowrap;
+  width: 1px;
+  z-index: 100;
+
+  &:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    left: 50%;
+    overflow: visible;
+    transform: translateX(-50%);
+    width: auto;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 3px;
