@@ -3,7 +3,7 @@
   overflow: hidden;
   pointer-events: none;
   position: fixed;
-  z-index: var(--z-spaceship);
+  z-index: var(--z-flyer);
 
   .flyer--right-to-left,
   .flyer--left-to-right,

@@ -26,7 +26,7 @@
   --text-stroke: -1px -1px 0 var(--color-bg), 1px -1px 0 var(--color-bg), -1px 1px 0 var(--color-bg), 1px 1px 0 var(--color-bg);
   --z-header: 3;
   --z-modal: 10;
-  --z-spaceship: 1;
+  --z-flyer: 5;
   --z-stars: 0;
   --z-system: 2;
 }
