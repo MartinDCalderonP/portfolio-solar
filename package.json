@@ -3,8 +3,10 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
+    "check": "astro check",
     "dev": "astro dev",
     "build": "astro build",
+    "lint": "eslint .",
     "preview": "astro preview"
   },
   "dependencies": {
@@ -13,4 +15,11 @@
   },
   "packageManager": "pnpm@11.9.0",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.62.0",
+    "@typescript-eslint/parser": "^8.62.0",
+    "eslint": "^10.5.0",
+    "eslint-plugin-astro": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "typescript-eslint": "^8.62.0"
+  }
 }
