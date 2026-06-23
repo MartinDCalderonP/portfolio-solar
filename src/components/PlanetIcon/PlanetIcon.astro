@@ -1,18 +1,18 @@
 ---
-import Earth from './Earth.astro';
-import Jupiter from './Jupiter.astro';
-import Mars from './Mars.astro';
-import Mercury from './Mercury.astro';
-import Neptune from './Neptune.astro';
-import Saturn from './Saturn.astro';
-import Uranus from './Uranus.astro';
-import Venus from './Venus.astro';
+import Earth from './Earth.astro'
+import Jupiter from './Jupiter.astro'
+import Mars from './Mars.astro'
+import Mercury from './Mercury.astro'
+import Neptune from './Neptune.astro'
+import Saturn from './Saturn.astro'
+import Uranus from './Uranus.astro'
+import Venus from './Venus.astro'
 
 interface Props {
-  planetId: string;
+  planetId: string
 }
 
-const { planetId } = Astro.props;
+const { planetId } = Astro.props
 ---
 
 {planetId === 'mercury' && <Mercury />}
