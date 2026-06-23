@@ -61,7 +61,8 @@ export const planets: PlanetContent[] = [
           'Este mismo portfolio. Un sistema solar interactivo donde cada planeta representa una sección de mi perfil. Construido con Astro (no podía ser de otra manera) y TypeScript.',
         links: [
           'https://portfolio-solar-martin-calderon.vercel.app/',
-          'https://github.com/MartinDCalderonP/portfolio-solar'
+          'https://github.com/MartinDCalderonP/portfolio-solar',
+          'https://drive.google.com/drive/folders/1TJN2SbOd6EYoKjGW79huL6gHWerjeCJP?usp=sharing'
         ],
         year: 2026
       },
