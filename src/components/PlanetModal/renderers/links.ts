@@ -57,12 +57,17 @@ const HOST_CONFIGS: HostConfig[] = [
   {
     label: 'Recursos',
     svg: '📁',
-    test: (link) => link.includes(DRIVE_HOST)
+    test: (link) => link.includes('/drive/folders/')
   },
   {
     label: 'Playlist',
     svg: SVG_YOUTUBE,
     test: (link) => link.includes('youtube.com/playlist')
+  },
+  {
+    label: 'Ver Proyecto',
+    svg: '🎬',
+    test: (link) => link.includes('1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId')
   },
   {
     label: 'Ver proyecto',
