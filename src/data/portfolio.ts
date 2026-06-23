@@ -90,7 +90,7 @@ export const planets: PlanetContent[] = [
         description:
           'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
         links: [
-          'https://drive.google.com/file/d/1UHkW02PR58wk_SO7qcQiRb6WwC81k_AT/view?usp=sharing'
+          'https://drive.google.com/file/d/1RKms5kvMDvWDJdBoKkCyF8Cg9ncNXIhi/view?usp=sharing'
         ],
         year: 2022
       },
