@@ -224,7 +224,7 @@ export const planets: PlanetContent[] = [
     name: 'Marte',
     title: 'Skills & Herramientas',
     description:
-      'A lo largo de los años fui acumulando herramientas de distintos ámbitos (diseño, programación, comunicación, producción audiovisual, redacción y liderazgo) que hoy conviven y se potencian en mi perfil profesional.',
+      'El nombre Martín proviene del latín Martinus, derivado de Marte (el dios romano de la guerra, sincretizado con el Ares griego). Su significado es "consagrado a Marte" o "belicoso". Estas son mis armas, entre otras. 🔴',
     colorVar: 'var(--color-mars)',
     orbitVar: 'var(--orbit-mars)',
     size: '28px',
