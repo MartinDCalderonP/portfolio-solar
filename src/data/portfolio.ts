@@ -45,14 +45,86 @@ export const planets: PlanetContent[] = [
   {
     id: 'mercury',
     name: 'Mercurio',
-    title: 'Experiencia profesional',
+    title: 'Proyectos destacados',
     description:
-      'A lo largo de los años fui sumando experiencia en el mundo del desarrollo web, trabajando con clientes de todo el mundo y en equipos de distinto tamaño. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día.',
+      'Proyectos académicos y personales que fui haciendo a lo largo de la carrera y que reflejan distintas facetas de mi formación como comunicador.',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
     song: 'Mr. Bad Guy - Freddie Mercury',
     youtubeId: 'v_Mb25ASCr8',
+    projects: [
+      {
+        id: 'portfolio-solar',
+        title: 'Portfolio Solar',
+        description:
+          'Este mismo portfolio. Un sistema solar interactivo donde cada planeta representa una sección de mi perfil. Construido con Astro (no podía ser de otra manera) y TypeScript.',
+        links: [
+          'https://portfolio-solar-martin-calderon.vercel.app/',
+          'https://github.com/MartinDCalderonP/portfolio-solar'
+        ],
+        year: 2026
+      },
+      {
+        id: 'news-portfolio',
+        title: 'News Portfolio',
+        description:
+          'Web que diseñé con notas periodísticas que redacté para la Agencia de Noticias de la Carrera de Comunicación (ANCCom) de la UBA. Construida con Astro.',
+        links: ['https://news-martin-calderon.vercel.app/'],
+        year: 2025
+      },
+      {
+        id: 'contienda-podcast',
+        title: 'Contienda Podcast',
+        description:
+          'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
+        links: ['https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL'],
+        year: 2023
+      },
+      {
+        id: 'chapa-a-mano',
+        title: 'Chapa a Mano',
+        description:
+          'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
+        links: [
+          'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view'
+        ],
+        year: 2022
+      },
+      {
+        id: 'centro-cultural',
+        title: 'Centro Cultural',
+        description:
+          'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
+        links: [
+          'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view'
+        ],
+        year: 2016
+      },
+      {
+        id: 'youtube-clone',
+        title: 'YouTube Clone',
+        description:
+          'Clon de YouTube con ReactJS y Material UI. Buscá videos, explorá canales y reproducí contenido usando la API de YouTube. Tema oscuro y responsive.',
+        links: [
+          'https://clone-6c8d2.web.app/',
+          'https://github.com/MartinDCalderonP/YouTube-Clone'
+        ],
+        year: 2021
+      }
+    ]
+  },
+  {
+    id: 'venus',
+    name: 'Venus',
+    title: 'Experiencia profesional',
+    description:
+      'A lo largo de los años fui sumando experiencia en el mundo del desarrollo web, trabajando con clientes de todo el mundo y en equipos de distinto tamaño. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día.',
+    colorVar: 'var(--color-venus)',
+    orbitVar: 'var(--orbit-venus)',
+    size: '22px',
+    song: 'The Final Countdown - Europe',
+    youtubeId: '9jK-NcRmVcw',
     experiences: [
       {
         id: 'globant',
@@ -113,16 +185,51 @@ export const planets: PlanetContent[] = [
     ]
   },
   {
-    id: 'venus',
-    name: 'Venus',
+    id: 'earth',
+    name: 'Tierra',
+    title: 'Formación',
+    description:
+      'Recorrido académico que construyó mi base creativa y estratégica.',
+    colorVar: 'var(--color-earth)',
+    orbitVar: 'var(--orbit-earth)',
+    size: '24px',
+    song: 'Piedra en el Agua - Karamelo Santo',
+    youtubeId: 'AWGhln9_7_s',
+    projects: [
+      {
+        id: 'uba-comunicacion',
+        title: 'Universidad de Buenos Aires (UBA)',
+        description:
+          'Licenciatura en Ciencias de la Comunicación Social en la Facultad de Ciencias Sociales (FSoc) de la UBA. Formación en comunicación, publicidad y análisis del discurso. 2019 - En curso.',
+        year: 2026
+      },
+      {
+        id: 'maestro-mayor-obras',
+        title: 'Maestro Mayor de Obras',
+        description:
+          'ET N°17 DE 13 Brigadier General Cornelio Saavedra. Formación técnica en construcción, diseño arquitectónico y planos. 2006 - 2012.',
+        year: 2012
+      },
+      {
+        id: 'refrigeracion',
+        title: 'Técnico Superior en Sistemas de Refrigeración',
+        description:
+          'Centro de Educación No Formal Venezuela. Formación técnica en sistemas de refrigeración y climatización. 2018.',
+        year: 2018
+      }
+    ]
+  },
+  {
+    id: 'mars',
+    name: 'Marte',
     title: 'Skills & Herramientas',
     description:
       'A lo largo de los años fui acumulando herramientas de distintos ámbitos (diseño, programación, comunicación, producción audiovisual, redacción y liderazgo) que hoy conviven y se potencian en mi perfil profesional.',
-    colorVar: 'var(--color-venus)',
-    orbitVar: 'var(--orbit-venus)',
-    size: '22px',
-    song: 'The Final Countdown - Europe',
-    youtubeId: '9jK-NcRmVcw',
+    colorVar: 'var(--color-mars)',
+    orbitVar: 'var(--orbit-mars)',
+    size: '28px',
+    song: 'I Turned into a Martian - Misfits',
+    youtubeId: '9vaA8WTzmSo',
     projects: [
       {
         id: 'autocad',
@@ -278,113 +385,6 @@ export const planets: PlanetContent[] = [
         description:
           'Gobierno de la Ciudad de Buenos Aires. Fabricación digital y modelado 3D.',
         year: 2018
-      }
-    ]
-  },
-  {
-    id: 'earth',
-    name: 'Tierra',
-    title: 'Formación',
-    description:
-      'Recorrido académico que construyó mi base creativa y estratégica.',
-    colorVar: 'var(--color-earth)',
-    orbitVar: 'var(--orbit-earth)',
-    size: '24px',
-    song: 'Piedra en el Agua - Karamelo Santo',
-    youtubeId: 'AWGhln9_7_s',
-    projects: [
-      {
-        id: 'uba-comunicacion',
-        title: 'Universidad de Buenos Aires (UBA)',
-        description:
-          'Licenciatura en Ciencias de la Comunicación Social en la Facultad de Ciencias Sociales (FSoc) de la UBA. Formación en comunicación, publicidad y análisis del discurso. 2019 - En curso.',
-        year: 2026
-      },
-      {
-        id: 'maestro-mayor-obras',
-        title: 'Maestro Mayor de Obras',
-        description:
-          'ET N°17 DE 13 Brigadier General Cornelio Saavedra. Formación técnica en construcción, diseño arquitectónico y planos. 2006 - 2012.',
-        year: 2012
-      },
-      {
-        id: 'refrigeracion',
-        title: 'Técnico Superior en Sistemas de Refrigeración',
-        description:
-          'Centro de Educación No Formal Venezuela. Formación técnica en sistemas de refrigeración y climatización. 2018.',
-        year: 2018
-      }
-    ]
-  },
-  {
-    id: 'mars',
-    name: 'Marte',
-    title: 'Proyectos destacados',
-    description:
-      'Proyectos académicos y personales que fui haciendo a lo largo de la carrera y que reflejan distintas facetas de mi formación como comunicador.',
-    colorVar: 'var(--color-mars)',
-    orbitVar: 'var(--orbit-mars)',
-    size: '28px',
-    song: 'I Turned into a Martian - Misfits',
-    youtubeId: '9vaA8WTzmSo',
-    projects: [
-      {
-        id: 'portfolio-solar',
-        title: 'Portfolio Solar',
-        description:
-          'Este mismo portfolio. Un sistema solar interactivo donde cada planeta representa una sección de mi perfil. Construido con Astro (no podía ser de otra manera) y TypeScript.',
-        links: [
-          'https://portfolio-solar-martin-calderon.vercel.app/',
-          'https://github.com/MartinDCalderonP/portfolio-solar'
-        ],
-        year: 2026
-      },
-      {
-        id: 'news-portfolio',
-        title: 'News Portfolio',
-        description:
-          'Web que diseñé con notas periodísticas que redacté para la Agencia de Noticias de la Carrera de Comunicación (ANCCom) de la UBA. Construida con Astro.',
-        links: ['https://news-martin-calderon.vercel.app/'],
-        year: 2025
-      },
-      {
-        id: 'contienda-podcast',
-        title: 'Contienda Podcast',
-        description:
-          'Podcast de 3 episodios sobre la Primera, Segunda y la posibilidad de una Tercera Guerra Mundial. Proyecto grupal final para Taller de Expresión III (Cátedra: María Rosa Gómez). Idea original, locución, concepto y diseño general.',
-        links: ['https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL'],
-        year: 2023
-      },
-      {
-        id: 'chapa-a-mano',
-        title: 'Chapa a Mano',
-        description:
-          'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
-        links: [
-          'https://drive.google.com/file/d/1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId/view'
-        ],
-        year: 2022
-      },
-      {
-        id: 'centro-cultural',
-        title: 'Centro Cultural',
-        description:
-          'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
-        links: [
-          'https://drive.google.com/file/d/1GiH5wCnrbsRLkM8CPv5UhR8-E2Ju-7Ee/view'
-        ],
-        year: 2016
-      },
-      {
-        id: 'youtube-clone',
-        title: 'YouTube Clone',
-        description:
-          'Clon de YouTube con ReactJS y Material UI. Buscá videos, explorá canales y reproducí contenido usando la API de YouTube. Tema oscuro y responsive.',
-        links: [
-          'https://clone-6c8d2.web.app/',
-          'https://github.com/MartinDCalderonP/YouTube-Clone'
-        ],
-        year: 2021
       }
     ]
   },
