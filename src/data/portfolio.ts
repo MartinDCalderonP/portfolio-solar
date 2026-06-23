@@ -35,7 +35,7 @@ export const planets: PlanetContent[] = [
     name: 'Sol',
     title: 'Bienvenido!',
     description:
-      'Este es mi portfolio creativo. Mi nombre es Martín Calderón y hoy los guiaré por algunos pedazos de mi vida. Acá van a encontrar los proyectos destacados de diversos ámbitos en los que trabajé. Como estoy convencido de que la mezcla de experiencias y formación abre las puertas a nuevas formas de pensar, en mi vida fui estudiando y atravesando distintas áreas, mientras a la vez voy sumando mis intereses a las cosas que hago. Podrán observar fácilmente que actualmente trabajo en desarrollo web, me encanta la música desde que soy muy chico y me gustan cosas como la astronomía y lo relacionado a lo científico. De chico miraba El Show Creativo de Juan Gujis y creo que algo de eso también se refleja acá y en lo que hago. 🌌\n\nHay otras cosas que forman parte de mi formación pero no son tan claramente visibles, como en esta web donde (aunque no lo mencione) salen a relucir las cosas que me llaman la atención y que el buen observador sabrá encontrar. La curiosidad ha sido una guía importante, espero que ustedes también se dejen llevar por ella. Mi padre solía hacer muchos juegos de palabras, lo que me incentivó a romper los patrones de las cosas. Como dice la frase usualmente atribuida a Schopenhauer: "el humor consiste en poner algo donde no va". ✨\n\nEste portfolio está armado como un sistema solar: cada planeta es una sección de mi historia. Cuanto más lejos del Sol, más personal o lateral es el tema, pero todos orbitan alrededor de lo mismo. Hacele click a cualquier planeta para explorarlo, y al Sol para volver siempre al inicio. También funciona con Tab y Enter para navegar con teclado. No todo lo que se mueve acá es un planeta, ojo con lo que cruza por ahí. 🛰️',
+      'Mi nombre es Martín Calderón y hoy los guiaré por algunos pedazos de mi vida. Acá van a encontrar los proyectos destacados de diversos ámbitos en los que trabajé. Como estoy convencido de que la mezcla de experiencias y formación abre las puertas a nuevas formas de pensar, en mi vida fui estudiando y atravesando distintas áreas, mientras a la vez voy sumando mis intereses a las cosas que hago. Podrán observar fácilmente que actualmente trabajo en desarrollo web, me encanta la música desde que soy muy chico y me gustan cosas como la astronomía y lo relacionado a lo científico. De chico miraba El Show Creativo de Juan Gujis y creo que algo de eso se refleja acá y en lo que hago. 🌌\n\nEste portfolio está armado como un sistema solar: cada planeta es una sección de mi historia. Cuanto más lejos del Sol, más personal o lateral es el tema, pero todos orbitan alrededor de lo mismo. Hacele click a cualquier planeta para explorarlo, y al Sol para volver siempre al inicio. Asimismo, y para mayor accesibilidad, funciona con Tab, Enter y las flechas del teclado para navegar. No todo lo que se mueve acá es un planeta, ojo con lo que cruza por ahí. 🛰️',
     colorVar: 'var(--color-sun)',
     orbitVar: 'var(--orbit-sun)',
     size: '80px',
@@ -392,30 +392,21 @@ export const planets: PlanetContent[] = [
   {
     id: 'jupiter',
     name: 'Júpiter',
-    title: 'Sobre mí',
+    title: 'Reflexión final',
     description:
-      'Vengo llegando de Marte, donde dejé mis proyectos. Acá va un poco más sobre quién soy.',
+      'Aunque la cursada fue algo caótica por los factores exógenos, se hizo llevadera por las diversas modalidades que fue tomando, como salir del aula en reiteradas ocasiones, la forma de presentación de los conceptos y del trabajo en clase. 🌪️\n\nEn general, creo que fuimos aplicando los conceptos correctamente mejorando en cada iteración. Quizá faltó algo más de teoría o coordinación con otras materias similares o quizá alguna recomendación de cursada o algo de ese estilo. Habiendo sido mi primera materia de publicidad, estuve un poco descolgado en algunos momentos, pero los profesores nos dieron bastante contenido como para poder llevar la materia 💡',
     colorVar: 'var(--color-jupiter)',
     orbitVar: 'var(--orbit-jupiter)',
     size: '36px',
     song: 'Fly Me to the Moon - Frank Sinatra',
-    youtubeId: 'JYuyWrkwpok',
-    projects: [
-      {
-        id: 'exp-1',
-        title: 'Agencia Creativa X',
-        description:
-          'Asistente de creatividad. Colaboración en campañas para clientes de consumo masivo.',
-        year: 2024
-      }
-    ]
+    youtubeId: 'JYuyWrkwpok'
   },
   {
     id: 'saturn',
     name: 'Saturno',
-    title: 'Reflexión final',
+    title: 'Sobre mí',
     description:
-      'Aunque la cursada fue algo caótica por los factores exógenos, se hizo llevadera por las diversas modalidades que fue tomando, como salir del aula en reiteradas ocasiones, la forma de presentación de los conceptos y del trabajo en clase. 🌪️\n\nEn general, creo que fuimos aplicando los conceptos correctamente mejorando en cada iteración. Quizá faltó algo más de teoría o coordinación con otras materias similares o quizá alguna recomendación de cursada o algo de ese estilo. Habiendo sido mi primera materia de publicidad, estuve un poco descolgado en algunos momentos, pero los profesores nos dieron bastante contenido como para poder llevar la materia 💡',
+      'Así como vos estás explorando este proyecto (y como habrás visto), a mí me encanta vivir explorando diversas cosas. Siempre trato de apuntar a la excelencia en lo que hago, tanto para proyectos personales como para laborales (es más, probablemente siga mejorando esto!). 🎯\n\nHay otras cosas que forman parte de mi formación pero no son tan claramente visibles, como en esta web donde (aunque no lo mencione) salen a relucir las cosas que me llaman la atención y que el buen observador sabrá encontrar. La curiosidad ha sido una guía importante, espero que ustedes también se dejen llevar por ella. Mi padre solía hacer muchos juegos de palabras, lo que me incentivó a romper los patrones de las cosas. Como dice la frase usualmente atribuida a Schopenhauer: "el humor consiste en poner algo donde no va". ✨\n\nSuelen preguntarme en entrevistas laborales qué tiene que ver Comunicación, Refrigeración o la Construcción con la Programación, así como en la Facultad me pasa al revés. Toda experiencia ha nutrido esto que soy. Están ahí formas de pensar, analizar, proyectar y comunicar cosas. Lo obvio es que a veces a los clientes hay que explicarles cosas técnicas, pero hay mucho más... ¿O acaso esta interfaz no me facilita que te provea de toda esta cantidad de información? 🤔\n\nLo profesional no quita que también le doy importancia a mi salud, mi familia y relaciones. Entiendo que este universo es inabarcable y trataré siempre de seguir maravillándome con él. 🔭',
     colorVar: 'var(--color-saturn)',
     orbitVar: 'var(--orbit-saturn)',
     size: '30px',
