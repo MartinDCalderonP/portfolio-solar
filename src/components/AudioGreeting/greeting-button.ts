@@ -72,7 +72,7 @@ const createGreetingButton = (): HTMLButtonElement => {
   if (audio) {
     audio.addEventListener('play', () => {
       initSharedAnalyser(audio)
-      sharedContext?.resume()
+      void sharedContext?.resume()
       if (animationId !== null) cancelAnimationFrame(animationId)
       updateGlow()
       updateIcon(true)
@@ -88,7 +88,7 @@ const createGreetingButton = (): HTMLButtonElement => {
     if (!audio) return
 
     if (audio.paused) {
-      audio.play().catch(() => {})
+      void audio.play()
     } else {
       audio.pause()
     }
