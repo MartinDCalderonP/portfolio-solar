@@ -6,9 +6,9 @@ const ICON_PAUSE = '⏸'
 const PLAYING_CLASS = 'greeting-button--playing'
 const FFT_SIZE = 256
 const MIN_GLOW_RADIUS = 6
-const MAX_GLOW_RADIUS = 36
+const MAX_GLOW_RADIUS = 60
 const MIN_GLOW_ALPHA = 0.2
-const MAX_GLOW_ALPHA = 0.7
+const MAX_GLOW_ALPHA = 0.95
 
 let sharedContext: AudioContext | null = null
 let sharedAnalyser: AnalyserNode | null = null
