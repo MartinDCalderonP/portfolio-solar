@@ -42,12 +42,16 @@
     }
   }
 
-  #modal-projects > .link-button {
-    margin: 0 8px 8px 0;
-  }
+  #modal-projects {
+    margin-bottom: 20px;
 
-  #modal-projects > .chip {
-    margin: 0 6px 8px 0;
+    > .link-button {
+      margin: 0 8px 8px 0;
+    }
+
+    > .chip {
+      margin: 0 6px 8px 0;
+    }
   }
 
   .modal-song {

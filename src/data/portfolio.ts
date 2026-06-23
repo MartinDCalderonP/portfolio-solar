@@ -426,7 +426,7 @@ export const planets: PlanetContent[] = [
     name: 'Urano',
     title: 'Contacto',
     description:
-      'Si querés colaborar, contratarme o simplemente charlar de ideas.',
+      'Acá es donde el sistema solar se encuentra con el mundo real. Si algo de lo que viste te generó curiosidad, ganas de colaborar o simplemente querés charlar de sobre algunas ideas, estas son las vías. No importa si es un proyecto, un trabajo o una pregunta random, trataré de contestarte a la brevedad. 📡',
     colorVar: 'var(--color-uranus)',
     orbitVar: 'var(--orbit-uranus)',
     size: '20px',
