@@ -13,7 +13,7 @@ const getElementOrThrow = ({ id }: GetElementOrThrowParams): HTMLElement => {
 }
 
 const modal = document.getElementById('planet-modal') as HTMLDialogElement
-const planets: PlanetContent[] = JSON.parse(modal.dataset.planets ?? '[]')
+const planets: PlanetContent[] = JSON.parse(modal.dataset.planets ?? '[]') as PlanetContent[]
 const modalTitle = getElementOrThrow({ id: 'modal-title' })
 const modalSubtitle = getElementOrThrow({ id: 'modal-subtitle' })
 const modalDescription = getElementOrThrow({ id: 'modal-description' })
