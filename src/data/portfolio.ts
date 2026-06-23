@@ -219,6 +219,65 @@ export const planets: PlanetContent[] = [
         id: 'frances',
         title: 'Francés',
         description: 'Nivel básico'
+      },
+      {
+        id: 'cert-ef-set',
+        title: 'EF SET English Certificate',
+        description:
+          '74/100 (C2 Proficient). Certificación de nivel de inglés.',
+        year: 2022
+      },
+      {
+        id: 'cert-full-stack-python',
+        title: 'Curso Full Stack Python',
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Python, lenguajes de programación.',
+        year: 2020
+      },
+      {
+        id: 'cert-scrum',
+        title: 'Scrum Foundations Professional Certificate (SFPC)',
+        description: 'CertiProf. Metodologías ágiles y gestión de proyectos.',
+        year: 2020
+      },
+      {
+        id: 'cert-react',
+        title: 'Curso de React',
+        description: 'Comunidad IT. Desarrollo de interfaces web con React.',
+        year: 2020
+      },
+      {
+        id: 'cert-british-council',
+        title: 'LearnEnglish Select Blended Intermediate',
+        description: 'British Council. Curso de inglés nivel intermedio.',
+        year: 2020
+      },
+      {
+        id: 'cert-git',
+        title: 'Introducción a Git',
+        description: 'KODOTI. Control de versiones y trabajo colaborativo.',
+        year: 2020
+      },
+      {
+        id: 'cert-desarrollo-web',
+        title: 'Curso de Desarrollo Web',
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: lenguajes de programación.',
+        year: 2019
+      },
+      {
+        id: 'cert-codo-a-codo',
+        title: 'Codo a Codo',
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Java, lenguajes de programación.',
+        year: 2018
+      },
+      {
+        id: 'cert-impresion-3d',
+        title: 'Curso de Impresión 3D',
+        description:
+          'Gobierno de la Ciudad de Buenos Aires. Fabricación digital y modelado 3D.',
+        year: 2018
       }
     ]
   },
@@ -405,67 +464,6 @@ export const planets: PlanetContent[] = [
     orbitVar: 'var(--orbit-neptune)',
     size: '18px',
     song: 'Sal - Cerati',
-    youtubeId: '50j63cIBcvs',
-    projects: [
-      {
-        id: 'cert-ef-set',
-        title: 'EF SET English Certificate',
-        description:
-          '74/100 (C2 Proficient). Certificación de nivel de inglés.',
-        year: 2022
-      },
-      {
-        id: 'cert-full-stack-python',
-        title: 'Curso Full Stack Python',
-        description:
-          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Python, lenguajes de programación.',
-        year: 2020
-      },
-      {
-        id: 'cert-scrum',
-        title: 'Scrum Foundations Professional Certificate (SFPC)',
-        description: 'CertiProf. Metodologías ágiles y gestión de proyectos.',
-        year: 2020
-      },
-      {
-        id: 'cert-react',
-        title: 'Curso de React',
-        description: 'Comunidad IT. Desarrollo de interfaces web con React.',
-        year: 2020
-      },
-      {
-        id: 'cert-british-council',
-        title: 'LearnEnglish Select Blended Intermediate',
-        description: 'British Council. Curso de inglés nivel intermedio.',
-        year: 2020
-      },
-      {
-        id: 'cert-git',
-        title: 'Introducción a Git',
-        description: 'KODOTI. Control de versiones y trabajo colaborativo.',
-        year: 2020
-      },
-      {
-        id: 'cert-desarrollo-web',
-        title: 'Curso de Desarrollo Web',
-        description:
-          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: lenguajes de programación.',
-        year: 2019
-      },
-      {
-        id: 'cert-codo-a-codo',
-        title: 'Codo a Codo',
-        description:
-          'Gobierno de la Ciudad de Buenos Aires. Aptitudes: Java, lenguajes de programación.',
-        year: 2018
-      },
-      {
-        id: 'cert-impresion-3d',
-        title: 'Curso de Impresión 3D',
-        description:
-          'Gobierno de la Ciudad de Buenos Aires. Fabricación digital y modelado 3D.',
-        year: 2018
-      }
-    ]
+    youtubeId: '50j63cIBcvs'
   }
 ]
