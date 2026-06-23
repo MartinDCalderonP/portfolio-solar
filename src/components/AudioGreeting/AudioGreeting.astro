@@ -3,9 +3,3 @@ import './AudioGreeting.css'
 ---
 
 <audio hidden id='greeting-audio' preload='auto' src='/audio/intro.mp3'></audio>
-
-<script>
-  ;(document.getElementById('greeting-audio') as HTMLAudioElement)
-    ?.play()
-    ?.catch(() => {})
-</script>
