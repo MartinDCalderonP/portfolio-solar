@@ -66,7 +66,7 @@ const HOST_CONFIGS: HostConfig[] = [
   {
     label: 'Ver Proyecto',
     svgText: '🎬',
-    test: (link) => link.includes('1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId')
+    test: (link) => link.includes('1RKms5kvMDvWDJdBoKkCyF8Cg9ncNXIhi')
   },
   {
     label: 'Ver proyecto',
