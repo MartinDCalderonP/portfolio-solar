@@ -63,7 +63,8 @@ export const planets: PlanetContent[] = [
         links: [
           'https://portfolio-solar-martin-calderon.vercel.app/',
           'https://github.com/MartinDCalderonP/portfolio-solar',
-          'https://drive.google.com/drive/folders/1TJN2SbOd6EYoKjGW79huL6gHWerjeCJP?usp=sharing'
+          'https://drive.google.com/drive/folders/1TJN2SbOd6EYoKjGW79huL6gHWerjeCJP?usp=sharing',
+          'https://youtube.com/playlist?list=PLSBJK81hjmUpnCol9Szs9-68VyIX1UocL&si=DtaZG_fKwn23hOQ5'
         ],
         year: 2026
       },
