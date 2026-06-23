@@ -1,17 +1,22 @@
 ---
-import { planets } from '../../data/portfolio';
-import ModalContent from '../ModalContent/ModalContent.astro';
-import ModalNavButton from '../ModalNavButton/ModalNavButton.astro';
-import '../ProjectCard/ProjectCard.css';
-import './PlanetModal.css';
+import { planets } from '../../data/portfolio'
+import ModalContent from '../ModalContent/ModalContent.astro'
+import ModalNavButton from '../ModalNavButton/ModalNavButton.astro'
+import '../ProjectCard/ProjectCard.css'
+import './PlanetModal.css'
 ---
 
-<dialog class="modal" id="planet-modal" data-planets={JSON.stringify(planets)}>
-  <ModalNavButton direction="prev" />
-  <ModalNavButton direction="next" />
+<dialog
+  aria-describedby='modal-description'
+  class='modal'
+  data-planets={JSON.stringify(planets)}
+  id='planet-modal'
+>
+  <ModalNavButton direction='prev' />
+  <ModalNavButton direction='next' />
   <ModalContent />
 </dialog>
 
 <script>
-  import './modal.ts';
+  import './modal.ts'
 </script>
