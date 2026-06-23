@@ -99,6 +99,11 @@ body {
   }
 }
 
+:target,
+:focus {
+  scroll-margin-top: 80px;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 3px;
