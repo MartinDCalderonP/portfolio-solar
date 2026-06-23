@@ -53,7 +53,9 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
 
   modalTitle.textContent = name
   modalSubtitle.textContent = title
+  embedWrapper.after(modalProjects)
   modalProjects.innerHTML = ''
+  modalProjects.style.marginBottom = ''
   modalExperiences.innerHTML = ''
   renderDescription({ container: modalDescription, text: description })
 
@@ -63,6 +65,16 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
     if (firstParagraph) firstParagraph.after(createGreetingButton())
   }
   renderProjects({ container: modalProjects, projects: projects ?? [] })
+
+  if (id === 'uranus') {
+    const songElement = document.querySelector('.modal-song')
+
+    if (songElement) {
+      songElement.parentNode?.insertBefore(modalProjects, songElement)
+    }
+
+    modalProjects.style.marginBottom = '20px'
+  }
   renderExperiences({
     container: modalExperiences,
     experiences: experiences ?? []
