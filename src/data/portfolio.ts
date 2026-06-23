@@ -20,6 +20,7 @@ export interface PlanetContent {
   description: string
   experiences?: Experience[]
   id: string
+  image?: string
   name: string
   orbitVar: string
   projects?: Project[]
@@ -451,7 +452,9 @@ export const planets: PlanetContent[] = [
     id: 'neptune',
     name: 'Neptuno',
     title: 'Extras',
-    description: 'Hobbies, intereses y todo lo que me inspira fuera del aula.',
+    description:
+      'Me encanta la música desde que tengo la memoria, canto y toco la guitarra. Los recitales son mis activiades favoritas. Como verán en la foto, me gustan mucho Los Besos (la banda!). La imagen también anticipa mi gusto por El Señor de los Anillos: veo la trilogía completa al menos una vez al año, preferentemente en cines cuando la reestrenan. La vi por primera vez en su estreno original, hace 25 años, junto a mi (ya mencionado) padre. 🎸\n\nAunque paso gran parte del día frente a pantallas, valoro mucho salir a caminar por plazas, parques y reservas. La Reserva Ecológica Costanera Sur es uno de mis lugares favoritos de la Ciudad. También disfruto de las playas de la costa bonaerense y de viajar por el país para conocer nuevos lugares. Me interesa seguir formándome, probablemente en Exactas o en Económicas, o en lo que me llame la atención en su momento. ¿No tiene nada que ver con lo que ya hice? Ya veremos. 🤷🏾‍♂️',
+    image: '/logos/neptune-photo.jpg',
     colorVar: 'var(--color-neptune)',
     orbitVar: 'var(--orbit-neptune)',
     size: '18px',

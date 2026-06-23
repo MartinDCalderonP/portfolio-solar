@@ -48,8 +48,16 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   if (index === -1) return
 
   currentPlanetIndex = index
-  const { description, experiences, name, projects, song, title, youtubeId } =
-    planets[index]
+  const {
+    description,
+    experiences,
+    image,
+    name,
+    projects,
+    song,
+    title,
+    youtubeId
+  } = planets[index]
 
   modalTitle.textContent = name
   modalSubtitle.textContent = title
@@ -59,10 +67,22 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   modalExperiences.innerHTML = ''
   renderDescription({ container: modalDescription, text: description })
 
+  const existingImage = document.querySelector('.planet-image')
+  existingImage?.remove()
+
   if (id === 'sun') {
     const firstParagraph = modalDescription.querySelector('p')
 
     if (firstParagraph) firstParagraph.after(createGreetingButton())
+  }
+
+  if (id === 'neptune') {
+    const img = document.createElement('img')
+
+    img.className = 'planet-image'
+    img.alt = name
+    img.src = image!
+    modalDescription.parentNode?.insertBefore(img, modalDescription)
   }
   renderProjects({ container: modalProjects, projects: projects ?? [] })
 
