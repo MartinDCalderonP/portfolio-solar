@@ -1,7 +1,7 @@
 ---
-import { planets } from '../../data/portfolio';
-import Planet from '../Planet/Planet.astro';
-import './SolarSystem.css';
+import { planets } from '../../data/portfolio'
+import Planet from '../Planet/Planet.astro'
+import './SolarSystem.css'
 
 const orbitRadii = [
   '--orbit-mercury',
@@ -11,24 +11,26 @@ const orbitRadii = [
   '--orbit-jupiter',
   '--orbit-saturn',
   '--orbit-uranus',
-  '--orbit-neptune',
-];
+  '--orbit-neptune'
+]
 ---
 
-<div class="solar-system-wrapper">
-<div class="solar-system">
-  {orbitRadii.map((radiusVar) => (
-    <div
-      class="orbital-ring"
-      style={{
-        width: `calc(var(${radiusVar}) * 2)`,
-        height: `calc(var(${radiusVar}) * 2)`,
-      }}
-    />
-  ))}
+<div class='solar-system-wrapper'>
+  <nav aria-label='Secciones del portfolio'>
+    <div class='solar-system'>
+      {
+        orbitRadii.map((radiusVar) => (
+          <div
+            class='orbital-ring'
+            style={{
+              width: `calc(var(${radiusVar}) * 2)`,
+              height: `calc(var(${radiusVar}) * 2)`
+            }}
+          />
+        ))
+      }
 
-  {planets.map((planet, index) => (
-    <Planet planet={planet} index={index} />
-  ))}
-</div>
+      {planets.map((planet, index) => <Planet planet={planet} index={index} />)}
+    </div>
+  </nav>
 </div>

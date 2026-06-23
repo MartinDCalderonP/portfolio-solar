@@ -1,18 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Stars from '../components/Stars/Stars.astro';
-import Flyer from '../components/Flyer/Flyer.astro';
-import SolarSystem from '../components/SolarSystem/SolarSystem.astro';
-import PlanetModal from '../components/PlanetModal/PlanetModal.astro';
-import Footer from '../components/Footer/Footer.astro';
-import Header from '../components/Header/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Stars from '../components/Stars/Stars.astro'
+import Flyer from '../components/Flyer/Flyer.astro'
+import SolarSystem from '../components/SolarSystem/SolarSystem.astro'
+import PlanetModal from '../components/PlanetModal/PlanetModal.astro'
+import Footer from '../components/Footer/Footer.astro'
+import Header from '../components/Header/Header.astro'
 ---
 
 <BaseLayout>
   <Header />
   <Stars />
   <Flyer />
-  <main class="main" id="main-content">
+  <main class='main' id='main-content' tabindex='-1'>
     <SolarSystem />
   </main>
   <PlanetModal />
