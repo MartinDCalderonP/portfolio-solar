@@ -355,7 +355,7 @@ export const planets: PlanetContent[] = [
     name: 'Saturno',
     title: 'Reflexión final',
     description:
-      'Mi paso por Creatividad Publicitaria: lo que aprendí, los desafíos y lo que me llevo.',
+      'Aunque la cursada fue algo caótica por los factores exógenos, se hizo llevadera por las diversas modalidades que fue tomando, como salir del aula en reiteradas ocasiones, la forma de presentación de los conceptos y del trabajo en clase. 🌪️\n\nEn general, creo que fuimos aplicando los conceptos correctamente mejorando en cada iteración. Quizá faltó algo más de teoría o coordinación con otras materias similares o quizá alguna recomendación de cursada o algo de ese estilo. Habiendo sido mi primera materia de publicidad, estuve un poco descolgado en algunos momentos, pero los profesores nos dieron bastante contenido como para poder llevar la materia 💡',
     colorVar: 'var(--color-saturn)',
     orbitVar: 'var(--orbit-saturn)',
     size: '30px',
