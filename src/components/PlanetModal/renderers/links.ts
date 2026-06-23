@@ -1,13 +1,12 @@
 import '../../LinkButton/LinkButton.css'
-import {
-  SVG_EMAIL,
-  SVG_GITHUB,
-  SVG_LINK,
-  SVG_LINKEDIN,
-  SVG_SPOTIFY,
-  SVG_TWITTER,
-  SVG_YOUTUBE
-} from './svg/icons'
+
+const SVG_STORE: Record<string, string> = {}
+
+const getSvg = (id: string): string => {
+  SVG_STORE[id] ??= document.getElementById(id)?.innerHTML ?? ''
+
+  return SVG_STORE[id]
+}
 
 const SPOTIFY_HOST = 'open.spotify.com'
 const LINKEDIN_HOST = 'linkedin.com'
@@ -17,54 +16,61 @@ const MAIL_PROTOCOL = 'mailto:'
 
 interface HostConfig {
   label: string
-  svg: string
+  svgId?: string
+  svgText?: string
   test: (link: string) => boolean
+}
+
+const getSvgOrText = ({ config }: { config: HostConfig }): string => {
+  if (config.svgText) return config.svgText
+
+  return config.svgId ? getSvg(config.svgId) : ''
 }
 
 const HOST_CONFIGS: HostConfig[] = [
   {
     label: 'Escuchar en Spotify',
-    svg: SVG_SPOTIFY,
+    svgId: 'svg-spotify',
     test: (link) => link.includes(SPOTIFY_HOST)
   },
   {
     label: 'LinkedIn',
-    svg: SVG_LINKEDIN,
+    svgId: 'svg-linkedin',
     test: (link) => link.includes(LINKEDIN_HOST)
   },
   {
     label: 'X / Twitter',
-    svg: SVG_TWITTER,
+    svgId: 'svg-twitter',
     test: (link) => TWITTER_HOSTS.some((host) => link.includes(host))
   },
   {
     label: 'Enviar correo',
-    svg: SVG_EMAIL,
+    svgId: 'svg-email',
     test: (link) => link.startsWith(MAIL_PROTOCOL)
   },
   {
     label: 'GitHub',
-    svg: SVG_GITHUB,
+    svgId: 'svg-github',
     test: (link) => link.includes(GITHUB_HOST)
   },
   {
     label: 'Recursos',
-    svg: '📁',
+    svgText: '📁',
     test: (link) => link.includes('/drive/folders/')
   },
   {
     label: 'Playlist',
-    svg: SVG_YOUTUBE,
+    svgId: 'svg-youtube',
     test: (link) => link.includes('youtube.com/playlist')
   },
   {
     label: 'Ver Proyecto',
-    svg: '🎬',
+    svgText: '🎬',
     test: (link) => link.includes('1yO3hwvlY1V9jULNAJ1T86aRnzQqE0rId')
   },
   {
     label: 'Ver proyecto',
-    svg: SVG_LINK,
+    svgId: 'svg-link',
     test: () => true
   }
 ]
@@ -75,6 +81,16 @@ interface GetHostConfigParams {
 
 const getHostConfig = ({ link }: GetHostConfigParams): HostConfig => {
   return HOST_CONFIGS.find(({ test }) => test(link))!
+}
+
+interface GetSvgForLinkParams {
+  link: string
+}
+
+const getSvgForLink = ({ link }: GetSvgForLinkParams): string => {
+  const config = getHostConfig({ link })
+
+  return getSvgOrText({ config })
 }
 
 interface IsRepoUrlParams {
@@ -105,11 +121,11 @@ const createLinkElement = ({
   element.rel = 'noopener noreferrer'
   element.target = '_blank'
 
-  const { label, svg } = getHostConfig({ link })
+  const { label } = getHostConfig({ link })
   const finalLabel =
     link.includes(GITHUB_HOST) && isRepoUrl({ link }) ? 'Repositorio' : label
 
-  element.innerHTML = `${finalLabel} ${svg}`
+  element.innerHTML = `${finalLabel} ${getSvgForLink({ link })}`
 
   return element
 }

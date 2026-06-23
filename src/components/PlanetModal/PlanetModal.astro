@@ -1,7 +1,14 @@
 ---
 import { planets } from '../../data/portfolio'
+import EmailIcon from './renderers/svg/icons/Email.astro'
+import GithubIcon from './renderers/svg/icons/Github.astro'
+import LinkIcon from './renderers/svg/icons/Link.astro'
+import LinkedinIcon from './renderers/svg/icons/Linkedin.astro'
 import ModalContent from '../ModalContent/ModalContent.astro'
 import ModalNavButton from '../ModalNavButton/ModalNavButton.astro'
+import SpotifyIcon from './renderers/svg/icons/Spotify.astro'
+import TwitterIcon from './renderers/svg/icons/Twitter.astro'
+import YoutubeIcon from './renderers/svg/icons/Youtube.astro'
 import '../ProjectCard/ProjectCard.css'
 import './PlanetModal.css'
 ---
@@ -12,6 +19,15 @@ import './PlanetModal.css'
   data-planets={JSON.stringify(planets)}
   id='planet-modal'
 >
+  <div hidden id='svg-store' aria-hidden='true'>
+    <span id='svg-email'><EmailIcon /></span>
+    <span id='svg-github'><GithubIcon /></span>
+    <span id='svg-link'><LinkIcon /></span>
+    <span id='svg-linkedin'><LinkedinIcon /></span>
+    <span id='svg-spotify'><SpotifyIcon /></span>
+    <span id='svg-twitter'><TwitterIcon /></span>
+    <span id='svg-youtube'><YoutubeIcon /></span>
+  </div>
   <ModalNavButton direction='prev' />
   <ModalNavButton direction='next' />
   <ModalContent />
