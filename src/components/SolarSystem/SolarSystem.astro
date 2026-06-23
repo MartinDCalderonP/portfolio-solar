@@ -3,7 +3,9 @@ import { planets } from '../../data/portfolio'
 import Planet from '../Planet/Planet.astro'
 import './SolarSystem.css'
 
-const orbitRadii = [
+const ORBIT_DIAMETER_MULTIPLIER = 2
+
+const orbitRadiusVars = [
   '--orbit-mercury',
   '--orbit-venus',
   '--orbit-earth',
@@ -13,21 +15,32 @@ const orbitRadii = [
   '--orbit-uranus',
   '--orbit-neptune'
 ]
+
+interface GetOrbitDiameterParams {
+  radiusVar: string
+}
+
+const getOrbitDiameter = ({ radiusVar }: GetOrbitDiameterParams) =>
+  `calc(var(${radiusVar}) * ${ORBIT_DIAMETER_MULTIPLIER})`
 ---
 
 <div class='solar-system-wrapper'>
   <nav aria-label='Secciones del portfolio'>
     <div class='solar-system'>
       {
-        orbitRadii.map((radiusVar) => (
-          <div
-            class='orbital-ring'
-            style={{
-              width: `calc(var(${radiusVar}) * 2)`,
-              height: `calc(var(${radiusVar}) * 2)`
-            }}
-          />
-        ))
+        orbitRadiusVars.map((radiusVar) => {
+          const orbitDiameter = getOrbitDiameter({ radiusVar })
+
+          return (
+            <div
+              class='orbital-ring'
+              style={{
+                height: orbitDiameter,
+                width: orbitDiameter
+              }}
+            />
+          )
+        })
       }
 
       {planets.map((planet, index) => <Planet planet={planet} index={index} />)}
