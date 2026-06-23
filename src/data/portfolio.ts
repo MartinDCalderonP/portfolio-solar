@@ -47,7 +47,7 @@ export const planets: PlanetContent[] = [
     name: 'Mercurio',
     title: 'Proyectos destacados',
     description:
-      'Proyectos académicos y personales que fui haciendo a lo largo de la carrera y que reflejan distintas facetas de mi formación como comunicador.',
+      'Proyectos académicos y personales que fui haciendo a lo largo de la carrera y que reflejan distintas facetas de mi formación como comunicador. 🏗️',
     colorVar: 'var(--color-mercury)',
     orbitVar: 'var(--orbit-mercury)',
     size: '16px',
@@ -119,7 +119,7 @@ export const planets: PlanetContent[] = [
     name: 'Venus',
     title: 'Experiencia profesional',
     description:
-      'A lo largo de los años fui sumando experiencia en el mundo del desarrollo web, trabajando con clientes de todo el mundo y en equipos de distinto tamaño. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día.',
+      'A lo largo de los años fui sumando experiencia en el mundo del desarrollo web, trabajando con clientes de todo el mundo y en equipos de distinto tamaño. Algunas cosas no las puedo mostrar por acuerdos de confidencialidad, pero están no solo en mi haber y mi experiencia, sino en producción hoy en día. 💼',
     colorVar: 'var(--color-venus)',
     orbitVar: 'var(--orbit-venus)',
     size: '22px',
@@ -189,7 +189,7 @@ export const planets: PlanetContent[] = [
     name: 'Tierra',
     title: 'Formación',
     description:
-      'Recorrido académico que construyó mi base creativa y estratégica.',
+      'Recorrido académico que construyó mi base creativa y estratégica. 🎓',
     colorVar: 'var(--color-earth)',
     orbitVar: 'var(--orbit-earth)',
     size: '24px',
@@ -224,7 +224,7 @@ export const planets: PlanetContent[] = [
     name: 'Marte',
     title: 'Skills & Herramientas',
     description:
-      'El nombre Martín proviene del latín Martinus, derivado de Marte (el dios romano de la guerra, sincretizado con el Ares griego). Su significado es "consagrado a Marte" o "belicoso". Estas son mis armas, entre otras. 🔴',
+      'El nombre Martín proviene del latín Martinus, derivado de Marte (el dios romano de la guerra, sincretizado con el Ares griego). Su significado es "consagrado a Marte" o "belicoso". Estas son mis armas, entre otras. ⚒️',
     colorVar: 'var(--color-mars)',
     orbitVar: 'var(--orbit-mars)',
     size: '28px',
