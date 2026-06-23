@@ -20,6 +20,7 @@ const modalDescription = getElementOrThrow({ id: 'modal-description' })
 const modalProjects = getElementOrThrow({ id: 'modal-projects' })
 const modalExperiences = getElementOrThrow({ id: 'modal-experiences' })
 const closeButton = document.getElementById('modal-close')
+const modalContent = getElementOrThrow({ id: 'modal-content-scroll' })
 const embedWrapper = getElementOrThrow({ id: 'embed-wrapper' })
 const prevButton = document.getElementById('modal-nav-prev')
 const nextButton = document.getElementById('modal-nav-next')
@@ -29,6 +30,7 @@ export {
   embedWrapper,
   getElementOrThrow,
   modal,
+  modalContent,
   modalDescription,
   modalExperiences,
   modalProjects,

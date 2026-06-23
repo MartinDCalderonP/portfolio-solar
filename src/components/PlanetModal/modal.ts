@@ -10,6 +10,7 @@ import {
   closeButton,
   embedWrapper,
   modal,
+  modalContent,
   modalDescription,
   modalExperiences,
   modalProjects,
@@ -103,6 +104,9 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   embedWrapper.append(createYouTubeEmbed({ label: song, videoId: youtubeId }))
   lockScroll()
   modal.showModal()
+  requestAnimationFrame(() => {
+    modalContent.scrollTo(0, 0)
+  })
 }
 
 setupPlanetTriggers({ openPlanet })
