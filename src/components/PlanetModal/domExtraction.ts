@@ -31,8 +31,55 @@ interface ParsePlanetsParams {
   data: string
 }
 
+interface GetPropParams {
+  key: string
+  obj: unknown
+}
+
+const getProp = ({ key, obj }: GetPropParams): unknown => {
+  if (typeof obj !== 'object' || obj === null) return undefined
+
+  return (obj as Record<string, unknown>)[key]
+}
+
+const REQUIRED_STRING_KEYS = [
+  'colorVar',
+  'description',
+  'id',
+  'name',
+  'orbitVar',
+  'size',
+  'song',
+  'title',
+  'youtubeId'
+] as const
+
+interface IsPlanetContentParams {
+  value: unknown
+}
+
+const isPlanetContent = ({ value }: IsPlanetContentParams): boolean => {
+  return REQUIRED_STRING_KEYS.every(
+    (key) => typeof getProp({ key, obj: value }) === 'string'
+  )
+}
+
 const parsePlanets = ({ data }: ParsePlanetsParams): PlanetContent[] => {
-  return JSON.parse(data) as PlanetContent[]
+  const parsed: unknown = JSON.parse(data)
+
+  if (!Array.isArray(parsed))
+    throw new TypeError('Planets data must be an array')
+
+  const result: PlanetContent[] = []
+
+  for (const item of parsed as unknown[]) {
+    if (!isPlanetContent({ value: item }))
+      throw new TypeError('Invalid planet data in dataset')
+
+    result.push(item as PlanetContent)
+  }
+
+  return result
 }
 
 const modal = getDialogElement({ id: 'planet-modal' })
