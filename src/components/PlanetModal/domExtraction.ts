@@ -1,4 +1,4 @@
-import type { PlanetContent } from '../../types'
+import type { PlanetContent } from '@/types'
 
 interface GetElementOrThrowParams {
   id: string

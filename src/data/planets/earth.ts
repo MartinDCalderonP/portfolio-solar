@@ -1,4 +1,4 @@
-import type { PlanetContent, Project } from '../../types'
+import type { PlanetContent, Project } from '@/types'
 
 const projects: Project[] = [
   {

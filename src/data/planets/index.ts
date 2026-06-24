@@ -1,4 +1,4 @@
-import type { PlanetContent } from '../../types'
+import type { PlanetContent } from '@/types'
 import { planet as earth } from './earth'
 import { planet as jupiter } from './jupiter'
 import { planet as mars } from './mars'

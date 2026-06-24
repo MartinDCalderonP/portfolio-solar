@@ -1,4 +1,4 @@
-import type { Experience, PlanetContent } from '../../types'
+import type { Experience, PlanetContent } from '@/types'
 
 const experiences: Experience[] = [
   {

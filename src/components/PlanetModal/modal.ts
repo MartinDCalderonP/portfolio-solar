@@ -1,5 +1,5 @@
 import '@justinribeiro/lite-youtube'
-import { createGreetingButton } from '../AudioGreeting/greeting-button'
+import { createGreetingButton } from '@/components/AudioGreeting/greeting-button'
 import { renderDescription } from './renderers/description'
 import { renderExperiences } from './renderers/experiences'
 import { renderProjects } from './renderers/projects'

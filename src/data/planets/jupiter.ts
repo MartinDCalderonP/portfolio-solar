@@ -1,4 +1,4 @@
-import type { PlanetContent } from '../../types'
+import type { PlanetContent } from '@/types'
 
 export const planet: PlanetContent = {
   colorVar: 'var(--color-jupiter)',
