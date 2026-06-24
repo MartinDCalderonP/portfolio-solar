@@ -1,7 +1,7 @@
 import '../../Chip/Chip.css'
+import { createLinkElement } from './links'
 
 import type { Project } from '@/types'
-import { createLinkElement } from './links'
 
 const createProjectCard = ({
   description,

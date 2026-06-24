@@ -1,6 +1,6 @@
-import type { PlanetContent } from '@/types'
-
 import { animateClose } from './close'
+
+import type { PlanetContent } from '@/types'
 
 const ARROW_LEFT = 'ArrowLeft'
 const ARROW_RIGHT = 'ArrowRight'

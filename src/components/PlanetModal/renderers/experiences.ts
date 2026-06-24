@@ -1,5 +1,6 @@
-import type { Experience } from '@/types'
 import { getDateRank } from './dates'
+
+import type { Experience } from '@/types'
 
 const createExperienceCard = ({
   description,
