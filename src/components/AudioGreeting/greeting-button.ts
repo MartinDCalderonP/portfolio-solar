@@ -26,9 +26,8 @@ const initSharedAnalyser = (audio: HTMLAudioElement): void => {
 }
 
 const createGreetingButton = (): HTMLButtonElement => {
-  const audio = document.getElementById(
-    GREETING_AUDIO_ID
-  ) as HTMLAudioElement | null
+  const audioElement = document.getElementById(GREETING_AUDIO_ID)
+  const audio = audioElement instanceof HTMLAudioElement ? audioElement : null
   const button = document.createElement('button')
   const icon = document.createElement('span')
 

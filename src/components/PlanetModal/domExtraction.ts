@@ -12,8 +12,32 @@ const getElementOrThrow = ({ id }: GetElementOrThrowParams): HTMLElement => {
   return element
 }
 
-const modal = document.getElementById('planet-modal') as HTMLDialogElement
-const planets: PlanetContent[] = JSON.parse(modal.dataset.planets ?? '[]') as PlanetContent[]
+interface GetDialogElementParams {
+  id: string
+}
+
+const getDialogElement = ({
+  id
+}: GetDialogElementParams): HTMLDialogElement => {
+  const element = document.getElementById(id)
+
+  if (!(element instanceof HTMLDialogElement)) {
+    throw new TypeError(`Element #${id} is not a dialog`)
+  }
+
+  return element
+}
+
+interface ParsePlanetsParams {
+  data: string
+}
+
+const parsePlanets = ({ data }: ParsePlanetsParams): PlanetContent[] => {
+  return JSON.parse(data) as PlanetContent[]
+}
+
+const modal = getDialogElement({ id: 'planet-modal' })
+const planets = parsePlanets({ data: modal.dataset.planets ?? '[]' })
 const modalTitle = getElementOrThrow({ id: 'modal-title' })
 const modalSubtitle = getElementOrThrow({ id: 'modal-subtitle' })
 const modalDescription = getElementOrThrow({ id: 'modal-description' })

@@ -45,7 +45,9 @@ interface OpenPlanetParams {
 const openPlanet = ({ id }: OpenPlanetParams): void => {
   const index = planets.findIndex(({ id: planetId }) => planetId === id)
 
-  ;(document.getElementById('greeting-audio') as HTMLAudioElement)?.pause()
+  const greetingAudio = document.getElementById('greeting-audio')
+
+  if (greetingAudio instanceof HTMLAudioElement) greetingAudio.pause()
   if (index === -1) return
 
   currentPlanetIndex = index
