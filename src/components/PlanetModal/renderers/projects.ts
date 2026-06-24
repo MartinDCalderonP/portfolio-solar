@@ -1,6 +1,6 @@
 import '../../Chip/Chip.css'
 
-import type { Project } from '../../../data/portfolio'
+import type { Project } from '../../../types'
 import { createLinkElement } from './links'
 
 const createProjectCard = ({

@@ -1,4 +1,4 @@
-import type { Experience } from '../../../data/portfolio'
+import type { Experience } from '../../../types'
 import { getDateRank } from './dates'
 
 const createExperienceCard = ({
