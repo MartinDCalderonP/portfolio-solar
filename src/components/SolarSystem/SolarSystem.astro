@@ -20,7 +20,7 @@ interface GetOrbitDiameterParams {
   radiusVar: string
 }
 
-const getOrbitDiameter = ({ radiusVar }: GetOrbitDiameterParams) =>
+const getOrbitDiameter = ({ radiusVar }: GetOrbitDiameterParams): string =>
   `calc(var(${radiusVar}) * ${ORBIT_DIAMETER_MULTIPLIER})`
 ---
 
