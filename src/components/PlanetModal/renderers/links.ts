@@ -122,8 +122,8 @@ const createLinkElement = ({
   element.target = '_blank'
 
   const { label } = getHostConfig({ link })
-  const finalLabel =
-    link.includes(GITHUB_HOST) && isRepoUrl({ link }) ? 'Repositorio' : label
+  const isGithubRepo = link.includes(GITHUB_HOST) && isRepoUrl({ link })
+  const finalLabel = isGithubRepo ? 'Repositorio' : label
 
   element.innerHTML = `${finalLabel} ${getSvgForLink({ link })}`
 

@@ -25,6 +25,12 @@ const initSharedAnalyser = (audio: HTMLAudioElement): void => {
   sharedAnalyser.connect(sharedContext.destination)
 }
 
+const getAnalyserOrThrow = (): AnalyserNode => {
+  if (sharedAnalyser === null) throw new TypeError('Analyser is null')
+
+  return sharedAnalyser
+}
+
 const createGreetingButton = (): HTMLButtonElement => {
   const audioElement = document.getElementById(GREETING_AUDIO_ID)
   const audio = audioElement instanceof HTMLAudioElement ? audioElement : null
@@ -50,10 +56,14 @@ const createGreetingButton = (): HTMLButtonElement => {
   }
 
   const updateGlow = (): void => {
-    if (!sharedAnalyser || !audio) return
+    const hasNoAnalyserOrAudio = !sharedAnalyser || !audio
 
-    const dataArray = new Uint8Array(sharedAnalyser.frequencyBinCount)
-    sharedAnalyser.getByteFrequencyData(dataArray)
+    if (hasNoAnalyserOrAudio) return
+
+    const activeAnalyser = getAnalyserOrThrow()
+
+    const dataArray = new Uint8Array(activeAnalyser.frequencyBinCount)
+    activeAnalyser.getByteFrequencyData(dataArray)
     let sum = 0
 
     for (const value of dataArray) sum += value

@@ -10,7 +10,10 @@ const createProjectCard = ({
   title,
   year
 }: Project): HTMLElement => {
-  if (!year && links) {
+  const hasLinksWithoutYear = !year && links
+  const hasNoYearAndNoLinks = !year && !links
+
+  if (hasLinksWithoutYear) {
     if (links.length === 1) return createLinkElement({ link: links[0] })
 
     const wrapper = document.createElement('div')
@@ -20,7 +23,7 @@ const createProjectCard = ({
     return wrapper
   }
 
-  if (!year && !links) {
+  if (hasNoYearAndNoLinks) {
     const chip = document.createElement('span')
 
     chip.className = 'chip'
