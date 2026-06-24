@@ -1,4 +1,4 @@
-import '../../LinkButton/LinkButton.css'
+import '../PlanetModal.css'
 
 const SVG_STORE: Record<string, string> = {}
 
