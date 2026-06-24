@@ -1,14 +1,17 @@
-const GREETING_AUDIO_ID = 'greeting-audio'
-const PLAY_LABEL = 'Reproducir saludo'
-const PAUSE_LABEL = 'Pausar saludo'
-const ICON_PLAY = '▶'
-const ICON_PAUSE = '⏸'
-const PLAYING_CLASS = 'greeting-button--playing'
 const FFT_SIZE = 256
-const MIN_GLOW_RADIUS = 6
+const GREETING_AUDIO_ID = 'greeting-audio'
+const ICON_PAUSE = '⏸'
+const ICON_PLAY = '▶'
+const INNER_GLOW_ALPHA_PCT = 60
+const INSET_GLOW_SCALE = 0.5
+const MAX_BYTE_VALUE = 255
+const MAX_GLOW_ALPHA = 0.95
 const MAX_GLOW_RADIUS = 60
 const MIN_GLOW_ALPHA = 0.2
-const MAX_GLOW_ALPHA = 0.95
+const MIN_GLOW_RADIUS = 6
+const PAUSE_LABEL = 'Pausar saludo'
+const PLAY_LABEL = 'Reproducir saludo'
+const PLAYING_CLASS = 'greeting-button--playing'
 
 let sharedContext: AudioContext | null = null
 let sharedAnalyser: AnalyserNode | null = null
@@ -68,12 +71,12 @@ const createGreetingButton = (): HTMLButtonElement => {
 
     for (const value of dataArray) sum += value
 
-    const energy = sum / dataArray.length / 255
+    const energy = sum / dataArray.length / MAX_BYTE_VALUE
     const radius =
       MIN_GLOW_RADIUS + energy * (MAX_GLOW_RADIUS - MIN_GLOW_RADIUS)
     const alpha = MIN_GLOW_ALPHA + energy * (MAX_GLOW_ALPHA - MIN_GLOW_ALPHA)
 
-    button.style.boxShadow = `0 0 ${radius}px color-mix(in srgb, var(--color-sun) ${alpha * 100}%, transparent), inset 0 0 ${radius * 0.5}px color-mix(in srgb, var(--color-sun) ${alpha * 60}%, transparent)`
+    button.style.boxShadow = `0 0 ${radius}px color-mix(in srgb, var(--color-sun) ${alpha * 100}%, transparent), inset 0 0 ${radius * INSET_GLOW_SCALE}px color-mix(in srgb, var(--color-sun) ${alpha * INNER_GLOW_ALPHA_PCT}%, transparent)`
 
     if (!audio.paused) animationId = requestAnimationFrame(updateGlow)
   }
