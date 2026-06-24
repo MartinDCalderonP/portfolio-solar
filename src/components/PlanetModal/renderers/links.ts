@@ -2,7 +2,11 @@ import '../PlanetModal.css'
 
 const SVG_STORE: Record<string, string> = {}
 
-const getSvg = (id: string): string => {
+interface GetSvgParams {
+  id: string
+}
+
+const getSvg = ({ id }: GetSvgParams): string => {
   SVG_STORE[id] ??= document.getElementById(id)?.innerHTML ?? ''
 
   return SVG_STORE[id]
@@ -21,10 +25,16 @@ interface HostConfig {
   test: (link: string) => boolean
 }
 
-const getSvgOrText = ({ config }: { config: HostConfig }): string => {
-  if (config.svgText) return config.svgText
+interface GetSvgOrTextParams {
+  config: HostConfig
+}
 
-  return config.svgId ? getSvg(config.svgId) : ''
+const getSvgOrText = ({ config }: GetSvgOrTextParams): string => {
+  const { svgId, svgText } = config
+
+  if (svgText) return svgText
+
+  return svgId ? getSvg({ id: svgId }) : ''
 }
 
 const HOST_CONFIGS: HostConfig[] = [

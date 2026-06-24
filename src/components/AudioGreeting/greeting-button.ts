@@ -16,7 +16,11 @@ const PLAYING_CLASS = 'greeting-button--playing'
 let sharedContext: AudioContext | null = null
 let sharedAnalyser: AnalyserNode | null = null
 
-const initSharedAnalyser = (audio: HTMLAudioElement): void => {
+interface InitSharedAnalyserParams {
+  audio: HTMLAudioElement
+}
+
+const initSharedAnalyser = ({ audio }: InitSharedAnalyserParams): void => {
   if (sharedContext) return
 
   sharedContext = new AudioContext()
@@ -44,10 +48,14 @@ const createGreetingButton = (): HTMLButtonElement => {
   icon.className = 'greeting-icon'
   let animationId: number | null = null
 
-  const updateIcon = (isPlaying: boolean): void => {
+  const updateIcon = ({ isPlaying }: UpdateIconParams): void => {
     icon.textContent = isPlaying ? ICON_PAUSE : ICON_PLAY
     button.classList.toggle(PLAYING_CLASS, isPlaying)
     button.setAttribute('aria-label', isPlaying ? PAUSE_LABEL : PLAY_LABEL)
+  }
+
+  interface UpdateIconParams {
+    isPlaying: boolean
   }
 
   const stopGlow = (): void => {
@@ -83,16 +91,16 @@ const createGreetingButton = (): HTMLButtonElement => {
 
   if (audio) {
     audio.addEventListener('play', () => {
-      initSharedAnalyser(audio)
+      initSharedAnalyser({ audio })
       void sharedContext?.resume()
       if (animationId !== null) cancelAnimationFrame(animationId)
       updateGlow()
-      updateIcon(true)
+      updateIcon({ isPlaying: true })
     })
 
     audio.addEventListener('pause', () => {
       stopGlow()
-      updateIcon(false)
+      updateIcon({ isPlaying: false })
     })
   }
 
@@ -103,7 +111,7 @@ const createGreetingButton = (): HTMLButtonElement => {
     else audio.pause()
   })
 
-  updateIcon(!audio?.paused)
+  updateIcon({ isPlaying: !audio?.paused })
   button.append(icon)
 
   return button
