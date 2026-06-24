@@ -13,17 +13,17 @@ Interactive creative portfolio built as a solar system. Each planet represents a
 
 ## Solar System
 
-| Planet   | Section                  |
-|----------|--------------------------|
-| ☀️ Sun   | Bienvenido / Identidad   |
-| Mercury  | Proyectos destacados     |
-| Venus    | Experiencia profesional  |
-| 🌍 Earth | Formación                |
-| 🔴 Mars  | Skills & Herramientas    |
-| Jupiter  | Reflexión                |
-| Saturn   | Sobre mí                 |
-| Uranus   | Extras                   |
-| Neptune  | Contacto                 |
+| Planet   | Section                 |
+| -------- | ----------------------- |
+| ☀️ Sun   | Bienvenido / Identidad  |
+| Mercury  | Proyectos destacados    |
+| Venus    | Experiencia profesional |
+| 🌍 Earth | Formación               |
+| 🔴 Mars  | Skills & Herramientas   |
+| Jupiter  | Reflexión               |
+| Saturn   | Sobre mí                |
+| Uranus   | Extras                  |
+| Neptune  | Contacto                |
 
 Click any planet to open the modal, or navigate with Tab/Enter/arrow keys.
 

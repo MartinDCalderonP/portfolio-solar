@@ -21,7 +21,11 @@
 
   .sun-glow {
     animation: sun-pulse 3s ease-in-out infinite;
-    background: radial-gradient(circle, rgba(255, 204, 0, 0.5) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 204, 0, 0.5) 0%,
+      transparent 70%
+    );
     border-radius: 50%;
     height: 120px;
     left: -20px;
@@ -91,18 +95,39 @@
 }
 
 @keyframes sun-flare-pulse {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.45; }
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.45;
+  }
 }
 
 @keyframes sun-spot-drift {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(2px, -1px); }
-  50% { transform: translate(-1px, 2px); }
-  75% { transform: translate(-2px, -1px); }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(2px, -1px);
+  }
+  50% {
+    transform: translate(-1px, 2px);
+  }
+  75% {
+    transform: translate(-2px, -1px);
+  }
 }
 
 @keyframes sun-pulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }

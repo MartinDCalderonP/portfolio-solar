@@ -6,7 +6,9 @@
   font-size: 13px;
   letter-spacing: 0.3px;
   padding: 4px 14px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 
   .chip-level {
     color: var(--color-text-dim);

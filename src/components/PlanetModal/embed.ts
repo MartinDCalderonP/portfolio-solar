@@ -5,7 +5,7 @@ interface CreateYouTubeEmbedParams {
 
 const createYouTubeEmbed = ({
   label,
-  videoId,
+  videoId
 }: CreateYouTubeEmbedParams): HTMLElement => {
   const element = document.createElement('lite-youtube')
 

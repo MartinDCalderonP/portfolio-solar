@@ -10,10 +10,10 @@ const projects: Project[] = [
       'https://portfolio-solar-martin-calderon.vercel.app/',
       'https://www.youtube.com/playlist?list=PLgVa3U5E3U_v9arQnKK9kHmyELGVs9tIB',
       'https://drive.google.com/drive/folders/1rD5LosbXPNbhz7V5jRzSbqWBuGL4dPZV?usp=sharing',
-      'https://github.com/MartinDCalderonP/portfolio-solar',
+      'https://github.com/MartinDCalderonP/portfolio-solar'
     ],
     title: 'Portfolio Solar',
-    year: 2026,
+    year: 2026
   },
   {
     description:
@@ -21,7 +21,7 @@ const projects: Project[] = [
     id: 'news-portfolio',
     links: ['https://news-martin-calderon.vercel.app/'],
     title: 'News Portfolio',
-    year: 2025,
+    year: 2025
   },
   {
     description:
@@ -29,27 +29,27 @@ const projects: Project[] = [
     id: 'contienda-podcast',
     links: ['https://open.spotify.com/show/3GUR3yx5rygh92ARyanxdL'],
     title: 'Contienda Podcast',
-    year: 2023,
+    year: 2023
   },
   {
     description:
       'Documental sobre un taller mecánico en Lanús. Proyecto grupal para Taller de Expresión II (Cátedra: De Carli). Idea y concepto general.',
     id: 'chapa-a-mano',
     links: [
-      'https://drive.google.com/file/d/1RKms5kvMDvWDJdBoKkCyF8Cg9ncNXIhi/view?usp=sharing',
+      'https://drive.google.com/file/d/1RKms5kvMDvWDJdBoKkCyF8Cg9ncNXIhi/view?usp=sharing'
     ],
     title: 'Chapa a Mano',
-    year: 2022,
+    year: 2022
   },
   {
     description:
       'Diseño arquitectónico para un centro cultural. Trabajo para la materia Proyectos II. Desarrollo completo de planos y memoria descriptiva.',
     id: 'centro-cultural',
     links: [
-      'https://drive.google.com/file/d/1UHkW02PR58wk_SO7qcQiRb6WwC81k_AT/view?usp=sharing',
+      'https://drive.google.com/file/d/1UHkW02PR58wk_SO7qcQiRb6WwC81k_AT/view?usp=sharing'
     ],
     title: 'Centro Cultural',
-    year: 2016,
+    year: 2016
   },
   {
     description:
@@ -57,11 +57,11 @@ const projects: Project[] = [
     id: 'youtube-clone',
     links: [
       'https://clone-6c8d2.web.app/',
-      'https://github.com/MartinDCalderonP/YouTube-Clone',
+      'https://github.com/MartinDCalderonP/YouTube-Clone'
     ],
     title: 'YouTube Clone',
-    year: 2021,
-  },
+    year: 2021
+  }
 ]
 
 export const planet: PlanetContent = {
@@ -75,5 +75,5 @@ export const planet: PlanetContent = {
   size: '16px',
   song: 'Mr. Bad Guy - Freddie Mercury',
   title: 'Proyectos destacados',
-  youtubeId: 'v_Mb25ASCr8',
+  youtubeId: 'v_Mb25ASCr8'
 }

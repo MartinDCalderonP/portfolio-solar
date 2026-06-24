@@ -11,5 +11,5 @@ export const planet: PlanetContent = {
   size: '20px',
   song: 'Moonage Daydream - David Bowie',
   title: 'Extras',
-  youtubeId: '6pXoQ6iYO1w',
+  youtubeId: '6pXoQ6iYO1w'
 }

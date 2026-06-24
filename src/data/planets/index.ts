@@ -18,5 +18,5 @@ export const planets: PlanetContent[] = [
   jupiter,
   saturn,
   uranus,
-  neptune,
+  neptune
 ]

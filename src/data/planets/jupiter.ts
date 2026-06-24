@@ -10,5 +10,5 @@ export const planet: PlanetContent = {
   size: '36px',
   song: 'Fly Me to the Moon - Frank Sinatra',
   title: 'Reflexión final',
-  youtubeId: 'JYuyWrkwpok',
+  youtubeId: 'JYuyWrkwpok'
 }

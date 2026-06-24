@@ -10,5 +10,5 @@ export const planet: PlanetContent = {
   size: '30px',
   song: 'El anillo del Capitán Beto - Invisible',
   title: 'Sobre mí',
-  youtubeId: '38jG_1bELEs',
+  youtubeId: '38jG_1bELEs'
 }

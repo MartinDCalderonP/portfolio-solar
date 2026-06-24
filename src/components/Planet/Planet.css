@@ -25,7 +25,8 @@
       outline-offset: 4px;
 
       .planet-dot {
-        box-shadow: 0 0 20px 8px color-mix(in srgb, var(--planet-color) 60%, transparent);
+        box-shadow: 0 0 20px 8px
+          color-mix(in srgb, var(--planet-color) 60%, transparent);
         scale: 1.5;
       }
     }
@@ -33,11 +34,14 @@
     .planet-dot {
       animation: rotate-self var(--self-duration) linear infinite;
       border-radius: 50%;
-      box-shadow: 0 0 8px 2px color-mix(in srgb, var(--planet-color) 40%, transparent);
+      box-shadow: 0 0 8px 2px
+        color-mix(in srgb, var(--planet-color) 40%, transparent);
       height: var(--planet-size);
       pointer-events: auto;
       position: relative;
-      transition: box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition:
+        box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+        scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       width: var(--planet-size);
 
       svg {
@@ -54,7 +58,8 @@
       }
 
       &:hover {
-        box-shadow: 0 0 20px 8px color-mix(in srgb, var(--planet-color) 60%, transparent);
+        box-shadow: 0 0 20px 8px
+          color-mix(in srgb, var(--planet-color) 60%, transparent);
         scale: 1.5;
       }
     }
@@ -82,13 +87,19 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotate-self {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes counter-spin {
-  to { transform: rotate(-360deg); }
+  to {
+    transform: rotate(-360deg);
+  }
 }

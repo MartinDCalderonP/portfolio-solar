@@ -4,23 +4,23 @@ const projects: Project[] = [
   {
     id: 'contacto-linkedin',
     links: ['https://www.linkedin.com/in/martincalderon92'],
-    title: 'LinkedIn',
+    title: 'LinkedIn'
   },
   {
     id: 'contacto-x',
     links: ['https://x.com/martomartian'],
-    title: 'X / Twitter',
+    title: 'X / Twitter'
   },
   {
     id: 'contacto-github',
     links: ['https://github.com/MartinDCalderonP'],
-    title: 'GitHub',
+    title: 'GitHub'
   },
   {
     id: 'contacto-email',
     links: ['mailto:martincalderon92@outlook.com'],
-    title: 'Correo electrónico',
-  },
+    title: 'Correo electrónico'
+  }
 ]
 
 export const planet: PlanetContent = {
@@ -34,5 +34,5 @@ export const planet: PlanetContent = {
   size: '18px',
   song: 'Sal - Cerati',
   title: 'Contacto',
-  youtubeId: '50j63cIBcvs',
+  youtubeId: '50j63cIBcvs'
 }

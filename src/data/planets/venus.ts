@@ -7,7 +7,7 @@ const experiences: Experience[] = [
     endDate: 'Presente',
     id: 'globant',
     startDate: 'Octubre 2025',
-    title: 'Globant - Full Stack Developer',
+    title: 'Globant - Full Stack Developer'
   },
   {
     description:
@@ -15,7 +15,7 @@ const experiences: Experience[] = [
     endDate: 'Presente',
     id: 'freelance',
     startDate: 'Agosto 2020',
-    title: 'Contractor / Freelance - Full Stack Developer',
+    title: 'Contractor / Freelance - Full Stack Developer'
   },
   {
     description:
@@ -23,7 +23,7 @@ const experiences: Experience[] = [
     endDate: 'Agosto 2025',
     id: 'goama',
     startDate: 'Junio 2023',
-    title: 'Goama - Front End Developer',
+    title: 'Goama - Front End Developer'
   },
   {
     description:
@@ -31,7 +31,7 @@ const experiences: Experience[] = [
     endDate: 'Julio 2023',
     id: 'openbusiness',
     startDate: 'Marzo 2023',
-    title: 'OpenBusiness.AR - Front End Team Leader',
+    title: 'OpenBusiness.AR - Front End Team Leader'
   },
   {
     description:
@@ -39,7 +39,7 @@ const experiences: Experience[] = [
     endDate: 'Octubre 2022',
     id: 'inventa',
     startDate: 'Febrero 2022',
-    title: 'Inventa - Software Engineer',
+    title: 'Inventa - Software Engineer'
   },
   {
     description:
@@ -47,7 +47,7 @@ const experiences: Experience[] = [
     endDate: 'Diciembre 2018',
     id: 'nlc-consultores',
     startDate: 'Enero 2012',
-    title: 'NLC Consultores - Arquitectura',
+    title: 'NLC Consultores - Arquitectura'
   },
   {
     description:
@@ -55,8 +55,8 @@ const experiences: Experience[] = [
     endDate: 'Diciembre 2021',
     id: 'applaudo',
     startDate: 'Septiembre 2021',
-    title: 'Applaudo Studios - React Developer',
-  },
+    title: 'Applaudo Studios - React Developer'
+  }
 ]
 
 export const planet: PlanetContent = {
@@ -70,5 +70,5 @@ export const planet: PlanetContent = {
   size: '22px',
   song: 'The Final Countdown - Europe',
   title: 'Experiencia profesional',
-  youtubeId: '9jK-NcRmVcw',
+  youtubeId: '9jK-NcRmVcw'
 }

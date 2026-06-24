@@ -10,5 +10,5 @@ export const planet: PlanetContent = {
   size: '80px',
   song: 'Here Comes the Sun - The Beatles',
   title: 'Bienvenido!',
-  youtubeId: 'KQetemT1sWc',
+  youtubeId: 'KQetemT1sWc'
 }
