@@ -68,7 +68,10 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   modalProjects.innerHTML = ''
   modalProjects.style.marginBottom = ''
   modalExperiences.innerHTML = ''
-  renderDescription({ container: modalDescription, text: description })
+  renderDescription({
+    container: modalDescription,
+    text: description
+  })
 
   const existingImage = document.querySelector('.planet-image')
   existingImage?.remove()
@@ -87,7 +90,10 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
     img.src = image!
     modalDescription.parentNode?.insertBefore(img, modalDescription)
   }
-  renderProjects({ container: modalProjects, projects: projects ?? [] })
+  renderProjects({
+    container: modalProjects,
+    projects: projects ?? []
+  })
 
   if (id === 'neptune') {
     const songElement = document.querySelector('.modal-song')
@@ -103,7 +109,12 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
     experiences: experiences ?? []
   })
   embedWrapper.innerHTML = ''
-  embedWrapper.append(createYouTubeEmbed({ label: song, videoId: youtubeId }))
+  embedWrapper.append(
+    createYouTubeEmbed({
+      label: song,
+      videoId: youtubeId
+    })
+  )
   lockScroll()
   modal.showModal()
   requestAnimationFrame(() => {

@@ -21,9 +21,8 @@ const getDialogElement = ({
 }: GetDialogElementParams): HTMLDialogElement => {
   const element = document.getElementById(id)
 
-  if (!(element instanceof HTMLDialogElement)) {
+  if (!(element instanceof HTMLDialogElement))
     throw new TypeError(`Element #${id} is not a dialog`)
-  }
 
   return element
 }

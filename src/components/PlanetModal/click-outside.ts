@@ -10,9 +10,7 @@ const setupClickOutside = (): void => {
       rect.left <= event.clientX && event.clientX <= rect.left + rect.width
     const isInDialog = isVerticallyInside && isHorizontallyInside
 
-    if (!isInDialog) {
-      closeWithAnimation()
-    }
+    if (!isInDialog) closeWithAnimation()
   })
 }
 

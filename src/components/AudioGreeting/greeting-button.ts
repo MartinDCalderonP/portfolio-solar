@@ -96,11 +96,8 @@ const createGreetingButton = (): HTMLButtonElement => {
   button.addEventListener('click', () => {
     if (!audio) return
 
-    if (audio.paused) {
-      void audio.play()
-    } else {
-      audio.pause()
-    }
+    if (audio.paused) void audio.play()
+    else audio.pause()
   })
 
   updateIcon(!audio?.paused)

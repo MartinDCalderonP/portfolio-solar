@@ -36,7 +36,10 @@ const generateStars = (): string => {
 };
 ---
 
-<div class="stars-container" set:html={generateStars()} />
+<div
+  class="stars-container"
+  set:html={generateStars()}
+/>
 
 <style is:global>
   .stars-container {

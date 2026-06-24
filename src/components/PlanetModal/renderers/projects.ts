@@ -71,9 +71,7 @@ const createProjectCard = ({
   descriptionEl.textContent = description ?? null
   body.append(descriptionEl)
 
-  if (links) {
-    links.forEach((link) => body.append(createLinkElement({ link })))
-  }
+  if (links) links.forEach((link) => body.append(createLinkElement({ link })))
 
   card.append(body)
 

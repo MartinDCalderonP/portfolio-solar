@@ -37,7 +37,11 @@ const PAGE_TITLE = `${AUTHOR_NAME} - Portfolio Creativo`
     <meta name='twitter:image' content={OG_IMAGE_URL} />
 
     <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      crossorigin
+      href='https://fonts.gstatic.com'
+      rel='preconnect'
+    />
     <link
       href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap'
       rel='stylesheet'
@@ -94,7 +98,10 @@ const PAGE_TITLE = `${AUTHOR_NAME} - Portfolio Creativo`
     </script>
   </head>
   <body>
-    <a class='skip-link' href='#main-content'>Saltar al contenido principal</a>
+    <a
+      class='skip-link'
+      href='#main-content'
+    >Saltar al contenido principal</a>
     <slot />
     <AudioGreeting />
   </body>

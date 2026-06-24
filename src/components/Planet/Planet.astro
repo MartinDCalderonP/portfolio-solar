@@ -30,7 +30,12 @@ const isSun = id === 'sun';
 
 {
   isSun ? (
-    <div class="sun" data-planet-id={id} role="button" tabindex="0">
+    <div
+      class="sun"
+      data-planet-id={id}
+      role="button"
+      tabindex="0"
+    >
       <div class="sun-glow" />
       <div class="sun-core">
         <Sun />

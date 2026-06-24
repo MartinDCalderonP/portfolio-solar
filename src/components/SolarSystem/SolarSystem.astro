@@ -43,7 +43,14 @@ const getOrbitDiameter = ({ radiusVar }: GetOrbitDiameterParams) =>
         })
       }
 
-      {planets.map((planet, index) => <Planet planet={planet} index={index} />)}
+      {
+        planets.map((planet, index) => (
+          <Planet
+            planet={planet}
+            index={index}
+          />
+        ))
+      }
     </div>
   </nav>
 </div>
