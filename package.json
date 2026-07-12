@@ -8,7 +8,8 @@
     "build": "astro build",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test:all": "vitest --ui --coverage"
   },
   "dependencies": {
     "@justinribeiro/lite-youtube": "^1.9.0",
@@ -19,10 +20,13 @@
     "@astrojs/check": "^0.9.9",
     "@typescript-eslint/eslint-plugin": "^8.63.0",
     "@typescript-eslint/parser": "^8.63.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/ui": "^4.1.10",
     "eslint": "^10.7.0",
     "eslint-plugin-astro": "^2.1.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.63.0"
+    "typescript-eslint": "^8.63.0",
+    "vitest": "^4.1.10"
   }
 }

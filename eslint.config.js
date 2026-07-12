@@ -21,11 +21,13 @@ export default [
   {
     ignores: [
       '.astro',
+      'coverage',
       'dist',
       'build',
       'node_modules',
       'public',
-      'src/**/*.astro/**'
+      'src/**/*.astro/**',
+      '**/*.test.ts'
     ]
   },
 

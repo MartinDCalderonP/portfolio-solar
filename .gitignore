@@ -4,3 +4,4 @@ dist/
 *.local
 .agents/skills
 .DS_Store
+coverage/
