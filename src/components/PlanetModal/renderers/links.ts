@@ -140,4 +140,4 @@ const createLinkElement = ({
   return element
 }
 
-export { createLinkElement }
+export { createLinkElement, getHostConfig, isRepoUrl }
