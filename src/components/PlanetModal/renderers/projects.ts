@@ -96,4 +96,4 @@ const renderProjects = ({
   })
 }
 
-export { renderProjects }
+export { createProjectCard, renderProjects }

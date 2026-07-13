@@ -61,4 +61,4 @@ const renderExperiences = ({
   })
 }
 
-export { renderExperiences }
+export { createExperienceCard, renderExperiences }
