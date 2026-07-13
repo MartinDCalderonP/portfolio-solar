@@ -41,15 +41,15 @@ describe('renderExperiences', () => {
     const container = document.createElement('div')
     const experiences: Experience[] = [
       {
-        endDate: 'December 2020',
+        endDate: 'Diciembre 2020',
         id: '1',
-        startDate: 'January 2019',
+        startDate: 'Enero 2019',
         title: 'Older'
       },
       {
-        endDate: 'December 2023',
+        endDate: 'Diciembre 2023',
         id: '2',
-        startDate: 'March 2021',
+        startDate: 'Marzo 2021',
         title: 'Newer'
       }
     ]
@@ -61,6 +61,32 @@ describe('renderExperiences', () => {
     expect(titles).toHaveLength(2)
     expect(titles[0].textContent).toBe('Newer')
     expect(titles[1].textContent).toBe('Older')
+  })
+
+  test('renders same-year experiences sorted by month descending', () => {
+    const container = document.createElement('div')
+    const experiences: Experience[] = [
+      {
+        endDate: 'Diciembre 2023',
+        id: '1',
+        startDate: 'Marzo 2023',
+        title: 'Earlier in Year'
+      },
+      {
+        endDate: 'Diciembre 2023',
+        id: '2',
+        startDate: 'Junio 2023',
+        title: 'Later in Year'
+      }
+    ]
+
+    renderExperiences({ container, experiences })
+
+    const titles = container.querySelectorAll('.project-card-title')
+
+    expect(titles).toHaveLength(2)
+    expect(titles[0].textContent).toBe('Later in Year')
+    expect(titles[1].textContent).toBe('Earlier in Year')
   })
 
   test('renders empty experiences list', () => {
