@@ -52,6 +52,7 @@ const createGreetingButton = (): HTMLButtonElement => {
     icon.textContent = isPlaying ? ICON_PAUSE : ICON_PLAY
     button.classList.toggle(PLAYING_CLASS, isPlaying)
     button.setAttribute('aria-label', isPlaying ? PAUSE_LABEL : PLAY_LABEL)
+    button.setAttribute('aria-pressed', String(isPlaying))
   }
 
   interface UpdateIconParams {
