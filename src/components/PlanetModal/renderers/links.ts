@@ -18,23 +18,28 @@ const TWITTER_HOSTS = ['x.com', 'twitter.com']
 const GITHUB_HOST = 'github.com'
 const MAIL_PROTOCOL = 'mailto:'
 
-interface HostConfig {
+interface HostConfigWithSvg {
   label: string
-  svgId?: string
-  svgText?: string
+  svgId: string
   test: (link: string) => boolean
 }
+
+interface HostConfigWithText {
+  label: string
+  svgText: string
+  test: (link: string) => boolean
+}
+
+type HostConfig = HostConfigWithSvg | HostConfigWithText
 
 interface GetSvgOrTextParams {
   config: HostConfig
 }
 
 const getSvgOrText = ({ config }: GetSvgOrTextParams): string => {
-  const { svgId, svgText } = config
+  if ('svgText' in config) return config.svgText
 
-  if (svgText) return svgText
-
-  return svgId ? getSvg({ id: svgId }) : ''
+  return getSvg({ id: config.svgId })
 }
 
 const HOST_CONFIGS: HostConfig[] = [
