@@ -52,9 +52,19 @@ const PAGE_TITLE = `${AUTHOR_NAME} - Portfolio Creativo`
       set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
+        alumniOf: {
+          '@type': 'CollegeOrUniversity',
+          name: 'Universidad de Buenos Aires'
+        },
+        description: SITE_DESCRIPTION,
+        jobTitle: 'Estudiante de Comunicación en UBA/FSOC/COMU',
         name: AUTHOR_NAME,
-        url: SITE_URL,
-        description: SITE_DESCRIPTION
+        sameAs: [
+          'https://www.linkedin.com/in/martincalderon92',
+          'https://x.com/martomartian',
+          'https://github.com/MartinDCalderonP'
+        ],
+        url: SITE_URL
       })}
       type='application/ld+json'
     />
