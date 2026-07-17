@@ -40,4 +40,19 @@ describe('unlockScroll', () => {
     expect(width).toBe('')
     expect(scrollTo).toHaveBeenCalledWith(0, 200)
   })
+
+  test('scrolls to 0 when top style is empty', () => {
+    document.body.style.top = ''
+
+    const mockScrollTo = vi.fn()
+    const { mock } = mockScrollTo
+
+    window.scrollTo = mockScrollTo
+
+    unlockScroll()
+
+    expect(mockScrollTo).toHaveBeenCalledTimes(1)
+    expect(mock.calls[0][0]).toBe(0)
+    expect(Math.abs(mock.calls[0][1])).toBe(0)
+  })
 })

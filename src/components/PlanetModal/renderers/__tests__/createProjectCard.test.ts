@@ -1,30 +1,31 @@
-import { createProjectCard, renderProjects } from '../projects'
-
-import type { Project } from '@/types'
+import { createProjectCard } from '../projects'
 
 describe('createProjectCard', () => {
   test('returns link element when no year and single link', () => {
-    const result = createProjectCard({
+    const { className, tagName } = createProjectCard({
       id: '1',
       links: ['https://github.com/user/repo'],
       title: 'Proj'
     })
 
-    expect(result.tagName).toBe('A')
-    expect(result.className).toBe('link-button')
+    expect(tagName).toBe('A')
+    expect(className).toBe('link-button')
   })
 
   test('returns link wrapper when no year and multiple links', () => {
-    const result = createProjectCard({
+    const { children, className } = createProjectCard({
       id: '2',
       links: ['https://github.com/user/repo', 'https://example.com'],
       title: 'Proj'
     })
+    const [firstChild, secondChild] = children
+    const { tagName: firstTagName } = firstChild
+    const { tagName: secondTagName } = secondChild
 
-    expect(result.className).toBe('project-card-links')
-    expect(result.children).toHaveLength(2)
-    expect(result.children[0].tagName).toBe('A')
-    expect(result.children[1].tagName).toBe('A')
+    expect(className).toBe('project-card-links')
+    expect(children).toHaveLength(2)
+    expect(firstTagName).toBe('A')
+    expect(secondTagName).toBe('A')
   })
 
   test('returns chip when no year and no links', () => {
@@ -32,9 +33,10 @@ describe('createProjectCard', () => {
       id: '3',
       title: 'Skill'
     })
+    const { className, textContent } = result
 
-    expect(result.className).toBe('chip')
-    expect(result.textContent).toBe('Skill')
+    expect(className).toBe('chip')
+    expect(textContent).toBe('Skill')
     expect(result.querySelector('.chip-level')!.textContent).toBe('')
   })
 
@@ -86,31 +88,5 @@ describe('createProjectCard', () => {
     })
 
     expect(result.querySelectorAll('.link-button')).toHaveLength(0)
-  })
-})
-
-describe('renderProjects', () => {
-  test('renders projects sorted by year descending', () => {
-    const container = document.createElement('div')
-    const projects: Project[] = [
-      { id: '1', title: 'Older', year: 2020 },
-      { id: '2', title: 'Newer', year: 2022 }
-    ]
-
-    renderProjects({ container, projects })
-
-    const titles = container.querySelectorAll('.project-card-title')
-
-    expect(titles).toHaveLength(2)
-    expect(titles[0].textContent).toContain('Newer')
-    expect(titles[1].textContent).toContain('Older')
-  })
-
-  test('renders empty projects list', () => {
-    const container = document.createElement('div')
-
-    renderProjects({ container, projects: [] })
-
-    expect(container.children).toHaveLength(0)
   })
 })

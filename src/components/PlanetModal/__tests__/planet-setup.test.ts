@@ -49,4 +49,18 @@ describe('setupPlanetTriggers', () => {
 
     expect(openPlanet).not.toHaveBeenCalled()
   })
+
+  test('does not open planet when planetId is empty', () => {
+    const planet = document.createElement('div')
+
+    planet.dataset.planetId = ''
+    document.body.append(planet)
+
+    const openPlanet = vi.fn()
+
+    setupPlanetTriggers({ openPlanet })
+    planet.click()
+
+    expect(openPlanet).not.toHaveBeenCalled()
+  })
 })

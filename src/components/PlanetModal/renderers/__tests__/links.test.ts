@@ -1,4 +1,4 @@
-import { getHostConfig, isRepoUrl } from '../links'
+import { createLinkElement, getHostConfig, isRepoUrl } from '../links'
 
 describe('isRepoUrl', () => {
   const VALID_REPO_URLS = [
@@ -41,6 +41,34 @@ describe('getHostConfig', () => {
   ]
 
   test.each(HOST_CASES)('returns $label for $link', ({ link, label }) => {
-    expect(getHostConfig({ link }).label).toBe(label)
+    const { label: resultLabel } = getHostConfig({ link })
+
+    expect(resultLabel).toBe(label)
+  })
+})
+
+describe('createLinkElement', () => {
+  test('creates link element for fallback host config', () => {
+    const FALLBACK_LINK = 'https://example.com'
+    const { className, href, rel, tagName, target } = createLinkElement({
+      link: FALLBACK_LINK
+    })
+
+    expect(tagName).toBe('A')
+    expect(className).toBe('link-button')
+    expect(href).toBe(`${FALLBACK_LINK}/`)
+    expect(target).toBe('_blank')
+    expect(rel).toBe('noopener noreferrer')
+  })
+
+  test('creates link element with svgText from host config', () => {
+    const DRIVE_LINK = 'https://drive.google.com/drive/folders/abc123'
+    const { className, tagName, textContent } = createLinkElement({
+      link: DRIVE_LINK
+    })
+
+    expect(tagName).toBe('A')
+    expect(className).toBe('link-button')
+    expect(textContent).toContain('📁')
   })
 })
