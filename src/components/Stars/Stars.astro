@@ -11,8 +11,8 @@ const generateStars = (): string => {
   const stars: string[] = [];
 
   for (let i = 0; i < STAR_COUNT; i++) {
-    const x = Math.random() * POSITION_RANGE;
-    const y = Math.random() * POSITION_RANGE;
+    const positionX = Math.random() * POSITION_RANGE;
+    const positionY = Math.random() * POSITION_RANGE;
     const size = Math.random() * (SIZE_MAX - SIZE_MIN) + SIZE_MIN;
     const delay = Math.random() * DELAY_MAX;
     const duration = Math.random() * (DURATION_MAX - DURATION_MIN) + DURATION_MIN;
@@ -21,8 +21,8 @@ const generateStars = (): string => {
       `<div
         class="star"
         style="
-          left: ${x}%;
-          top: ${y}%;
+          left: ${positionX}%;
+          top: ${positionY}%;
           width: ${size}px;
           height: ${size}px;
           animation-delay: ${delay}s;

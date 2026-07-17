@@ -87,8 +87,8 @@ describe('module-level constants', () => {
   test.each(KEYS)('%s references the correct DOM element', async (key) => {
     setupFullDOM()
 
-    const mod = await import('../domExtraction')
+    const domExtraction = await import('../domExtraction')
 
-    expect(mod[key].id).toBe(ID_MAP[key])
+    expect(domExtraction[key].id).toBe(ID_MAP[key])
   })
 })

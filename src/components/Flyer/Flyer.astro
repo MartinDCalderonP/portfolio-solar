@@ -49,7 +49,7 @@ const flyerConfigs: FlyerConfig[] = [
   }
 ]
 
-const hashes: string[] = flyerConfigs.map(
+const flyerHtmlStrings: string[] = flyerConfigs.map(
   ({ className, delay, duration, emoji, inlinePosition }) =>
     `<div
       aria-hidden="true"
@@ -65,5 +65,5 @@ const hashes: string[] = flyerConfigs.map(
 
 <div
   class='flyer-container'
-  set:html={hashes.join('')}
+  set:html={flyerHtmlStrings.join('')}
 />

@@ -29,15 +29,16 @@ const getDialogElement = ({
 
 interface GetPropParams {
   key: string
-  obj: unknown
+  targetObject: unknown
 }
 
-const getProp = ({ key, obj }: GetPropParams): unknown => {
-  const isInvalidObject = typeof obj !== 'object' || obj === null
+const getProp = ({ key, targetObject }: GetPropParams): unknown => {
+  const isInvalidObject =
+    typeof targetObject !== 'object' || targetObject === null
 
   if (isInvalidObject) return undefined
 
-  return (obj as Record<string, unknown>)[key]
+  return (targetObject as Record<string, unknown>)[key]
 }
 
 const REQUIRED_STRING_KEYS = [
@@ -58,30 +59,30 @@ interface IsPlanetContentParams {
 
 const isPlanetContent = ({ value }: IsPlanetContentParams): boolean => {
   return REQUIRED_STRING_KEYS.every(
-    (key) => typeof getProp({ key, obj: value }) === 'string'
+    (key) => typeof getProp({ key, targetObject: value }) === 'string'
   )
 }
 
 interface ParsePlanetsParams {
-  data: string
+  planetsJson: string
 }
 
-const parsePlanets = ({ data }: ParsePlanetsParams): PlanetContent[] => {
-  const parsed: unknown = JSON.parse(data)
+const parsePlanets = ({ planetsJson }: ParsePlanetsParams): PlanetContent[] => {
+  const parsed: unknown = JSON.parse(planetsJson)
 
   if (!Array.isArray(parsed))
     throw new TypeError('Planets data must be an array')
 
-  const result: PlanetContent[] = []
+  const validPlanets: PlanetContent[] = []
 
   for (const item of parsed as unknown[]) {
     if (!isPlanetContent({ value: item }))
       throw new TypeError('Invalid planet data in dataset')
 
-    result.push(item as PlanetContent)
+    validPlanets.push(item as PlanetContent)
   }
 
-  return result
+  return validPlanets
 }
 
 export { getDialogElement, getElementOrThrow, parsePlanets }

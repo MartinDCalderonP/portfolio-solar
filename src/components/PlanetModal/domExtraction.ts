@@ -3,7 +3,9 @@ import { getDialogElement, getElementOrThrow, parsePlanets } from './domHelpers'
 export { getElementOrThrow }
 
 export const modal = getDialogElement({ id: 'planet-modal' })
-export const planets = parsePlanets({ data: modal.dataset.planets ?? '[]' })
+export const planets = parsePlanets({
+  planetsJson: modal.dataset.planets ?? '[]'
+})
 export const modalTitle = getElementOrThrow({ id: 'modal-title' })
 export const modalSubtitle = getElementOrThrow({ id: 'modal-subtitle' })
 export const modalDescription = getElementOrThrow({ id: 'modal-description' })

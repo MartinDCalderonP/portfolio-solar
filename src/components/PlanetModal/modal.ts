@@ -83,12 +83,12 @@ const openPlanet = ({ id }: OpenPlanetParams): void => {
   }
 
   if (id === 'uranus') {
-    const img = document.createElement('img')
+    const planetImage = document.createElement('img')
 
-    img.className = 'planet-image'
-    img.alt = name
-    img.src = image!
-    modalDescription.parentNode?.insertBefore(img, modalDescription)
+    planetImage.className = 'planet-image'
+    planetImage.alt = name
+    planetImage.src = image!
+    modalDescription.parentNode?.insertBefore(planetImage, modalDescription)
   }
   renderProjects({
     container: modalProjects,

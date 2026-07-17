@@ -43,8 +43,8 @@ describe('renderProjects', () => {
 
     expect(children).toHaveLength(2)
     const [firstChild, secondChild] = children
-    const titleEl = firstChild.querySelector('.project-card-title')!
-    const { textContent: firstText } = titleEl
+    const projectCardTitle = firstChild.querySelector('.project-card-title')!
+    const { textContent: firstText } = projectCardTitle
     const { className: secondClassName, textContent: secondText } = secondChild
 
     expect(firstText).toContain('With Year')
@@ -64,8 +64,8 @@ describe('renderProjects', () => {
 
     expect(children).toHaveLength(2)
     const [firstChild, secondChild] = children
-    const titleEl = firstChild.querySelector('.project-card-title')!
-    const { textContent: firstText } = titleEl
+    const projectCardTitle = firstChild.querySelector('.project-card-title')!
+    const { textContent: firstText } = projectCardTitle
     const { textContent: secondText } = secondChild
 
     expect(firstText).toContain('With Year')
