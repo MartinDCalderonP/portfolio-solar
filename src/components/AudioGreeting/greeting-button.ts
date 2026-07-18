@@ -112,7 +112,8 @@ const createGreetingButton = (): HTMLButtonElement => {
     else audio.pause()
   })
 
-  updateIcon({ isPlaying: !audio?.paused })
+  const isInitiallyPlaying = audio !== null && !audio.paused
+  updateIcon({ isPlaying: isInitiallyPlaying })
   button.append(icon)
 
   return button
