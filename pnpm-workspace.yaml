@@ -1,6 +1,6 @@
 allowBuilds:
-  esbuild: set this to true or false
-  sharp: set this to true or false
+  esbuild: true
+  sharp: true
 minimumReleaseAgeExclude:
   - brace-expansion@1.1.17 || 1.1.18 || 5.0.8 || 5.0.9
   - postcss@8.5.23
